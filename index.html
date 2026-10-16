@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="it">
+<head>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MIA"><meta name="theme-color" content="#0E1517">
+<title>MIA Dark v1.4 · Menu Intelligence Assistant</title>
+<style>
+:root{--primary:#1F2E28;--secondary:#7C8F6B;--neutral:#F4EFE8;--detail:#C96F56;--ink:#1F2E28;--muted:#738078;--line:#E2E6DC;--paper:#FFFFFF;--pale:#E8EDE2;--light:#FAF9F5;--sidebar:242px;--header:76px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;height:100%;overflow:hidden}body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--neutral);color:var(--ink);font-size:15px}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}button:disabled{opacity:.38;cursor:not-allowed}input,select,textarea{outline:none}input:focus,select:focus,textarea:focus{border-color:var(--secondary)!important;box-shadow:0 0 0 3px #7C8F6B22}input[type=date]{-webkit-appearance:none;appearance:none;min-width:145px}.app{position:relative;display:flex;width:100%;height:100vh;height:100dvh;overflow:hidden}.side{z-index:20;flex:0 0 var(--sidebar);width:var(--sidebar);background:var(--primary);color:#fff;display:flex;flex-direction:column;transition:margin-left .22s ease, transform .22s ease;box-shadow:2px 0 18px #1f2e2810}.app.closed .side{margin-left:calc(-1 * var(--sidebar))}.brand{height:var(--header);display:flex;align-items:center;gap:12px;padding:12px 19px;border-bottom:1px solid #FFFFFF22;flex-shrink:0}.brand-mark{display:grid;place-items:center;width:46px;height:46px;background:var(--secondary);border-radius:13px;color:white;font-size:24px;letter-spacing:-2px;font-weight:900}.brand-title{font-weight:750;font-size:21px;line-height:1.05;letter-spacing:.03em}.brand-sub{color:#D6E0D1;font-size:10px;letter-spacing:.08em;margin-top:5px}.side-inner{padding:24px 12px 10px;overflow:auto;flex:1}.sidelabel{font-size:10px;color:#A6B8A4;letter-spacing:.16em;font-weight:700;padding:0 14px 12px}.navbtn{display:flex;align-items:center;gap:14px;width:100%;height:57px;text-align:left;border:0;background:transparent;border-radius:12px;color:#D8E0DA;padding:0 14px;font-weight:650;font-size:15px;margin-bottom:6px}.navbtn svg{width:21px;height:21px;stroke-width:1.9;flex-shrink:0}.navbtn.active{color:white;background:var(--secondary)}.navbtn:not(.active):active{background:#35453E}.side-foot{padding:16px 22px 24px;color:#AEBEAF;font-size:11px;border-top:1px solid #FFFFFF20}.side-foot strong{color:#fff;font-size:12px}.workspace{display:flex;min-width:0;flex-direction:column;flex:1}.topbar{height:var(--header);padding:0 24px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:13px;flex-shrink:0;z-index:5}.iconbutton{height:44px;min-width:44px;display:grid;place-items:center;border:1px solid var(--line);color:var(--ink);background:#fff;border-radius:12px}.iconbutton svg{width:21px;height:21px}.iconbutton:active,.small-btn:active,.btn:active{transform:translateY(1px)}.top-title{min-width:0;display:flex;flex-direction:column;margin-left:6px}.top-title b{font-size:19px;font-weight:750;line-height:1.2}.top-title small{font-size:11px;color:var(--muted);margin-top:3px}.push{flex:1}.today{color:var(--muted);font-size:12px;white-space:nowrap}.btn{border-radius:12px;background:var(--primary);color:#fff;border:1px solid var(--primary);font-weight:700;min-height:44px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}.btn svg{width:18px;height:18px}.btn.secondary{background:var(--secondary);border-color:var(--secondary)}.btn.outline{background:#fff;color:var(--primary);border-color:#CDD8CD}.btn.sand{background:var(--neutral);border-color:var(--neutral);color:var(--ink)}.btn.light{background:var(--pale);border-color:var(--pale);color:var(--primary)}.btn.danger{background:#F9E8E4;color:#A64F41;border-color:#F9E8E4}.btn.small{min-height:37px;padding:0 12px;font-size:12px}.main{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:26px 28px 48px}.page{max-width:1320px;margin:auto}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.19em;color:var(--secondary);font-weight:800;margin:0 0 8px}.heading-row{display:flex;align-items:flex-start;gap:18px;justify-content:space-between;margin-bottom:24px}.h1{font-size:32px;line-height:1.1;margin:0;font-weight:780;letter-spacing:-.045em}.lead{margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.panel{background:#fff;border:1px solid #E5E9E1;border-radius:17px;padding:22px;box-shadow:0 4px 24px #1F2E2807;min-width:0}.panel h3{margin:0;font-size:17px;letter-spacing:-.02em}.section-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px;gap:12px}.mini-label{font-size:11px;color:var(--muted);font-weight:700}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:16px}.metric{padding:20px 17px;background:#fff;border:1px solid #E6E9E1;border-radius:16px;min-width:0}.metric small{display:block;font-size:11px;color:var(--muted);font-weight:700}.metric b{display:block;font-size:clamp(21px,2.4vw,30px);margin-top:12px;letter-spacing:-.04em}.metric em{display:block;font-style:normal;color:var(--secondary);font-size:10px;margin-top:3px}.metric.accent{background:var(--primary);border-color:var(--primary);color:#fff}.metric.accent small,.metric.accent em{color:#CAD9C7}.layout2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(275px,1fr);gap:16px}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:17px}.control,.field,.select{border:1px solid #D7DED5;background:#fff;height:43px;border-radius:10px;padding:0 12px;color:var(--primary);font-size:13px;min-width:0}.control.search{min-width:220px;flex:1;max-width:390px}.field.textarea{height:auto;min-height:95px;padding:12px;resize:vertical}.pills{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.pill{border-radius:100px;padding:8px 13px;border:1px solid #DDE3D7;background:#fff;color:#526257;font-size:12px;font-weight:650}.pill.active{background:var(--primary);color:#fff;border-color:var(--primary)}.empty{text-align:center;min-height:210px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px 10px}.empty-icon{height:51px;width:51px;background:var(--pale);color:var(--secondary);border-radius:16px;display:grid;place-items:center;margin-bottom:14px}.empty h3{font-size:17px;margin:0 0 7px}.empty p{max-width:330px;line-height:1.5;font-size:12px;color:var(--muted);margin:0 0 16px}.todoitem{display:flex;gap:12px;align-items:center;padding:15px 3px;border-bottom:1px solid #EDF0EA;min-height:71px}.todoitem:last-child{border:0}.tick{border:1.5px solid var(--secondary);width:23px;height:23px;flex:0 0 23px;border-radius:7px;display:grid;place-items:center;background:white;color:white;font-size:14px;font-weight:bold}.tick.checked{background:var(--secondary)}.todoitem .body{flex:1;min-width:0}.itemname{font-weight:720;font-size:14px;overflow-wrap:anywhere}.todoitem.done .itemname{text-decoration:line-through;color:#9DA79F}.mutetxt{font-size:11px;color:#849187;line-height:1.6;margin-top:3px}.tag{font-size:10px;display:inline-block;border-radius:6px;padding:5px 9px;background:var(--pale);color:#52684F;font-weight:730}.tag.warm{background:#F9EAE6;color:#B4634D}.small-btn{width:35px;height:35px;border:1px solid #E4E9DF;background:#fff;border-radius:10px;color:#64776A;display:grid;place-items:center;font-size:18px}.small-btn svg{height:17px;width:17px}.minor{padding:10px 0;border-bottom:1px solid #EDF0EA;display:flex;align-items:center;gap:10px}.minor:last-child{border:0}.minor b{font-size:13px;flex:1;min-width:0}.minor small{color:var(--muted);font-size:11px}.record-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.recipe-card{border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;min-height:155px}.recipe-card .name{font-size:17px;font-weight:750;line-height:1.3}.recipe-card .meta{color:var(--muted);font-size:11px;margin-top:7px}.recipe-card .ctags{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 14px}.recipe-card .bottom{display:flex;align-items:center;gap:8px;margin-top:auto}.inventory-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,.95fr) auto minmax(90px,1fr) auto;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #E9EEE7}.inventory-row:last-child{border:0}.inventory-row b{font-size:14px}.qtyctrl{display:flex;align-items:center;background:var(--neutral);border-radius:11px;padding:3px;gap:6px}.qtyctrl button{width:35px;height:35px;border:0;border-radius:8px;background:white;color:var(--primary);font-size:21px}.qtyctrl span{min-width:35px;text-align:center;font-weight:750;font-size:16px}.under{color:var(--detail)}.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.table{border-collapse:collapse;width:100%;font-size:12px;min-width:510px}.table th{text-align:left;padding:10px 12px;background:#F3F6F0;color:#607265;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.table td{padding:11px 12px;border-bottom:1px solid #EDF0EA}.table tr:last-child td{border-bottom:0}.table td b{font-size:12px}.num{text-align:right!important;font-variant-numeric:tabular-nums}.table input{width:82px;text-align:center}.chart{height:188px;display:flex;align-items:flex-end;gap:6px;border-bottom:1px solid #DFE5DA;padding:13px 4px 0;overflow:hidden}.barcol{flex:1;min-width:0;height:100%;display:flex;align-items:flex-end;position:relative}.bar{width:100%;max-width:34px;min-height:3px;margin:0 auto;background:var(--secondary);border-radius:5px 5px 0 0;opacity:.9}.bar.todaybar{background:var(--detail)}.chartlabels{display:flex;gap:6px;padding:9px 4px 0}.chartlabels>span{flex:1;min-width:0;text-align:center;color:var(--muted);font-size:9px;white-space:nowrap}.tip{color:var(--muted);font-size:12px;line-height:1.5}.separator{height:1px;background:var(--line);margin:17px 0}.release{padding:14px 0;border-bottom:1px solid #EBEEE9;display:flex;gap:12px;align-items:flex-start}.release:last-child{border:0}.release .dot{width:9px;height:9px;border-radius:50%;background:var(--secondary);margin-top:6px;flex-shrink:0}.release strong{font-size:13px}.release small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.datahint{padding:18px 20px;border:1px solid #D9E2D7;background:#EDF3E9;border-radius:14px;color:#3D5641;font-size:12px;line-height:1.6;margin-bottom:16px}.datahint strong{display:block;font-size:13px;margin-bottom:5px}.modal-scrim{position:fixed;z-index:100;inset:0;background:#0F2118AA;display:flex;align-items:center;justify-content:center;padding:24px}.dialog{background:#fff;width:min(640px,100%);max-height:min(92vh,740px);max-height:min(92dvh,740px);display:flex;flex-direction:column;border-radius:20px;box-shadow:0 20px 80px #0003;overflow:hidden}.dialog.wide{width:min(820px,100%)}.dialog-head{padding:19px 24px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}.dialog-head h2{margin:0;font-size:20px;letter-spacing:-.03em}.dialog-body{padding:20px 24px;overflow:auto;-webkit-overflow-scrolling:touch;min-height:0;flex:1}.dialog-foot{padding:15px 24px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px;background:#fff}.field-label{display:block;font-size:11px;font-weight:750;margin-bottom:7px;color:#64786B;text-transform:uppercase;letter-spacing:.065em}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}.formgroup{margin-bottom:16px;min-width:0}.formgroup .field,.formgroup .select,.formgroup .control{width:100%;max-width:none}.formgroup .field.textarea{height:98px}.ingredient-row{display:grid;grid-template-columns:minmax(0,1fr) 85px 90px 36px;align-items:center;gap:8px;margin-bottom:7px}.ingredient-row input{width:100%}.menuitem-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.3fr) 85px 36px;align-items:center;gap:6px;margin-bottom:7px}.menuitem-row input{width:100%}.toast{z-index:200;position:fixed;left:50%;bottom:25px;transform:translateX(-50%);max-width:min(80vw,430px);text-align:center;background:var(--primary);color:#fff;border-radius:11px;padding:12px 19px;font-size:12px;box-shadow:0 8px 28px #1F2E2855}.stack{display:flex;flex-direction:column;gap:11px}.top-padding{margin-top:16px}.source-note{font-size:10px;color:var(--muted)}.linklike{background:none;border:0;color:#6F8B69;text-decoration:underline;font-weight:700;padding:3px 0}.hidden{display:none!important}::-webkit-scrollbar{width:7px;height:7px}::-webkit-scrollbar-thumb{background:#C6D0C3;border-radius:8px}
+@media(max-width:850px){:root{--sidebar:228px;--header:67px}.main{padding:20px}.topbar{padding:0 14px}.today{display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.layout2{grid-template-columns:1fr}.inventory-row{grid-template-columns:minmax(0,1.4fr) auto auto}.inventory-row .inventory-type{display:none}.inventory-row .stockstatus{display:none}.record-grid{grid-template-columns:1fr}.heading-row{align-items:flex-start}}
+@media(max-width:640px){.side{position:absolute;top:0;bottom:0;left:0;box-shadow:4px 0 30px #0003}.app.closed .side{transform:translateX(-100%);margin-left:0}.top-title small{display:none}.topbar{gap:7px}.topbar .btn span{display:none}.topbar .btn{padding:0 12px}.main{padding:17px 15px 40px}.h1{font-size:27px}.heading-row{flex-wrap:wrap}.actions{justify-content:flex-start}.cards{gap:9px}.metric{padding:13px}.formrow{grid-template-columns:1fr}.modal-scrim{padding:10px}.dialog-body,.dialog-head,.dialog-foot{padding-left:15px;padding-right:15px}.ingredient-row{grid-template-columns:minmax(0,1fr) 60px 65px 30px}.menuitem-row{grid-template-columns:minmax(0,1.8fr) minmax(0,1fr) 65px 30px}}
+
+
+
+/* MIA 0.5 — superfici flat, senza filetti, separazione per campiture */
+:root{
+ --primary:#1F2E28; --secondary:#7C8F6B; --neutral:#F4EFE8;
+ --detail:#C96F56; --paper:#FBF8F3; --ink:#1F2E28;
+ --muted:#7E857E; --line:#DDD5CC; --pale:#ECE6DD;
+ --light:#F7F2EB; --surface:#F0E9E0; --sidebar:186px; --header:60px;
+}
+*{-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;background:var(--neutral);color:var(--primary);font-size:13px;font-weight:400;letter-spacing:0}
+input,select,textarea,button{font-family:inherit}
+input:focus,select:focus,textarea:focus{border-color:var(--detail)!important;box-shadow:0 0 0 2px #E9C3B8!important}
+
+/* shell */
+.side{background:#1F2E28;border-right:0;box-shadow:none;overflow:hidden}.app.closed .side{visibility:hidden;pointer-events:none}
+.brand{height:60px;gap:10px;padding:11px 14px;border-bottom:0}.brand-mark{display:grid;place-items:center;width:33px;height:33px;border-radius:4px;background:var(--detail);color:#1F2E28;font-size:19px;font-weight:680;letter-spacing:-1px;box-shadow:none}.brand-title{font-size:17px;font-weight:660;letter-spacing:.045em;line-height:1}.brand-sub{font-size:7px;color:#ADB9B0;letter-spacing:.075em;font-weight:400;margin-top:5px;white-space:nowrap}
+.side-inner{padding:23px 10px 10px}.sidelabel{font-size:9px;font-weight:400;color:#9CAAA1;letter-spacing:.13em;text-transform:uppercase;padding:0 11px 13px}
+.navbtn{display:flex;align-items:center;gap:0;width:100%;height:45px;margin-bottom:3px;text-align:left;padding:0 11px;background:transparent;border:0;border-radius:4px;color:#D9E0DA;font-size:13px;font-weight:400;letter-spacing:.01em;transition:background-color .12s,color .12s}.navbtn svg{display:none!important}.navbtn.active{background:var(--detail);color:#1F2E28;font-weight:650}.navbtn:not(.active):active{background:#304038;color:#FFFFFF}
+.side-foot{padding:15px 16px 19px;border-top:0;color:#9FAEA3;font-size:10px;font-weight:400;line-height:1.6}.side-foot strong{font-size:10px;color:#FFFFFF;font-weight:650;letter-spacing:.03em}
+
+.topbar{height:60px;padding:0 19px;gap:10px;background:var(--pale);border-bottom:0;backdrop-filter:none;-webkit-backdrop-filter:none}.top-title{margin-left:3px}.top-title b{font-size:15px;font-weight:670;letter-spacing:-.015em;line-height:1.15}.top-title small{font-size:10px;letter-spacing:.01em;margin-top:4px;font-weight:400;color:#8C908A}.today{font-size:11px;color:var(--muted);font-weight:400}
+.iconbutton{height:38px;min-width:38px;width:38px;border-radius:5px;background:#FFFFFF;border:0;color:var(--primary);box-shadow:none}.iconbutton svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.65}.iconbutton:hover{background:#EFE6DC;color:var(--detail)}
+.btn{min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:5px;background:var(--detail);color:#1F2E28;padding:0 14px;font-size:12px;font-weight:620;box-shadow:none;letter-spacing:0}.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7}.btn.outline{background:#FFFFFF;color:var(--primary)}.btn.secondary{background:var(--primary);color:#FFFFFF}.btn.sand{background:#E8E1D7;color:var(--primary)}.btn.light{background:#E8E1D7;color:var(--primary)}.btn.danger{background:#F4D7CE;color:#8B4134}.btn.small{min-height:34px;padding:0 11px;font-size:11px;font-weight:550}
+
+/* typography and sections */
+.main{padding:23px 25px 38px;background:var(--neutral)}.page{max-width:1350px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--detail);font-weight:600;margin:0 0 8px}.h1{font-size:29px;font-weight:700;line-height:1.03;letter-spacing:-.04em;margin:0}.lead{font-size:12px;font-weight:400;line-height:1.5;color:var(--muted);margin-top:8px}.heading-row{margin-bottom:22px}.mini-label{font-size:11px;font-weight:400;color:var(--muted)}
+.panel{background:var(--paper);border:0;border-radius:8px;padding:18px;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}.panel h3{font-size:16px;font-weight:660;letter-spacing:-.02em}.cards{gap:10px;margin-bottom:16px}.metric{padding:17px;background:#EAE3D9;border:0;border-radius:8px}.metric small{font-size:10px;font-weight:560;color:var(--muted);letter-spacing:.045em}.metric b{font-size:27px;font-weight:700;letter-spacing:-.04em;margin-top:10px}.metric em{font-size:10px;font-weight:400;color:var(--muted)}.metric.accent{background:var(--primary);color:#FFFFFF}.metric.accent small{color:#D0D9D0}.metric.accent em{color:#E6AD9E}
+.control,.field,.select{height:39px;border:0;border-radius:5px;background:#FFFFFF;color:var(--primary);font-size:12px;font-weight:450}.field.textarea{min-height:100px;padding:12px;border-radius:5px}.pill{padding:8px 12px;background:#FFFFFF;color:#59695F;border:0;border-radius:5px;font-size:11px;font-weight:450}.pill.active{background:var(--detail);color:var(--primary);font-weight:650}.tag,.tag.warm{border-radius:4px;padding:5px 8px;background:#E8E1D7;color:var(--primary);font-size:10px;font-weight:500}.tag.warm{background:#F4DCD4;color:#864334}.small-btn{width:34px;height:34px;border:0;border-radius:5px;background:#EAE3D9;color:var(--primary);box-shadow:none}.small-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.65}
+
+/* todo */
+.todo-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}.todo-top .eyebrow{margin-bottom:8px}.todo-actions{display:flex;gap:8px;align-items:center}.todo-top .btn.outline{background:var(--detail);color:var(--primary);font-weight:620}
+.date-strip{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#E8E1D7;border:0;border-radius:8px;padding:11px 13px;margin-bottom:14px}.date-shift{display:flex;align-items:center;gap:13px}.date-arrow{width:36px;height:36px;display:grid;place-items:center;border-radius:5px;border:0;background:#FBF8F3;color:var(--primary);font-size:23px;font-weight:350}.date-arrow:active{background:var(--detail)}.day-heading{display:flex;flex-direction:column;gap:4px;min-width:226px}.day-heading strong{font-size:15px;font-weight:670;line-height:1.15;letter-spacing:-.015em}.day-heading span{font-size:9px;font-weight:600;color:#AD5C46;letter-spacing:.08em}.date-tools{display:flex;align-items:center;gap:9px}.date-tools .control{width:145px;height:35px;font-size:11px}.day-progress{font-size:11px;font-weight:400;color:#6A736B;white-space:nowrap;padding-left:8px}
+.todo-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:9px}.todo-col{position:relative;min-width:0;min-height:326px;background:var(--paper);border:0;border-radius:8px;overflow:hidden;box-shadow:none}.todo-col::before{display:none;content:none}.todo-colhead{display:flex;align-items:center;justify-content:space-between;gap:6px;background:#E8E1D7;color:var(--primary);padding:14px 12px 13px;border-bottom:0;min-height:46px}.todo-colhead h2{font-size:12px;line-height:1;font-weight:660;letter-spacing:.08em;margin:0}.todo-colhead span{background:#F4D7CE;color:#864334;min-width:35px;padding:5px 6px;text-align:center;font-size:10px;font-weight:650;border-radius:4px;font-variant-numeric:tabular-nums}
+.todo-entry{display:flex;gap:5px;background:#F2ECE4;padding:9px}.todo-quick{min-width:0;flex:1;height:36px;padding:0 8px;border:0;background:#FFFFFF;color:var(--primary);border-radius:5px;font-size:12px;font-weight:400}.todo-quick::placeholder{color:#9FA69E;font-weight:400;font-size:11px}.todo-quick:focus{background:#FFFFFF;border-color:var(--detail);outline:none}.todo-add{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border:0;border-radius:5px;background:var(--detail);color:var(--primary)}.todo-add svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
+.todo-list{padding:4px 11px 12px;background:var(--paper)}.todo-empty{font-size:11px;font-weight:400;color:#919B92;margin:15px 2px}.todo-line{display:flex;align-items:flex-start;gap:8px;padding:12px 0;border-bottom:1px solid #EFE8DF;min-width:0}.todo-line:last-child{border-bottom:0}.task-check{width:20px;height:20px;flex:0 0 20px;border:0;background:#E8E1D7;border-radius:4px;color:#FFFFFF;font-size:12px;display:grid;place-items:center;padding:0}.task-check.is-checked{background:var(--detail);color:var(--primary)}.task-body{min-width:0;flex:1}.task-name{display:block;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:0;color:var(--primary);overflow-wrap:anywhere}.task-body small{display:block;font-size:10px;font-weight:400;color:#858E86;line-height:1.45;margin-top:4px;overflow-wrap:anywhere}.todo-line.is-done .task-name{text-decoration:line-through;color:#949E95}.task-edit{border:0;background:transparent;color:#808E83;flex:0 0 20px;height:23px;width:20px;padding:2px;opacity:1}.task-edit svg{width:14px;height:14px;stroke-width:1.6}.todo-footnote{font-size:11px;color:#7D837C;font-weight:400;line-height:1.5;margin:14px 2px}
+
+/* other modules */
+.recipe-card{background:var(--paper);border:0;border-radius:8px;padding:15px}.recipe-card .name{font-size:16px;font-weight:640}.recipe-card .meta,.mutetxt,.minor small{font-size:11px;color:var(--muted);font-weight:400}
+.inventory-row{border-bottom:1px solid #EFE8DF;padding:13px 0}.inventory-row b{font-size:13px;font-weight:620}.qtyctrl{background:#E8E1D7;border-radius:5px;padding:3px}.qtyctrl button{border-radius:4px;width:32px;height:32px;border:0}.qtyctrl span{font-weight:640;font-size:14px}
+.table th{background:#E8E1D7;color:#58695F;font-weight:650;font-size:10px}.table td{border-bottom:1px solid #EAE4DB}
+.dialog{background:var(--paper);border:0;border-radius:8px;box-shadow:none}.dialog-head h2{font-size:18px;font-weight:650}.datahint{background:#ECE6DD;border:0;color:#6D736C;border-radius:6px}
+
+@container mia (max-width:930px){.todo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@container mia (max-width:650px){.todo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@container mia (max-width:400px){.todo-grid{grid-template-columns:1fr}}
+@media(max-width:850px){:root{--sidebar:186px;--header:60px}.main{padding:17px}.topbar{padding:0 12px}}
+@media(max-width:640px){.main{padding:14px}.date-strip{align-items:flex-start}.date-tools{width:100%;flex-wrap:wrap}.day-heading{min-width:0}.day-progress{padding-left:0}.todo-col{min-height:170px}.todo-top{align-items:center}.topbar .btn{padding:0 8px}}
+/* TIMER — scoped Kitchen Controller styling */
+.kt-page{width:100%;max-width:none;color:#fff}
+.kt-head{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;padding:4px 0 13px;color:#1F2E28}
+.kt-head .h1{font-size:27px}.kt-head .eyebrow{margin-bottom:5px}
+.kt-topright{display:flex;align-items:center;gap:11px;flex-wrap:wrap}.kt-topright #kt-counter{font-size:10px;letter-spacing:.07em;color:#747F75}.kt-columns{display:flex;align-items:center;gap:3px;background:#E9E2D8;padding:4px;border-radius:5px}.kt-columns span{font-size:9px;font-weight:650;padding:0 7px}.kt-columns button{font-size:11px;font-weight:650;padding:0 8px;height:29px;min-width:29px;background:transparent;color:#59695F;border:0;border-radius:3px}.kt-columns button[aria-pressed=true]{background:#1F2E28;color:#fff}.kt-topright time{font-size:17px;font-weight:630;font-variant-numeric:tabular-nums}.kt-gear{border:0;border-radius:5px;background:#1F2E28;color:#fff;font-size:11px;padding:10px}
+.kt-launch{display:grid;grid-template-columns:1.08fr 1fr;gap:10px;margin-bottom:10px}.kt-panel{min-width:0;background:#1A1F22;color:#fff;padding:14px;border-radius:6px}.kt-panel-title{display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:13px}.kt-panel-title h2{font-size:15px;font-weight:620;letter-spacing:-.02em;margin:0}.kt-link{background:transparent;border:0;color:#E9B09D;text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:600;padding:3px}.kt-panel input{width:100%;height:38px;background:#0D1113;border:0;border-radius:4px;color:#fff;padding:0 10px;font-size:13px}.kt-panel input:focus{outline:2px solid #C96F56}.kt-panel label{display:flex;flex-direction:column;gap:5px;min-width:0}.kt-panel label span{font-size:10px;color:#B3B7B8}.kt-grow{flex:1}.kt-panel form{display:flex;gap:8px;align-items:end}.kt-panel input[type=number]{width:82px}.kt-panel form button{min-width:100px;height:38px;background:#C96F56;color:#1F2E28;font-size:11px;font-weight:670;border:0;border-radius:4px}.kt-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.kt-preset{min-height:56px;min-width:0;color:#fff;background:#262C30;border:0;border-bottom:3px solid var(--kt-accent);display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;border-radius:4px}.kt-preset span{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:98%}.kt-preset strong{font-size:16px;font-weight:680}
+.kt-grid{display:grid;gap:10px;grid-auto-rows:minmax(225px,auto)}.kt-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.kt-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.kt-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.kt-card{background:#1A1F22;color:#fff;border:0;border-radius:6px;padding:13px;display:flex;flex-direction:column;min-width:0;min-height:226px;overflow:hidden}.kt-card-main{display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:0;flex:1}.kt-info{min-width:0;flex:1}.kt-state{font-size:9px;letter-spacing:.04em;color:#B7BEC1;font-weight:600;min-height:14px}.kt-name{font-size:clamp(15px,1.8vw,23px);font-weight:670;letter-spacing:-.02em;line-height:1.12;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;margin:4px 0 9px}.kt-countdown{font-size:clamp(32px,3.3vw,52px);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.06em;white-space:nowrap;line-height:1.1}.kt-ring{flex:0 0 68px;width:68px;height:68px;position:relative}.kt-ring svg{height:100%;width:100%;transform:rotate(-90deg)}.kt-ring circle{fill:none;stroke-width:9}.kt-ring .kt-track{stroke:#333A3E}.kt-ring .kt-value{stroke:var(--kt-accent);stroke-linecap:round}.kt-ring-label{position:absolute;inset:20%;display:grid;place-items:center;text-align:center;color:#E6E8E9;font-size:8px;line-height:1.2;font-weight:600}.kt-progress{display:none;height:5px;width:100%;background:#353B3D;margin:11px 0 2px}.kt-progress>div{height:100%;background:var(--kt-accent)}.kt-actions{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr) minmax(0,.78fr) 25px;gap:4px;margin-top:12px}.kt-action{height:35px;background:#2F3539;color:#fff;border:0;border-radius:4px;font-size:10px;font-weight:620;padding:0 3px;white-space:nowrap;min-width:0}.kt-action-primary{background:var(--kt-accent);color:#111}.kt-delete{font-size:20px}.kt-short{display:none}.kt-grid.cols-4 .kt-ring{display:none}.kt-grid.cols-4 .kt-progress{display:block}.kt-grid.cols-4 .kt-card{min-height:215px}.kt-grid.cols-4 .kt-countdown{font-size:clamp(26px,2.6vw,40px)}.kt-grid.cols-4 .kt-name{font-size:clamp(14px,1.5vw,21px)}.kt-grid.cols-4 .kt-actions{grid-template-columns:minmax(0,1.1fr) minmax(0,.8fr) minmax(0,.7fr) 23px}.kt-grid.cols-4 .kt-action{font-size:9px}.kt-grid.cols-4 .kt-long{display:none}.kt-grid.cols-4 .kt-short{display:inline}.kt-grid.cols-2 .kt-ring{flex-basis:112px;width:112px;height:112px}.kt-grid.cols-2 .kt-name{font-size:clamp(19px,2.2vw,30px)}.kt-grid.cols-2 .kt-countdown{font-size:clamp(40px,4.8vw,64px)}.kt-card.ended{background:var(--kt-accent);color:#fff}.kt-card.ended .kt-state,.kt-card.ended .kt-ring-label{color:#fff}.kt-card.ended .kt-track{stroke:#ffffff55}.kt-card.ended .kt-value{stroke:#fff}.kt-card.ended .kt-progress{background:#ffffff55}.kt-card.ended .kt-progress>div{background:#fff}.kt-card.ended .kt-action{background:#00000022;color:#fff}.kt-card.ended .kt-action-primary{background:#FFFFFF;color:#12181B}.kt-card.paused .kt-value{opacity:.5}.kt-empty{grid-column:1/-1;min-height:260px;background:#E8E1D7;color:#1F2E28;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:13px;padding:25px;border-radius:6px}.kt-empty strong{font-size:21px}.kt-empty p{font-size:12px;max-width:360px;line-height:1.5;margin:0}.kt-empty button{background:#C96F56;border:0;border-radius:4px;padding:12px 17px;color:#1F2E28;font-size:12px;font-weight:650}.kt-note{font-size:10px;color:#818A81;margin:11px 0}
+.kt-triple{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.kt-triple label{font-size:11px;color:#7D837C}.kt-triple input{margin-top:5px;width:100%;height:46px;border:0;background:#EAE3D9;border-radius:5px;text-align:center;font-size:22px;color:#1F2E28}.kt-swatches{display:flex;gap:9px;margin-top:9px;flex-wrap:wrap}.kt-swatch{border:3px solid transparent;border-radius:50%;width:40px;height:40px}.kt-swatch.selected{outline:2px solid #1F2E28;outline-offset:2px}.kt-preset-row{display:flex;align-items:center;gap:10px;padding:10px 0;background:#F4EFE8;margin-bottom:5px;border-radius:5px;padding-left:10px;padding-right:10px}.kt-preset-row>div{flex:1;min-width:0}.kt-preset-row strong{display:block;font-size:13px}.kt-preset-row small{color:#7E857E}.kt-bullet{flex:0 0 10px;height:10px;border-radius:50%}.kt-setting{display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:13px}.kt-setting input{height:25px;width:25px;accent-color:#C96F56}
+@media(max-width:1100px){.kt-grid.cols-2 .kt-ring{width:100px;height:100px;flex-basis:100px}.kt-grid.cols-2 .kt-countdown{font-size:43px}.kt-topright{gap:7px}.kt-head .h1{font-size:25px}.kt-launch{grid-template-columns:1fr 1fr}.kt-panel{padding:11px}.kt-panel form{gap:5px}.kt-panel form button{min-width:90px}.kt-panel input[type=number]{width:66px}}
+@media(max-width:800px){.kt-launch{grid-template-columns:1fr}.kt-grid.cols-3,.kt-grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}.kt-topright #kt-counter{display:none}.kt-panel input[type=number]{width:80px}}
+@media(max-width:590px){.kt-head{align-items:flex-start;flex-direction:column}.kt-grid.cols-2,.kt-grid.cols-3,.kt-grid.cols-4{grid-template-columns:1fr}.kt-grid.cols-4 .kt-ring{display:block}.kt-panel form{flex-wrap:wrap}}
+
+
+/* MIA 0.7 · contrasto tipografico, superfici piene, area Timer dark */
+:root{--detail:#C96F56}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.brand-title{font-weight:720;letter-spacing:.02em}.brand-sub{font-weight:300;letter-spacing:.095em}
+.navbtn{font-size:13px;font-weight:340;letter-spacing:.012em}.navbtn.active{color:#fff;font-weight:670}
+.sidelabel,.side-foot{font-weight:310}
+.top-title b{font-weight:750}.top-title small{font-weight:320}
+.h1{font-size:31px;font-weight:780;letter-spacing:-.045em}.eyebrow{font-size:9px;font-weight:360;letter-spacing:.19em}
+.day-heading strong{font-weight:740}.day-heading span{font-weight:350;letter-spacing:.13em}
+.todo-colhead h2{font-weight:750}.todo-colhead span{font-weight:350}
+.task-name{font-size:12px;font-weight:550;line-height:1.45}.task-body small{font-weight:320}.todo-footnote{font-weight:320}
+/* Arancio: sempre lettere e icone bianche */
+.btn{color:#fff;font-weight:640}.btn:not(.secondary):not(.outline):not(.sand):not(.light):not(.danger){color:white}
+.todo-top .btn.outline{color:#fff}.todo-add,.todo-add svg{color:white}.task-check.is-checked{color:white}
+.pill.active{color:#fff}.navbtn.active{color:white}
+.kt-panel form button,.kt-empty button{color:#fff}
+/* La cancellazione è un'azione distinta dalla modifica: due target touch leggibili */
+.todo-line{gap:6px}.task-edit,.task-delete{width:25px;height:29px;flex:0 0 25px;padding:5px 3px;display:grid;place-items:center;border:0;background:transparent;color:#88928B;border-radius:4px}
+.task-edit svg,.task-delete svg{width:15px;height:15px;stroke-width:1.7}
+.task-delete{color:#B27B6D}.task-delete:active,.task-edit:active{background:#EEE6DC}
+/* DARK MODE ONLY ON TIMER PAGE: unchanged light styling elsewhere */
+.app.timer-mode .topbar{background:#101416;color:#fff;border:0}
+.app.timer-mode .top-title b{color:#F8F9F9}
+.app.timer-mode .top-title small,.app.timer-mode .today{color:#899299}
+.app.timer-mode .topbar .iconbutton{background:#252A2D;color:#F6F6F6;border:0}
+.app.timer-mode .topbar .btn.outline{background:#292F33;color:#F8F8F8;border:0}
+.app.timer-mode .topbar .btn:not(.outline){background:var(--detail);color:#fff;border:0}
+.app.timer-mode .main{background:#080A0C;color:#F4F5F5;padding:23px 25px 42px}
+.app.timer-mode .kt-page{color:#F9F9FA}
+.app.timer-mode .kt-head{color:#FFFFFF;padding:3px 0 18px}
+.app.timer-mode .kt-head .eyebrow{color:#D9A18E;font-weight:350}
+.app.timer-mode .kt-head .h1{color:#FFFFFF;font-size:30px;font-weight:780;line-height:1}
+.app.timer-mode .kt-topright #kt-counter{color:#8C9499;font-size:10px;font-weight:330;letter-spacing:.13em}
+.app.timer-mode .kt-topright time{color:#F5F7F7;font-weight:760;font-size:20px;letter-spacing:-.035em}
+.app.timer-mode .kt-columns{background:#1A1E22;border-radius:5px}
+.app.timer-mode .kt-columns span{color:#8D969B;font-size:9px;font-weight:360;letter-spacing:.075em}
+.app.timer-mode .kt-columns button{color:#AEB6BA;font-size:12px;font-weight:370}
+.app.timer-mode .kt-columns button[aria-pressed=true]{color:#FFFFFF;background:#353C40;font-weight:750}
+.app.timer-mode .kt-gear{background:#252B2F;color:#D8DEE1;font-weight:350}
+.app.timer-mode .kt-panel{background:#15191C;border:0;border-radius:8px;padding:16px 17px}
+.app.timer-mode .kt-panel-title h2{font-weight:720;font-size:16px;letter-spacing:-.02em}
+.app.timer-mode .kt-panel label span{font-weight:330;color:#9DA6AC;letter-spacing:.015em}
+.app.timer-mode .kt-panel input{background:#080A0C;color:#FFF;border:0;font-weight:420;height:43px}
+.app.timer-mode .kt-panel input::placeholder{color:#727C82}
+.app.timer-mode .kt-panel input[type=number]{font-weight:710}
+.app.timer-mode .kt-panel form button{background:var(--detail);color:#fff;height:43px;font-weight:730;border:0;border-radius:5px}
+.app.timer-mode .kt-link{color:#DF9D86;font-weight:420;letter-spacing:.08em}
+.app.timer-mode .kt-preset{background:#252A2E;color:#fff;border:0;border-bottom:3px solid var(--kt-accent);border-radius:5px;min-height:62px}
+.app.timer-mode .kt-preset span{font-weight:340;font-size:10.5px;color:#E3E7E9}
+.app.timer-mode .kt-preset strong{font-weight:770;font-size:19px;letter-spacing:-.04em}
+.app.timer-mode .kt-grid{gap:10px;grid-auto-rows:minmax(231px,auto)}
+.app.timer-mode .kt-card{background:#15191C;color:#fff;border:0;border-radius:8px;min-height:231px;padding:15px 15px 13px}
+.app.timer-mode .kt-state{color:#929DA4;font-weight:340;font-size:10px;letter-spacing:.10em}
+.app.timer-mode .kt-name{font-weight:750;font-size:clamp(17px,1.95vw,25px);letter-spacing:-.028em;line-height:1.14}
+.app.timer-mode .kt-countdown{font-weight:780;font-size:clamp(34px,3.45vw,54px);letter-spacing:-.062em;color:#FFFFFF}
+.app.timer-mode .kt-ring .kt-track{stroke:#32393E}
+.app.timer-mode .kt-ring-label{color:#A2AEB3;font-weight:340;font-size:8px}
+.app.timer-mode .kt-actions{margin-top:13px;gap:5px}
+.app.timer-mode .kt-action{background:#2A3034;border:0;border-radius:5px;color:#E5E9EB;font-weight:420;font-size:10.5px;height:38px}
+.app.timer-mode .kt-action-primary{background:var(--kt-accent);color:#fff;font-weight:740}
+.app.timer-mode .kt-action-primary[style*="#C96F56"]{color:#fff}
+.app.timer-mode .kt-card.ended{background:var(--kt-accent);color:#fff}
+.app.timer-mode .kt-card.ended .kt-state,.app.timer-mode .kt-card.ended .kt-countdown,.app.timer-mode .kt-card.ended .kt-name,.app.timer-mode .kt-card.ended .kt-ring-label{color:#fff}
+.app.timer-mode .kt-card.ended .kt-action{background:#12181B44;color:#fff}
+.app.timer-mode .kt-card.ended .kt-action-primary{background:#fff;color:#14181C}
+.app.timer-mode .kt-empty{background:#15191C;color:#fff;border:0;border-radius:8px}
+.app.timer-mode .kt-empty strong{font-weight:750;font-size:21px}
+.app.timer-mode .kt-empty p{color:#98A4AA;font-weight:350}
+.app.timer-mode .kt-empty button{background:var(--detail);color:#fff}
+.app.timer-mode .kt-note{color:#89959C;font-weight:320;font-size:10.5px;line-height:1.6;margin-top:16px}
+/* Timer settings and customized timer dialogs should not flash a bright white sheet */
+body:has(.app.timer-mode) .modal-scrim{background:#000000b8}
+body:has(.app.timer-mode) .dialog{background:#181D20;color:#F3F5F6}
+body:has(.app.timer-mode) .dialog-head{background:#181D20;color:#F3F5F6}
+body:has(.app.timer-mode) .dialog-head h2{color:#F3F5F6}
+body:has(.app.timer-mode) .dialog-body,body:has(.app.timer-mode) .dialog-foot{background:#181D20;color:#EDEFF0}
+body:has(.app.timer-mode) .dialog .field-label,body:has(.app.timer-mode) .dialog .tip,body:has(.app.timer-mode) .kt-triple label{color:#ACB6BB}
+body:has(.app.timer-mode) .dialog input.field,body:has(.app.timer-mode) .dialog .kt-triple input{background:#2A3034;color:#fff}
+body:has(.app.timer-mode) .dialog .iconbutton{background:#30373B;color:#fff}
+body:has(.app.timer-mode) .dialog .btn.outline,body:has(.app.timer-mode) .dialog .btn.light{background:#343C40;color:#fff}
+body:has(.app.timer-mode) .dialog .btn.secondary{background:var(--detail);color:#fff}
+body:has(.app.timer-mode) .kt-preset-row{background:#232A2E;color:#fff}
+body:has(.app.timer-mode) .kt-preset-row small{color:#AEB8BF}
+body:has(.app.timer-mode) .kt-swatch.selected{outline-color:#fff}
+body:has(.app.timer-mode) .kt-setting{color:#fff}
+@media(max-width:1100px){.app.timer-mode .kt-panel{padding:12px}.app.timer-mode .kt-countdown{font-size:clamp(32px,3.45vw,44px)}}
+@media(max-width:800px){.app.timer-mode .main{padding:16px}.app.timer-mode .kt-grid.cols-3,.app.timer-mode .kt-grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:590px){.app.timer-mode .kt-grid.cols-2,.app.timer-mode .kt-grid.cols-3,.app.timer-mode .kt-grid.cols-4{grid-template-columns:1fr}}
+
+
+/* v0.8 — visibilità attività riportate */
+.task-body .task-carried{display:block;color:#AA5F49;font-size:10px;font-weight:650;line-height:1.45;letter-spacing:.01em;margin-top:4px}
+
+/* v0.9 — Priorità e ricorrenze, grafica flat */
+.todo-actions .btn.light{background:#E7DED3;color:#1F2E28;font-weight:600}
+.recurring-count{display:inline-grid;place-items:center;min-width:19px;height:19px;padding:0 4px;background:#D5C9BD;color:#1F2E28;border-radius:4px;font-size:10px;font-weight:750;margin-left:2px}
+.todo-line{gap:5px}
+.task-priority{flex:0 0 19px;width:19px;height:25px;border:0;background:#EBE5DD;border-radius:3px;color:#9BA19B;font-size:13px;font-weight:750;padding:0;line-height:1}
+.task-priority.selected{background:var(--detail);color:#fff}
+.task-priority:active{background:#DFAD9D;color:#1F2E28}
+.task-body .task-urgent-label{color:#BF6B53!important;font-size:9px;font-weight:800;letter-spacing:.075em;margin-top:3px}
+.task-body .task-repeating{font-size:9px;color:#878E87;font-weight:400;letter-spacing:.01em;margin-top:3px}
+.todo-line.is-urgent:not(.is-done) .task-name{font-weight:670}
+.urgent-check{display:flex!important;align-items:center;gap:12px;background:#EAE3D9;padding:12px;border-radius:6px;margin:11px 0 18px;cursor:pointer}
+.urgent-check input{accent-color:var(--detail);width:19px;height:19px;flex:0 0 19px}
+.urgent-check span{display:flex;flex-direction:column;gap:3px}
+.urgent-check b{font-size:12px;font-weight:660}
+.urgent-check small{font-size:10px;font-weight:400;color:#727970}
+.rec-rules{display:flex;flex-direction:column;gap:7px;margin:13px 0 18px}
+.rec-rule{display:flex;align-items:center;gap:7px;padding:12px;background:#F0EAE2;border-radius:6px}
+.rec-rule-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.rec-rule-info b{font-size:13px;font-weight:690;overflow-wrap:anywhere}
+.rec-rule-info small{font-size:10px;color:#747C73}
+.rec-rule-info .rec-urgent{font-size:9px;color:#B85C45;font-weight:760}
+.rec-explain,.recurrence-hint{font-size:11px;color:#7B827A;line-height:1.55;margin:8px 0 14px}
+.rec-weekdays{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.rec-weekday{display:inline-flex;cursor:pointer;margin:0}
+.rec-weekday input{position:absolute;opacity:0;pointer-events:none}
+.rec-weekday span{padding:10px 11px;border-radius:4px;min-width:44px;background:#EAE3D9;color:#405049;text-align:center;font-size:11px;font-weight:550}
+.rec-weekday input:checked+span{background:#C96F56;color:#fff;font-weight:700}
+.rec-weekday input:focus-visible+span{outline:2px solid #1F2E28;outline-offset:2px}
+#recWeekdays[hidden]{display:none!important}
+@media(max-width:1100px){.task-priority{flex-basis:18px;width:18px}.todo-line{gap:4px}.task-edit,.task-delete{width:21px;flex-basis:21px;padding:4px 2px}}
+@media(max-width:590px){.rec-rule{flex-wrap:wrap}.rec-rule-info{flex-basis:100%}}
+
+/* MIA 1.0 – Note giornaliere flat, senza filetti ai box */
+.todo-notes-zone{margin-top:16px;background:#EAE3D9;border:0;border-radius:8px;padding:16px 17px;box-shadow:none}
+.todo-notes-header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px}
+.todo-notes-eyebrow{font-size:9px;letter-spacing:.12em;color:#A65C49;font-weight:620;display:block;margin-bottom:5px}
+.todo-notes-header h2{font-size:19px;letter-spacing:-.035em;font-weight:690;margin:0;color:#1F2E28;line-height:1.1}
+.note-count{font-size:11px;font-weight:600;color:#995E4E;margin-left:7px}
+.todo-notes-sub{font-size:10px;color:#787B75;font-weight:400;text-align:right}
+.todo-notes-compose{display:flex;align-items:flex-end;gap:10px;background:#F7F2EA;padding:10px;border-radius:7px}
+.todo-notes-compose textarea{min-height:76px;flex:1;width:100%;resize:vertical;padding:11px;font:inherit;font-size:12px;line-height:1.5;color:#1F2E28;background:#FFFEFB;border:0;border-radius:5px;outline:none}
+.todo-notes-compose textarea:focus{box-shadow:0 0 0 2px #DFB5A9!important}
+.todo-notes-compose .btn{flex-shrink:0;align-self:flex-end;color:white;background:#C96F56}
+.todo-note-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.todo-note{min-width:0;background:#FAF7F0;border:0;border-radius:7px;padding:12px 13px}
+.todo-note-content{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;font-weight:460;line-height:1.55;color:#1F2E28}
+.todo-note-carried{margin-top:8px;font-size:10px;color:#B26955;font-weight:530}
+.todo-note-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.todo-note-actions button{border:0;background:#E8DFD4;color:#38423B;border-radius:4px;padding:7px 9px;font-size:10px;font-weight:570;min-height:30px}
+.todo-note-actions button:active{background:#D9CCBE}
+.todo-note-actions button.note-delete{color:#9C5746;background:#F3E0DA}
+.todo-notes-empty{font-size:11px;color:#899087;padding:4px;margin:0;grid-column:1/-1}
+.todo-report-recap{margin-top:12px;background:#F6F0E8;padding:13px 14px;border-radius:7px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.todo-report-recap>div{display:flex;flex-direction:column;gap:4px}.todo-report-recap small{font-size:9px;font-weight:650;color:#B56B55;letter-spacing:.08em}.todo-report-recap strong{font-size:16px;font-weight:720;letter-spacing:-.025em}.todo-report-recap span{font-size:10px;color:#878F87}
+@media(max-width:850px){.todo-note-list{grid-template-columns:1fr}}
+@media(max-width:590px){.todo-notes-header{align-items:start;flex-direction:column}.todo-notes-sub{text-align:left}.todo-notes-compose{align-items:stretch;flex-direction:column}.todo-notes-compose .btn{align-self:flex-end}.todo-report-recap{align-items:start;flex-direction:column}}
+
+
+
+/* MIA 1.1 — vendite suddivise in categorie con lettura multilivello */
+.dialog.wide.sales-dialog{width:min(960px,calc(100vw - 28px));max-height:94dvh}
+.sales-dialog .dialog-body{padding:14px 20px 24px;background:#F4EFE8}
+.sales-dialog .dialog-head,.sales-dialog .dialog-foot{border:0;background:#EEE8DE}
+.sales-dialog .dialog-head h2{font-size:20px;font-weight:720;letter-spacing:-.04em}
+.sales-intro{font-size:12px;line-height:1.5;color:#788075;margin:1px 0 14px}
+.sales-overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:0 0 16px}
+.sales-tile{padding:12px 14px 11px;background:#E6DFD5;border-radius:7px;min-height:68px;display:flex;flex-direction:column;justify-content:space-between;gap:7px}
+.sales-tile small{font-size:9px;letter-spacing:.085em;text-transform:uppercase;color:#636C62;font-weight:620}
+.sales-tile strong{font-size:21px;font-weight:720;letter-spacing:-.045em;font-variant-numeric:tabular-nums;line-height:1.05;color:#223129}
+.sales-tile.highlight{background:#1F2E28}.sales-tile.highlight strong{color:white}.sales-tile.highlight small{color:#CED7CF}
+.sales-cats-nav{display:flex;gap:5px;flex-wrap:wrap;margin:0 0 17px}
+.sales-cats-nav button{border:0;border-radius:4px;background:#E9E2D7;color:#3B4A40;font-size:11px;font-weight:560;padding:9px 11px;min-height:34px}
+.sales-cats-nav button:active{background:#D7CDC0}
+.sales-category{background:#FCFAF6;border:0;border-radius:7px;overflow:hidden;margin:0 0 15px}
+.sales-cat-top{background:#263830;color:white;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 15px}
+.sales-cat-code{display:block;font-size:9px;letter-spacing:.16em;color:#C9D5CA;font-weight:500;margin-bottom:5px;text-transform:uppercase}
+.sales-cat-top h3{margin:0;font-size:16px;letter-spacing:-.025em;font-weight:680;line-height:1.2;overflow-wrap:anywhere}
+.sales-cat-meta{text-align:right;font-variant-numeric:tabular-nums}
+.sales-cat-meta strong{display:block;color:#FFF;font-size:17px;font-weight:690;line-height:1.1}
+.sales-cat-meta span{display:block;color:#F1B7A5;font-size:10px;font-weight:560;margin-top:4px}
+.sales-column-titles{display:grid;grid-template-columns:minmax(0,1fr) 84px 139px;gap:10px;padding:9px 15px 7px;color:#7E877F;font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:640;background:#EFE9E0}
+.sales-column-titles span:nth-child(2),.sales-column-titles span:nth-child(3){text-align:center}
+.sales-row{display:grid;grid-template-columns:minmax(0,1fr) 84px 139px;gap:10px;align-items:center;padding:10px 14px;min-height:60px;background:#FCFAF6}
+.sales-row:nth-of-type(even){background:#F5F0E9}
+.sales-row.sold{background:#F8EAE2}
+.sales-product{display:flex;align-items:center;gap:9px;min-width:0}
+.sales-item-no{font-size:10px;font-weight:500;color:#B3B7AE;min-width:17px;font-variant-numeric:tabular-nums}
+.sales-product-name{color:#243229;font-size:13px;font-weight:570;line-height:1.25;overflow-wrap:anywhere}
+.sales-price{display:flex;align-items:center;justify-content:center;gap:2px;color:#758076;font-size:11px}
+.sales-price input{width:63px;min-width:0;background:#E9E4DC;color:#26352E;border:0;border-radius:4px;height:37px;padding:0 4px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums;box-shadow:none!important}
+.sales-price input:focus{outline:2px solid #C96F56!important}
+.sales-counter{height:41px;display:grid;grid-template-columns:41px minmax(0,57px) 41px;border-radius:5px;overflow:hidden;align-items:stretch;justify-content:end}
+.sales-counter button{border:0;background:#E0D8CD;color:#1F2E28;border-radius:0;font-size:25px;font-weight:380;padding:0;display:grid;place-items:center;line-height:1}
+.sales-counter button.plus{background:var(--detail);color:#FFFFFF}
+.sales-counter input{min-width:0;width:100%;height:41px;background:#FFFCF8;border:0;border-radius:0;text-align:center;color:#1F2E28;font-variant-numeric:tabular-nums;font-size:18px;font-weight:720;padding:0 2px;box-shadow:none!important}
+.sales-cat-foot{background:#EFE9E0;padding:11px 15px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:#34483B;font-size:11px;font-weight:570}
+.sales-cat-foot strong{color:#1F2E28;font-size:13px;font-weight:720;font-variant-numeric:tabular-nums}
+.sales-extra{background:#E8E1D7;padding:14px 15px 2px;border-radius:7px;margin-top:18px}
+.sales-extra .field-label{color:#59695F}
+.sales-dialog .dialog-foot{position:relative;align-items:center}
+.sales-help{font-size:10px;color:#778177;margin-right:auto}
+@media(max-width:640px){.sales-dialog .dialog-body{padding:12px}.sales-overview{gap:5px}.sales-tile{padding:10px}.sales-tile strong{font-size:16px}.sales-cat-top{padding:10px}.sales-column-titles,.sales-row{grid-template-columns:minmax(0,1fr) 66px 116px;gap:4px;padding-left:7px;padding-right:7px}.sales-row{min-height:64px}.sales-product-name{font-size:11px}.sales-item-no{display:none}.sales-counter{grid-template-columns:34px 46px 34px;height:36px}.sales-counter button{font-size:20px}.sales-counter input{height:36px;font-size:16px}.sales-price input{width:52px;height:36px}.sales-cat-meta strong{font-size:14px}.sales-help{display:none}}
+
+
+/* MIA 1.2 — visual refinement and clearer export */
+:root{
+  --neutral:#F7F3EC;
+  --paper:#FCFAF6;
+  --surface:#EFE8DE;
+  --surface-2:#E7DFD3;
+  --surface-3:#F3EEE7;
+  --line-soft:#E7DFD5;
+  --ink:#1D2B25;
+  --ink-soft:#647168;
+  --accent:#C96F56;
+}
+body{background:var(--neutral);color:var(--ink);font-weight:410;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.topbar{background:#ECE6DC}.main{background:var(--neutral)}.brand-sub{letter-spacing:.11em;color:#B7C2BA}.side-foot{color:#B1BDB4}.today{color:#6A756D}
+.h1{font-size:30px;font-weight:740;letter-spacing:-.045em}.lead{color:#6F776F;font-size:12.5px;line-height:1.55;max-width:72ch}
+.panel,.recipe-card,.todo-col,.todo-notes-zone,.metric,.sales-category,.sales-extra,.datahint{box-shadow:none}
+.panel{background:#FCFAF6;border-radius:10px;padding:19px}.cards{gap:11px}.metric{background:#ECE4D9;border-radius:10px;padding:16px 17px}.metric small{font-size:10px;letter-spacing:.07em;color:#687368}.metric b{font-size:28px;letter-spacing:-.05em;font-weight:750}.metric em{color:#7D857D}.metric.accent{background:#1F2E28}
+.btn{border-radius:6px;font-weight:640;letter-spacing:.01em}.btn.outline{background:#FFFFFF;color:var(--ink)}.btn.secondary{background:#1F2E28;color:#FFFFFF}.btn.light{background:#E8DED2;color:var(--ink)}.btn.danger{background:#EED7D1;color:#8B4637}
+.iconbutton,.small-btn{border-radius:6px}.control,.field,.select{background:#FFFFFF;border-radius:6px;font-weight:460;color:var(--ink)}.field.textarea{line-height:1.5}
+.pill{background:#FFFFFF;color:#58665D;border-radius:6px;font-weight:470}.pill.active{background:var(--accent);color:#FFFFFF;font-weight:680}.tag,.tag.warm{border-radius:5px}
+.heading-row{margin-bottom:24px}.toolbar{row-gap:10px}.todo-top{margin-bottom:20px}.todo-grid{gap:10px}.todo-col{background:#FCFAF6;border-radius:10px;min-height:330px}
+.todo-colhead{background:#E8E0D4;min-height:48px;padding:15px 13px 14px}.todo-colhead h2{font-size:12px;font-weight:700;letter-spacing:.08em}.todo-colhead span{background:#F0D8D1;color:#8F4A39;font-weight:700;border-radius:5px}
+.todo-entry{background:#F3EDE5;padding:10px}.todo-quick{height:37px;border-radius:6px;font-size:12px}.todo-add{border-radius:6px;background:var(--accent);color:#FFFFFF}.todo-add svg{stroke:#FFFFFF}
+.todo-list{padding:5px 12px 13px}.todo-line{padding:12px 0 11px;border-bottom:1px solid #F0E9E1}.task-check{background:#E8E0D4;color:transparent;border-radius:5px}.task-check.is-checked{background:var(--accent);color:#FFFFFF}
+.task-name{font-size:12px;font-weight:540;line-height:1.48;color:#1F2E28}.task-body small{font-size:10px;color:#7B867E;line-height:1.45}.todo-line.is-done .task-name{color:#909892}.todo-footnote{font-size:11px;color:#6E756E}
+.todo-priority{border-radius:5px;background:#EFE6DC;color:#7B807B}.todo-priority.is-urgent{background:var(--accent);color:#FFFFFF}
+.todo-note-card{background:#FCFAF6;border-radius:10px}.todo-note-top{background:#E8E0D4}.todo-note-text{line-height:1.55;color:#233128}.todo-report-recap{background:#EFE8DE;border-radius:8px}.todo-report-recap strong{font-size:22px;letter-spacing:-.04em}.todo-report-recap span,.todo-report-recap small{color:#677268}
+.date-strip{background:#E8E0D4;border-radius:10px}.day-heading strong{font-size:16px;font-weight:710}.day-heading span{letter-spacing:.09em}.date-arrow{border-radius:6px;background:#FFFFFF}.date-tools .control{background:#FFFFFF}
+.datahint{background:#EFE8DE;padding:14px 16px;border-radius:8px;line-height:1.55}.section-top h3{font-size:16px;font-weight:700;letter-spacing:-.03em}.minor b{font-weight:620}.table th{background:#ECE4D9;color:#5D685F}.table td{background:#FCFAF6}
+.inventory-row{border-bottom:1px solid #EFE7DC}.inventory-row b{font-weight:630}.qtyctrl{background:#E8E0D4;border-radius:6px}.qtyctrl button{background:#DCD2C4;color:#1F2E28}.qtyctrl button:last-child{background:var(--accent);color:#FFFFFF}
+.dialog{border-radius:10px;background:#FCFAF6}.dialog-head,.dialog-foot{background:#ECE6DC}.dialog-head h2{font-weight:720;letter-spacing:-.03em}.formgroup .field-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6D776F;font-weight:650}
+.urgent-check small,.recurrence-hint,.tip,.mutetxt,.mini-label,.source-note{color:#6F786F}
+.sales-dialog .dialog-body{background:#F7F3EC;padding:16px 22px 26px}.sales-dialog .dialog-head,.sales-dialog .dialog-foot{background:#ECE6DC}.sales-overview{gap:10px}
+.sales-tile{background:#E8E0D4;border-radius:8px;padding:13px 15px}.sales-tile small{font-size:9px;letter-spacing:.1em;color:#667067}.sales-tile strong{font-size:22px;font-weight:740;letter-spacing:-.045em}.sales-tile.highlight{background:#1F2E28}.sales-tile.highlight strong{color:#FFFFFF}.sales-tile.highlight small{color:#D2DBD3}
+.sales-cats-nav{gap:6px;margin-bottom:18px}.sales-cats-nav button{background:#EAE2D7;border-radius:5px;color:#334239;font-size:11px;font-weight:600;padding:9px 12px}.sales-category{background:#FCFAF6;border-radius:9px;margin-bottom:16px}
+.sales-cat-top{background:#25362F;padding:13px 15px}.sales-cat-top h3{font-size:16px;font-weight:700}.sales-cat-code{font-size:9px;color:#CBD6CC}.sales-cat-meta strong{font-size:18px;font-weight:720}.sales-cat-meta span{color:#F2C0B2;font-weight:600}
+.sales-column-titles{background:#EFE8DE;color:#6C766E;font-size:9px;font-weight:680;letter-spacing:.11em;padding:10px 15px 8px}.sales-row{padding:11px 15px;min-height:62px;background:#FCFAF6}.sales-row:nth-of-type(even){background:#F7F2EB}.sales-row.sold{background:#F8E9E2}
+.sales-product-name{font-size:13px;font-weight:590;color:#223128}.sales-item-no{color:#A4ADA4}.sales-price input{background:#EBE5DC;border-radius:5px;height:38px;font-weight:600}.sales-counter{height:42px;border-radius:6px;overflow:hidden}.sales-counter button{background:#DDD4C8;color:#1F2E28;font-weight:430}.sales-counter button.plus{background:var(--accent);color:#FFFFFF}.sales-counter input{background:#FFFDFC;color:#1F2E28;font-size:18px;font-weight:730}.sales-cat-foot{background:#EFE8DE;padding:12px 15px;color:#34463C;font-weight:600}.sales-cat-foot strong{font-size:13px;font-weight:730}.sales-extra{background:#E8E0D4;border-radius:8px;padding:15px 16px 4px}.sales-help{color:#6E776F}
+.kt-page{color:#FFFFFF}.kt-title,.kt-hero h1,.kt-timer-title,.countdown{letter-spacing:-.03em}
+@media(max-width:640px){.panel{padding:16px}.metric b{font-size:22px}.todo-colhead{padding:13px 11px}}
+
+/* MIA 1.2 DARK — complete flat palette, no gradients or decorative borders */
+:root {
+  color-scheme:dark;
+  --primary:#F2F3EE;
+  --secondary:#ADC0B5;
+  --neutral:#0E1517;
+  --detail:#D5795C;
+  --paper:#1B2729;
+  --ink:#F2F3EE;
+  --muted:#A3B0A8;
+  --line:#344240;
+  --pale:#263536;
+  --light:#192427;
+  --surface:#202E30;
+  --surface-2:#2B3B3B;
+  --surface-3:#172224;
+  --accent:#D5795C;
+  --ink-soft:#B9C5BC;
+  --line-soft:#344240;
+}
+html, body {background:#0E1517;color:#F2F3EE}
+body, .main, .page{color:#F2F3EE}
+.app, .workspace {background:#0E1517}
+.main{background:#0E1517}
+.side {background:#10191B;color:#F2F3EE;border:0;box-shadow:none}
+.brand {background:#10191B;border:0}
+.brand-mark{background:#D5795C;color:#FFF}
+.brand-title,.side-foot strong{color:#F4F6F1}
+.brand-sub,.sidelabel,.side-foot{color:#93A39B}
+.navbtn{color:#CAD3CC}
+.navbtn.active{background:#D5795C;color:#FFFFFF;font-weight:650}
+.navbtn:not(.active):active{background:#263638;color:#FFF}
+.topbar{background:#182325;border:0;color:#F4F6F1}
+.top-title b{color:#F4F6F1}.top-title small,.today{color:#B3C0B7}
+.iconbutton,.small-btn{background:#2A393A;color:#F1F3EE;border:0;box-shadow:none}
+.iconbutton:hover,.small-btn:active{background:#354848;color:#F5F6F2}
+.main .h1,.heading-row .h1{color:#F7F8F4;font-weight:740}
+.eyebrow{color:#E5967E}
+.lead,.mini-label,.tip,.mutetxt,.source-note,.field-label,.formgroup .field-label{color:#B4C0B6}
+.btn {background:#D5795C;color:#FFFFFF;border:0}
+.btn.secondary{background:#38504A;color:#FFFFFF;border:0}
+.btn.outline{background:#344544;color:#F7F8F4;border:0}
+.btn.light,.btn.sand{background:#2A3B3B;color:#F0F4EE;border:0}
+.btn.danger{background:#643D37;color:#FFE3DA;border:0}
+.btn:disabled{opacity:.42}
+.control,.field,.select,.control.search{background:#2C3A3B;color:#FAFAF6;border:0;box-shadow:none}
+input,textarea,select{color:#F5F7F1}
+input::placeholder,textarea::placeholder{color:#A5B4AA}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 2px #D5795C!important;border-color:#D5795C!important}
+input[type=date]{color-scheme:dark}
+.panel,.recipe-card{background:#1C292B;color:#F3F5EF;border:0;box-shadow:none}
+.panel h3,.section-top h3,.recipe-card .name,.inventory-row b,.minor b,.empty h3{color:#F7F8F4}
+.empty-icon{background:#324341;color:#E4A08A}
+.empty p{color:#A9B9AE}
+.cards .metric,.metric{background:#253536;color:#F2F4EF;border:0;box-shadow:none}
+.metric small{color:#BDCAC0}.metric b{color:#F8F9F6}.metric em{color:#A5B8AA}
+.metric.accent{background:#384F48;color:#FFFFFF}.metric.accent small{color:#C9D9CB}.metric.accent em{color:#F1B7A5}
+.pill{background:#2B3C3C;color:#C9D5CB;border:0}
+.pill.active{background:#D5795C;color:#FFFFFF}
+.tag,.tag.warm{background:#354542;color:#D7E4D9;color:#DCE7E0}
+.tag.warm{background:#613F37;color:#FFE6DB}
+.separator{background:#34413F}
+.release,.minor,.inventory-row,.table td,.todoitem{border-color:#324140}
+.release small,.minor small,.recipe-card .meta,.recipe-card .ctags{color:#A8B6AE}
+.qtyctrl{background:#273738;color:#FFFFFF}
+.qtyctrl button{background:#40514C;color:#FFFFFF}
+.qtyctrl button:last-child{background:#D5795C;color:#FFFFFF}
+.qtyctrl span{color:#F2F5F0}
+.table th{background:#2F403E;color:#C6D5C8}
+.table td{background:#1C292B;color:#EAF0E8;border-color:#2F3F3D}
+.table td b{color:#F7F9F4}
+.table input{color:#FFFFFF}
+.chart{border-color:#2F4240}
+.bar{background:#718D7D;opacity:1}.bar.todaybar{background:#D5795C}
+.chartlabels span{color:#A2B3A9}
+.linklike{color:#E99A7F}
+/* DAY SELECTOR */
+.date-strip{background:#213032;border:0;color:#FFFFFF}
+.date-arrow{background:#3B4D4C;color:#FFFFFF;border:0}
+.date-arrow:active{background:#D5795C;color:#FFFFFF}
+.day-heading strong{color:#F7F8F5}
+.day-heading span{color:#E5A08B}
+.day-progress{color:#BBC9BE}
+.date-tools .control{background:#354747;color:#FFFFFF}
+.todo-top .btn.outline{background:#D5795C;color:#FFFFFF}
+.todo-actions .btn.light{background:#304341;color:#F8F8F5}
+.recurring-count{background:#566A60;color:#FFFFFF}
+/* FIVE TASK AREAS — separate by full blocks, no borders */
+.todo-grid{gap:11px}
+.todo-col{background:#1F2D2F;border:0;border-radius:8px;box-shadow:none}
+.todo-colhead{background:#324540;color:#FFFFFF;border:0}
+.todo-colhead h2{color:#F8F9F4;font-weight:720}
+.todo-colhead span{background:#4A5F55;color:#ECF4EB;font-weight:650}
+.todo-entry{background:#273739;border:0}
+.todo-quick{background:#3A4C4B;color:#FFFFFF;border:0}
+.todo-quick::placeholder{color:#B2C1B6}
+.todo-add{background:#D5795C;color:#FFFFFF;border:0}
+.todo-add svg{color:#FFFFFF;stroke:#FFFFFF}
+.todo-list{background:#1F2D2F}
+.todo-empty{color:#A4B5A8}
+.todo-line{border-color:#304040}
+.task-name{color:#F3F5EE;font-weight:530}
+.task-body small{color:#ACB9AF}
+.todo-line.is-done .task-name{color:#8B9A90}
+.task-check{background:#41534D;color:transparent}
+.task-check.is-checked{background:#D5795C;color:#FFFFFF}
+.task-priority{background:#3A4A46;color:#9EB3A4}
+.task-priority.selected{background:#D5795C;color:#FFFFFF}
+.task-priority:active{background:#B5654C;color:#FFFFFF}
+.task-body .task-urgent-label,.task-body .task-carried{color:#F1A48C!important}
+.task-body .task-repeating{color:#A9BAAD}
+.todo-line.is-urgent:not(.is-done) .task-name{color:#FFFFFF;font-weight:720}
+.task-edit,.task-delete{color:#AABCAF}
+.todo-footnote{color:#A5B6AA}
+/* NOTES AND DAILY RECAP */
+.todo-notes-zone{background:#263637;color:#F3F5EE;border:0;box-shadow:none}
+.todo-notes-header h2{color:#FFFFFF}
+.todo-notes-eyebrow,.note-count{color:#F1AC94}
+.todo-notes-sub{color:#ADBCB0}
+.todo-notes-compose{background:#314442}
+.todo-notes-compose textarea{background:#1E2E2F;color:#F8F8F4;border:0;box-shadow:none}
+.todo-notes-compose textarea::placeholder{color:#9FB1A7}
+.todo-notes-compose .btn{background:#D5795C;color:#FFFFFF}
+.todo-note{background:#1C292B;color:#F5F6F2}
+.todo-note-content{color:#F3F5EE}
+.todo-note-carried{color:#EBA18B}
+.todo-note-actions button{background:#344845;color:#DDE6DE;border:0}
+.todo-note-actions button:active{background:#4C6258}
+.todo-note-actions button.note-delete{background:#583B38;color:#F7C5B6}
+.todo-notes-empty{color:#A1B4A6}
+.todo-report-recap{background:#344842;color:#F5F8F3}
+.todo-report-recap small{color:#F1B3A0}
+.todo-report-recap strong{color:#FFFFFF}
+.todo-report-recap span{color:#BFCFC1}
+/* RECURRENT TASKS */
+.urgent-check,.rec-rule{background:#2C3C3C;color:#F3F4EF}
+.urgent-check b,.rec-rule-info b{color:#F5F7F2}
+.urgent-check small,.rec-rule-info small,.rec-explain,.recurrence-hint{color:#ACBBB1}
+.rec-rule-info .rec-urgent{color:#F5AE96}
+.rec-weekday span{background:#3A4D49;color:#D3E0D4}
+.rec-weekday input:checked+span{background:#D5795C;color:#FFFFFF}
+.rec-weekday input:focus-visible+span{outline-color:#D5795C}
+.datahint{background:#2B3C3C;color:#D2DED3;border:0}
+.datahint strong{color:#FFFFFF}
+/* MODALS: dark not just the visible page */
+.modal-scrim{background:#000000C7}
+.dialog,.dialog.wide,.dialog-body{background:#1A282A;color:#F5F6F2;border:0;box-shadow:none}
+.dialog-head,.dialog-foot{background:#273638;border:0;color:#F5F6F2}
+.dialog-head h2{color:#F7F8F3}
+.dialog .tip,.dialog .field-label,.dialog .formgroup .field-label{color:#BFCCC1}
+.dialog .control,.dialog .field,.dialog .select{background:#344645;color:#F6F8F2;border:0}
+.dialog .btn.outline,.dialog .btn.light{background:#405451;color:#FFFFFF}
+.dialog .btn.secondary{background:#D5795C;color:#FFFFFF}
+.dialog .btn.danger{background:#663E38;color:#FFE5DD}
+.dialog .iconbutton{background:#3D514D;color:#FFFFFF}
+/* SALES EDITOR */
+.sales-dialog .dialog-body{background:#111B1D;color:#F5F6F1}
+.sales-dialog .dialog-head,.sales-dialog .dialog-foot{background:#253435;color:#F4F7F1}
+.sales-dialog .dialog-head h2{color:#F9FAF5}
+.sales-intro{color:#B5C3B8}
+.sales-tile{background:#2A3C3C;color:#FFFFFF}
+.sales-tile strong{color:#F9FBF6}
+.sales-tile small{color:#B9CBC0}
+.sales-tile.highlight{background:#3A554D}
+.sales-tile.highlight strong{color:#FFFFFF}
+.sales-tile.highlight small{color:#CBDCCB}
+.sales-cats-nav button{background:#304441;color:#DBE9DB;border:0}
+.sales-cats-nav button:active{background:#496057}
+.sales-category{background:#1D2B2D;color:#FFFFFF;border:0}
+.sales-cat-top{background:#354B45;color:#FFFFFF}
+.sales-cat-top h3,.sales-cat-meta strong{color:#F8FAF5}
+.sales-cat-code{color:#C0CEC2}
+.sales-cat-meta span{color:#F1B3A0}
+.sales-column-titles{background:#283839;color:#ACB9AF}
+.sales-row,.sales-row:nth-of-type(even){background:#1D2B2D;color:#F5F6F1}
+.sales-row:nth-of-type(even){background:#243436}
+.sales-row.sold{background:#413931}
+.sales-product-name{color:#F7F8F2}
+.sales-item-no{color:#97A89D}
+.sales-price{color:#B3C3B8}
+.sales-price input{background:#3B4D49;color:#FFFFFF;border:0}
+.sales-counter button{background:#41524F;color:#FFFFFF}
+.sales-counter button.plus{background:#D5795C;color:#FFFFFF}
+.sales-counter input{background:#314441;color:#FFFFFF;border:0}
+.sales-cat-foot{background:#30413E;color:#D2E0D2}
+.sales-cat-foot strong{color:#F8F9F4}
+.sales-extra{background:#273A39}
+.sales-extra .field-label{color:#C2CEC5}
+.sales-help{color:#AEBCB0}
+/* TIMER: inherited already-dark component, including settings and preset editor */
+.app.timer-mode .topbar,.app.timer-mode .main{background:#0D1416}
+.kt-page{color:#FFFFFF}
+.app.timer-mode .kt-card,.app.timer-mode .kt-panel{background:#1B2729}
+.kt-empty{background:#1B2729;color:#FFFFFF}
+.kt-empty strong{color:#FFFFFF}
+.kt-empty p,.kt-note{color:#ACBBB1}
+.kt-empty button{background:#D5795C;color:#FFFFFF}
+.kt-triple label{color:#B9C7BD}
+.kt-triple input{background:#354746;color:#FFFFFF}
+.kt-preset-row{background:#30413E;color:#FFFFFF}
+.kt-preset-row small{color:#BAC7BE}
+.kt-swatch.selected{outline-color:#FFF}
+.kt-setting{color:#FFFFFF}
+/* no white surfaces or shadows */
+.panel,.metric,.recipe-card,.todo-col,.todo-notes-zone,.dialog,.sales-category{border:0;box-shadow:none}
+::selection{background:#D5795C;color:#FFFFFF}
+::-webkit-scrollbar-thumb{background:#51635D}
+
+
+/* MIA DARK v1.3 · Notes focus + recipe workspace */
+#noteQuickText,#noteQuickText:focus,#noteQuickText:active,#noteQuickText:hover,
+.todo-notes-compose textarea:focus-visible{background:#172528!important;color:#F7F8F4!important;-webkit-text-fill-color:#F7F8F4!important;caret-color:#F5B29C!important;border:0!important;box-shadow:0 0 0 2px #617369!important;outline:0!important;color-scheme:dark}
+#noteQuickText::placeholder{color:#99ADA1!important;-webkit-text-fill-color:#99ADA1!important}
+.dialog textarea,.dialog textarea:focus,.dialog input,.dialog input:focus,.dialog .field:focus{background:#344645!important;color:#F7F8F4!important;-webkit-text-fill-color:#F7F8F4!important;caret-color:#F5AD97;border:0!important;box-shadow:0 0 0 2px #5B746D!important;color-scheme:dark}
+.dialog input::placeholder,.dialog textarea::placeholder{color:#A5B7A9!important;-webkit-text-fill-color:#A5B7A9!important}
+.recipes-panel{background:#1B292B;padding:19px}
+.recipes-toolbar{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;padding:0 0 20px}
+.recipes-search{flex:1 1 240px;max-width:390px;display:flex;flex-direction:column;gap:8px}
+.recipes-search label,.recipe-section-label,.recipe-kicker,.recipe-view-label{font-size:10px;letter-spacing:.13em;font-weight:700;color:#ADC3B3}
+.recipes-search .control{width:100%;max-width:none;margin:0;min-width:0;flex:none;background:#314543;color:#fff}
+.recipe-filters{gap:6px;flex:2 1 260px}.recipe-filters .pill{background:#314240;color:#D1E2D5}.recipe-filters .pill.active{background:#D5795C;color:#fff}
+.recipes-results{display:flex;justify-content:space-between;align-items:center;margin:0 0 13px}.recipes-results h3{font-size:17px;font-weight:710;color:#FAFCF7;letter-spacing:-.03em}
+.recipes-grid{gap:12px}.recipe-card{min-height:201px;padding:17px 18px 15px;display:flex;flex-direction:column;gap:0;background:#293B3A!important;border:0!important;border-radius:9px}
+.recipe-card-top{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 13px}.recipe-ingredient-count{color:#B3C8B7;font-size:10px;font-weight:470}
+.recipe-card .name{font-size:19px;font-weight:730;line-height:1.17;letter-spacing:-.035em;color:#fff;margin:0 0 10px;overflow-wrap:anywhere}
+.recipe-facts{display:flex;flex-wrap:wrap;gap:7px 13px;margin-bottom:10px;color:#B7C9BD;font-size:11px;line-height:1.3}
+.recipe-card .ctags{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 16px}
+.recipe-card .ctags .tag,.recipe-view-tags .tag{background:#3F544B!important;color:#E0EDE2!important;border:0;border-radius:4px;font-size:10px;font-weight:530}
+.recipe-card .bottom{margin-top:auto;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.recipe-card .bottom .btn.light{background:#40574E;color:#fff}
+.recipe-mail{background:transparent;color:#F1B39F;border:0;font-size:11px;font-weight:620;padding:8px 5px}
+.recipe-card .bottom .small-btn{margin-left:auto;background:#354945;color:#E8F2E9}
+.recipe-view-head{padding:0 0 15px;display:flex;align-items:flex-start;flex-direction:column;gap:12px}
+.recipe-view-tags{display:flex;flex-wrap:wrap;gap:6px}
+.dialog.recipe-detail,.dialog.recipe-editor{width:min(880px,calc(100vw - 28px));max-height:94dvh}
+.recipe-view-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:20px}
+.recipe-view-facts>div{background:#30423F;padding:11px 12px;border-radius:6px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.recipe-view-facts small{font-size:9px;letter-spacing:.07em;color:#AFC0B3}
+.recipe-view-facts strong{font-size:12px;line-height:1.4;font-weight:640;color:#F6F8F3;overflow-wrap:anywhere}
+.recipe-view-section{margin:0 0 19px}.recipe-view-section h3{font-size:16px;font-weight:720;letter-spacing:-.02em;margin:0 0 10px;color:#fff;display:flex;gap:10px;align-items:center}
+.recipe-view-section h3 span{font-size:10px;color:#C2D1C4;font-weight:450}
+.recipe-ingredients-table{background:#213133;border-radius:7px;overflow:hidden}
+.recipe-ingredients-head,.recipe-ingredients-row{display:grid;grid-template-columns:minmax(0,1fr) 95px 76px;gap:12px;align-items:center;padding:10px 14px}
+.recipe-ingredients-head{background:#344843;color:#CADACD;font-size:10px;letter-spacing:.09em;font-weight:650;min-height:34px}
+.recipe-ingredients-row{min-height:47px;background:#223233;color:#EAF2EB;align-items:start;line-height:1.35}
+.recipe-ingredients-row:nth-child(odd){background:#293A39}
+.recipe-ingredients-row span{overflow-wrap:anywhere;align-self:center}
+.recipe-ingredients-row .recipe-ingredient-name{font-weight:550;font-size:13px}
+.recipe-ingredients-row .recipe-ingredient-quantity{font-size:13px;font-weight:730;color:#FFF}
+.recipe-ingredients-row .recipe-ingredient-unit{font-size:12px;color:#BACABB}
+.recipe-ingredients-head span:nth-child(2),.recipe-ingredients-row span:nth-child(2){text-align:right}
+.recipe-ingredients-head span:nth-child(3),.recipe-ingredients-row span:nth-child(3){text-align:left}
+.recipe-view-empty{padding:17px;color:#B2C2B6;font-size:12px;margin:0}
+.recipe-readable{font-size:13px;line-height:1.75;color:#DCE6DE;white-space:pre-wrap;background:#243638;border-radius:6px;padding:16px;margin:0;overflow-wrap:anywhere}
+.recipe-edit-group{background:#233435;border-radius:8px;padding:16px;margin-bottom:14px}
+.recipe-edit-group>.recipe-section-label{margin-bottom:15px;color:#F0B49F}
+.recipe-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 12px}
+.recipe-edit-group .formgroup{margin-bottom:12px}
+.recipe-section-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+.recipe-ingredient-cols,.recipe-ingredient-edit{display:grid!important;grid-template-columns:minmax(0,1fr) 100px 92px 33px!important;gap:9px!important;align-items:center!important}
+.recipe-ingredient-cols{padding:0 5px 8px;color:#A9BFAF;font-size:10px;letter-spacing:.06em;font-weight:650}
+.recipe-ingredient-edit{padding:6px 0!important;margin-bottom:0!important;border:0!important;border-radius:0;background:transparent}
+.recipe-ingredient-edit .field{width:100%;max-width:100%;min-width:0;border-radius:5px;height:40px}
+.recipe-ingredient-edit .small-btn{width:33px;height:40px;color:#F0C0B2;background:#4C3B37;border-radius:5px;border:0;font-size:20px}
+.tag-manager-intro{line-height:1.5;color:#C8D7C8;font-size:12px;margin-bottom:17px}
+.tag-manager-create{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;padding:13px;background:#2A3E3C;border-radius:7px;margin-bottom:20px}
+.tag-manager-create .field{height:42px}
+.tag-manager-list{display:flex;flex-direction:column;gap:5px}
+.tag-manager-row{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#2B403D;padding:12px 14px;border-radius:6px}
+.tag-manager-row>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.tag-manager-row b{font-size:13px;color:#F8F9F5;overflow-wrap:anywhere}
+.tag-manager-row small{font-size:10px;color:#AABDAD}
+.tag-manager-remove{background:#503B37;color:#F1BDAE;border:0;border-radius:5px;padding:10px 13px;font-size:11px;font-weight:650}
+.tag-manager-help{font-size:11px;line-height:1.5;color:#B1C0B2;margin:13px 0 0}
+.tag-remove-warning{background:#2C403C;padding:16px;border-radius:8px}
+.tag-remove-warning strong{font-size:18px;color:#FFFFFF}
+.tag-remove-warning p{font-size:12px;line-height:1.65;color:#D0DAD0}
+.tag-remove-warning .field-label{display:block;margin:15px 0 9px}
+@media(max-width:680px){.recipe-view-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.recipe-form-grid{grid-template-columns:1fr}.recipe-ingredient-cols,.recipe-ingredient-edit{grid-template-columns:minmax(0,1fr) 67px 63px 29px!important;gap:5px!important}.recipe-ingredient-cols{font-size:8px}.recipe-ingredient-edit .small-btn{width:29px}.recipe-ingredients-head,.recipe-ingredients-row{grid-template-columns:minmax(0,1fr) 58px 51px;gap:5px;padding:9px 9px}.tag-manager-create{grid-template-columns:1fr}}
+
+
+/* MIA DARK 1.4 — disciplined recipe hierarchy, persistent dark editing fields */
+/* Highly specific focus states override light mode legacy declarations, including WebKit focus. */
+.app:not(.timer-mode) .todo-col .todo-quick,
+.app:not(.timer-mode) .todo-col .todo-quick:focus,
+.app:not(.timer-mode) .todo-col .todo-quick:active,
+.app:not(.timer-mode) .todo-col .todo-quick:hover,
+.app:not(.timer-mode) .todo-col .todo-quick:focus-visible{
+ background:#394F4D!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
+ caret-color:#FFFFFF!important;color-scheme:dark!important;border:0!important;
+ box-shadow:none!important;outline:2px solid transparent!important;
+}
+.app:not(.timer-mode) .todo-col .todo-quick:focus-visible{
+ outline:2px solid #D5795C!important;outline-offset:1px!important;
+}
+.app:not(.timer-mode) .todo-col .todo-quick::placeholder{color:#BBCBC0!important;-webkit-text-fill-color:#BBCBC0!important}
+.app:not(.timer-mode) .date-strip input.control,
+.app:not(.timer-mode) .date-strip input.control:focus,
+.app:not(.timer-mode) .recipes-search .control,
+.app:not(.timer-mode) .recipes-search .control:focus,
+.app:not(.timer-mode) .recipe-editor input.field,
+.app:not(.timer-mode) .recipe-editor input.field:focus,
+.app:not(.timer-mode) .recipe-editor textarea.field,
+.app:not(.timer-mode) .recipe-editor textarea.field:focus,
+.app:not(.timer-mode) .recipe-editor select.select,
+.app:not(.timer-mode) .recipe-editor select.select:focus{
+ background:#344744!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
+ caret-color:#FFFFFF!important;color-scheme:dark!important;border:0!important;
+}
+.app:not(.timer-mode) .dialog select,
+.app:not(.timer-mode) .dialog select:focus,
+.app:not(.timer-mode) .dialog select:active{
+ background:#344744!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
+ color-scheme:dark!important;border:0!important;
+}
+.app:not(.timer-mode) .dialog select option{background:#243634!important;color:#FFFFFF!important}
+/* Archive: larger legible names and less visual noise */
+.recipes-panel{background:#1B292B;padding:21px 20px 23px}
+.recipes-toolbar{align-items:stretch;gap:18px;border:0;padding-bottom:21px}
+.recipes-search{flex:1 1 240px;max-width:370px}
+.recipes-search label,.recipes-filter-label{color:#A9BCB0;font-size:10px;letter-spacing:.13em;font-weight:650}
+.recipes-filter-block{display:flex;flex:2 1 280px;flex-direction:column;gap:9px;min-width:0}
+.recipes-filter-label{display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px}
+.recipes-filter-label span{text-transform:none;letter-spacing:0;color:#9AAEA1;font-size:10px;font-weight:430}
+.recipe-filters{display:flex;gap:7px;align-content:flex-start;align-items:center;flex:none}
+.recipe-filters::before{content:"TAG  ·  selezione multipla";flex:0 0 100%;font-size:10px;font-weight:620;letter-spacing:.075em;color:#AEC1B3;margin-bottom:2px}
+.recipe-filters .pill{min-height:38px;padding:9px 13px;border:0;background:#30423F;color:#D3E0D6;border-radius:5px;font-weight:560;font-size:12px}
+.recipe-filters .pill.active{background:#D5795C;color:#FFFFFF;font-weight:720}
+.recipe-filters .pill:focus-visible{outline:2px solid #F4B7A1;outline-offset:2px}
+.recipes-results{margin-bottom:16px;padding-bottom:5px}
+.recipes-results h3{font-size:18px;font-weight:740;letter-spacing:-.025em;color:#FFFFFF}
+.recipes-results .mini-label{font-size:11px;font-weight:510;color:#A7B9AD}
+.recipes-grid{gap:12px;grid-auto-rows:auto}
+.recipe-card{background:#2A3D3B!important;border-radius:7px;min-height:218px;padding:20px 20px 17px;gap:0}
+.recipe-card-top{margin-bottom:12px;align-items:flex-start}
+.recipe-kicker{color:#A5BAAA;font-size:9px;letter-spacing:.14em;font-weight:620}
+.recipe-ingredient-count{font-size:10px;color:#BDCEC1;font-weight:540}
+.recipe-card .name{font-size:23px;font-weight:770;line-height:1.16;letter-spacing:-.034em;color:#FFFFFF!important;margin:1px 0 15px;overflow-wrap:anywhere;text-wrap:pretty}
+.recipe-facts{font-size:11px;line-height:1.52;color:#BBCFC0;gap:5px 14px;margin-bottom:13px;font-weight:470}
+.recipe-card .ctags{margin:0 0 16px;gap:6px}
+.recipe-card .ctags .tag{padding:6px 9px;background:#435A50!important;color:#F1F6EE!important;font-size:10px;font-weight:600}
+.recipe-card .bottom{gap:8px}
+.recipe-card .bottom .btn.light{background:#496558;color:#FFFFFF;font-weight:700;font-size:11px;padding:0 14px}
+.recipe-mail{color:#F0B39E;font-weight:680;font-size:11px}
+.recipe-card .bottom .small-btn{background:#3A514B}
+/* Recipe details: uniform ingredient surface; typography rather than alternating bands */
+.recipe-view-section{margin-bottom:22px}
+.recipe-view-section h3{font-size:17px;font-weight:740;color:#FFFFFF;letter-spacing:-.025em;margin-bottom:12px}
+.recipe-view-section h3 span{font-size:11px;color:#ADC0B2}
+.recipe-ingredients-table{background:#293D3C;border-radius:6px;padding:5px 0 9px;overflow:hidden}
+.recipe-ingredients-head,.recipe-ingredients-row{display:grid;grid-template-columns:minmax(0,1fr) 94px 78px;gap:12px;padding:12px 18px;align-items:center;background:#293D3C!important}
+.recipe-ingredients-head{color:#AFC4B5!important;font-size:9px;letter-spacing:.11em;font-weight:620;padding-bottom:8px;min-height:32px}
+.recipe-ingredients-row,.recipe-ingredients-row:nth-child(odd),.recipe-ingredients-row:nth-child(even){background:#293D3C!important;min-height:47px;border:0!important;color:#F3F7F1}
+.recipe-ingredients-row .recipe-ingredient-name{color:#F5F8F2;font-size:13px;font-weight:560;line-height:1.5}
+.recipe-ingredients-row .recipe-ingredient-quantity{color:#FFFFFF;font-size:13px;font-weight:740;font-variant-numeric:tabular-nums}
+.recipe-ingredients-row .recipe-ingredient-unit{color:#C2D1C4;font-size:12px;font-weight:470}
+.recipe-ingredients-head span:nth-child(2),.recipe-ingredients-row span:nth-child(2){text-align:right}
+.recipe-ingredients-head span:nth-child(3),.recipe-ingredients-row span:nth-child(3){text-align:left}
+.recipe-readable{background:#293B39;color:#E5ECE6;line-height:1.72}
+.recipe-view-facts{gap:9px}
+.recipe-view-facts>div{background:#30443E}
+.recipe-view-facts strong{font-weight:680}
+/* Editor: consistent hierarchy and no alternating row backgrounds */
+.recipe-edit-group{background:#263A38;border-radius:7px;padding:18px;margin-bottom:15px}
+.recipe-edit-group>.recipe-section-label{color:#EBA68F;font-weight:650}
+.recipe-section-top{margin-bottom:14px}
+.recipe-ingredient-cols,.recipe-ingredient-edit{grid-template-columns:minmax(0,1fr) 100px 92px 33px!important;gap:10px!important;padding-left:0!important;padding-right:0!important}
+.recipe-ingredient-cols{color:#AEC1B3;font-weight:650;font-size:9px;letter-spacing:.1em;padding-bottom:6px!important}
+.recipe-ingredient-edit,.recipe-ingredient-edit:nth-child(even),.recipe-ingredient-edit:nth-child(odd){background:transparent!important;border:0!important;padding:5px 0!important}
+.recipe-ingredient-edit .field{background:#344744!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+.recipe-ingredient-edit .field:focus{background:#344744!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+@media(max-width:680px){
+ .recipes-panel{padding:15px}.recipes-toolbar{gap:13px}
+ .recipe-card{min-height:202px;padding:17px}.recipe-card .name{font-size:21px}
+ .recipe-ingredients-head,.recipe-ingredients-row{grid-template-columns:minmax(0,1fr) 63px 52px;gap:7px;padding:10px 12px}
+ .recipe-ingredient-cols,.recipe-ingredient-edit{grid-template-columns:minmax(0,1fr) 67px 63px 29px!important;gap:5px!important}
+}
+
+</style>
+</head><body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-7H9v7H3z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5c3-1.2 5.5-1.2 8 0v16c-2.5-1.2-5-1.2-8 0V4.5Zm8 0c2.5-1.2 5-1.2 8 0v16c-3-1.2-5.5-1.2-8 0"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6m6-6v6M9 15h6"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4m0 16h16M8 16v-5m5 5V7m5 9V4"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 17 1-5L16 2l6 6-11 10-5 1ZM14 4l6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 18V4m-5 5 5-5 5 5M4 17v4h16v-4"/></symbol></svg>
+<div class="app" id="app"><aside class="side" id="sidebar"><div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MIA</div><div class="brand-sub">MENU INTELLIGENCE ASSISTANT</div></div></div><div class="side-inner"><div class="sidelabel">Navigazione</div><nav id="sidenav"><button class="navbtn active" data-route="todo" type="button">To do</button><button class="navbtn" data-route="timer" type="button">Timer</button><button class="navbtn" data-route="recipes" type="button">Ricette</button><button class="navbtn" data-route="inventory" type="button">Magazzino</button><button class="navbtn" data-route="stats" type="button">Statistiche</button></nav></div><div class="side-foot"><strong>MIA / v1.4 DARK</strong><br>Kitchen workspace · D.ONE<br><span id="side-storage">Dati locali su questo iPad</span></div></aside>
+<div class="workspace"><header class="topbar"><button type="button" class="iconbutton" id="toggleSidebar" title="Apri o chiudi il menu"><svg><use href="#i-menu"/></svg></button><button type="button" class="iconbutton" id="homeButton" title="Torna alla home"><svg><use href="#i-home"/></svg></button><div class="top-title"><b id="headerTitle">To do</b><small>MIA · Menu Intelligence Assistant</small></div><div class="push"></div><span class="today" id="headerDate"></span><button class="btn outline" type="button" id="restoreBtn"><svg><use href="#i-upload"/></svg><span>Ripristina</span></button><button class="btn" type="button" id="backupBtn"><svg><use href="#i-download"/></svg><span>Backup</span></button></header><main class="main" id="main"><div id="view" class="page"></div></main></div></div>
+<input type="file" id="jsonFile" accept=".json,application/json" class="hidden"><div id="modalRoot"></div><div id="toastRoot"></div>
+<script>
+(function(){'use strict';
+const KITCHEN_META={
+p:[["porro","Porro","TAPAS"],["rosa","Rosa","TAPAS"],["katsu-sando","Katsu sando","TAPAS"],["lombatello","Lombatello","TAPAS"],["risotto","Risotto","TAPAS"],["guanciotto","Guanciotto","TAPAS"],["pulled-polp","Pulled polp","TAPAS"],["conchigliette","Conchigliette","TAPAS"],["merluzzo","Merluzzo","TAPAS"],["menu-1","Menu 1","MENU DEGUSTAZIONE"],["menu-2","Menu 2","MENU DEGUSTAZIONE"],["menu-3","Menu 3","MENU DEGUSTAZIONE"],["churros","Churros","SFIZI"],["farinata","Farinata","SFIZI"],["patate","Patate","SFIZI"],["saporito","Saporito","BURGER"],["d-one-burger","D.ONE Burger","BURGER"],["fish","Fish","BURGER"],["vegano","Vegano","BURGER"],["burger-base","Burger base","BURGER"],["triplo","Triplo","BURGER"],["doppio-bacon","Doppio bacon","BURGER"],["doppio-cheese","Doppio cheese","BURGER"],["classico","Classico","CLUB SANDWICH"],["vegetariano","Vegetariano","CLUB SANDWICH"],["margherita","Margherita","PIZZE"],["pizza-di-stagione","Pizza di stagione","PIZZE"],["pizza-d-one","Pizza D.ONE","PIZZE"],["nocciola","Nocciola","DOLCI"],["brownies","Brownies","DOLCI"],["gnocchi","Gnocchi","TAPAS"],["peperoni","Peperoni","TAPAS"],["bao-01","Bao #01","BAO DEGUSTAZIONE"],["bao-02","Bao #02","BAO DEGUSTAZIONE"],["bao-03","Bao #03","BAO DEGUSTAZIONE"],["degustazione-bao","Degustazione Bao","BAO DEGUSTAZIONE"],["saltimbocca","Saltimbocca","TAPAS"],["tatin","Tatin","TAPAS"],["crema-piselli","Crema piselli","TAPAS"],["roast-beef","Roast-beef","TAPAS"],["fregola","Fregola","TAPAS"],["tagliatelle","Tagliatelle","TAPAS"],["melanzana","Melanzana","TAPAS"],["bao","Bao","SFIZI"],["hummus","Hummus","SFIZI"],["peperoni","Tataki anguria","TAPAS"],["crema-piselli","Gazpacho","TAPAS"],["tagliatelle","Fusilloni","TAPAS"],["trota-mt0p6vko","Trota","TAPAS"],["pizza-di-stagione","Pizza Estate","PIZZE"],["anguria-tataki-ms3o9be9","Anguria tataki","TAPAS"],["gazpacho-ms3o9qvp","Gazpacho","TAPAS"],["trota-ms3ob8iq","Trota","TAPAS"],["fusilloni-ms3oagfb","Fusilloni","TAPAS"],["anguria-tataki-ms3gfy67","Anguria tataki","TAPAS"],["fusilloni-ms3ggtjb","Fusilloni","TAPAS"],["gazpacho-ms3ggbay","Gazpacho","TAPAS"],["pizza-estate-ms3giexp","Pizza estate","PIZZE"],["trota-ms3ghqus","Trota","TAPAS"]],
+m:[["menu-01-2026","Menu Gennaio 2026","2026-01-01","2026-01-31",[[0,8],[1,11],[2,9],[3,11],[4,11],[5,13],[6,10],[7,11],[8,12],[9,27],[10,32],[11,31],[12,7],[13,6],[14,6],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[26,9],[27,9],[28,7],[29,8]]],["menu-02-2026","Menu Febbraio 2026","2026-02-01","2026-02-28",[[0,8],[30,11],[2,9],[3,11],[4,11],[5,13],[6,10],[7,11],[8,12],[9,27],[10,32],[11,31],[12,7],[13,6],[14,6],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[26,9],[27,9],[28,7],[29,8]]],["menu-03-2026","Menu Marzo 2026","2026-03-01","2026-03-31",[[0,8],[30,11],[2,9],[3,11],[4,11],[5,13],[6,10],[7,11],[8,12],[9,27],[10,32],[11,31],[12,7],[13,6],[14,6],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[26,9],[27,9],[28,7],[29,8]]],["menu-04-2026","Menu Aprile 2026","2026-04-01","2026-04-30",[[31,8],[30,11],[2,9],[3,11],[4,11],[5,13],[6,10],[7,11],[8,12],[9,27],[10,32],[11,31],[12,7],[13,6],[14,6],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[26,9],[27,9],[28,7],[29,8],[32,5],[33,5],[34,5],[35,13]]],["menu-05-2026","Menu Maggio 2026","2026-05-01","2026-05-31",[[31,8],[30,11],[2,9],[3,11],[4,11],[36,13],[37,10],[7,11],[8,12],[9,27],[10,32],[11,31],[12,7],[13,6],[14,6],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[26,9],[27,9],[28,7],[29,8],[32,5],[33,5],[34,5],[35,13]]],["menu-06-2026","Menu Giugno 2026","2026-06-01","2026-07-02",[[31,9],[38,9],[39,13],[40,12],[41,12],[36,13],[42,10],[12,7],[13,6],[14,6],[43,7],[44,7],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[26,9],[27,9],[28,7],[29,8],[32,5],[33,5],[34,5],[35,13],[9,27],[10,32],[11,31]]],["menu-1785946853362-sd8t","Menu dal 3/07","2026-07-03","2099-12-31",[[45,9],[46,10],[39,13],[40,12],[47,12],[36,13],[48,11],[12,7],[13,6],[14,6],[43,7],[44,7],[15,15],[16,15],[17,14],[18,13],[19,13],[20,3],[21,2],[22,1],[23,15],[24,13],[25,7],[49,10],[27,9],[28,7],[29,8],[32,5],[33,5],[34,5],[35,15],[9,27],[10,32],[11,31]]]]
+};
+function historicMenus(){return KITCHEN_META.m.map(m=>({id:m[0],name:m[1],start:m[2],end:m[3],note:'',changes:'Menu storico importato da Kitchen Intelligence',items:m[4].map(([idx,price])=>({productId:KITCHEN_META.p[idx][0],name:KITCHEN_META.p[idx][1],category:KITCHEN_META.p[idx][2],price}))}));}
+
+const $=(selector,root=document)=>root.querySelector(selector);
+const $$=(selector,root=document)=>Array.from(root.querySelectorAll(selector));
+const esc=x=>String(x==null?'':x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon=n=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-'+n+'"></use></svg>';
+const localDay=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const humanDate=x=>{if(!x)return '—';const a=x.split('-');return a.length===3?a[2]+'/'+a[1]+'/'+a[0]:x};
+const currency=x=>new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(+x||0);
+const integer=x=>new Intl.NumberFormat('it-IT').format(+x||0);
+const num=x=>{const v=parseFloat(String(x??'').replace(',','.'));return Number.isFinite(v)?v:0};
+const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36);
+const dayBefore=s=>{const d=new Date(s+'T12:00:00');d.setDate(d.getDate()-1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const getMonth=x=>x.slice(0,7);
+const DBNAME='MIA_DATA_1';const STORE='app';let db=null;let fallback=false;let saveChain=Promise.resolve();let state=null;
+const initial=()=>({app:'MIA',schema:1,lastSaved:null,todos:[],todoRecurrences:[],todoNotes:[],todoCarryHistory:[],recipes:[],inventory:[],tags:[],timer:ktDefaults(),kitchen:{menus:historicMenus(),historic:[],notes:{},covers:{},venueRevenue:{},categoryOrder:[],legacySource:null}});
+function openDB(){return new Promise(resolve=>{if(!window.indexedDB){fallback=true;return resolve(null)}try{const request=indexedDB.open(DBNAME,1);request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains(STORE))request.result.createObjectStore(STORE)};request.onsuccess=()=>{db=request.result;resolve(db)};request.onerror=()=>{fallback=true;resolve(null)};request.onblocked=()=>{fallback=true;resolve(null)}}catch(e){fallback=true;resolve(null)}})}
+function loadState(){return new Promise(resolve=>{if(fallback||!db){try{resolve(JSON.parse(localStorage.getItem(DBNAME))||initial())}catch(e){resolve(initial())}return}const tx=db.transaction(STORE,'readonly');const rq=tx.objectStore(STORE).get('snapshot');rq.onsuccess=()=>resolve(rq.result||initial());rq.onerror=()=>resolve(initial())})}
+function persist(){state.lastSaved=new Date().toISOString();const payload=JSON.parse(JSON.stringify(state));saveChain=saveChain.catch(()=>{}).then(()=>new Promise((resolve,reject)=>{if(fallback||!db){try{localStorage.setItem(DBNAME,JSON.stringify(payload));return resolve()}catch(e){return reject(e)}}try{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(payload,'snapshot');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)}catch(e){reject(e)}}));saveChain.catch(()=>toast('Attenzione: salvataggio non riuscito. Esporta un backup.'));return saveChain}
+function normalize(raw){const s=initial();if(raw&&typeof raw==='object'){for(const k of ['todos','todoRecurrences','todoNotes','todoCarryHistory','recipes','inventory','tags'])if(Array.isArray(raw[k]))s[k]=raw[k];if(raw.kitchen&&typeof raw.kitchen==='object'){for(const k of Object.keys(s.kitchen))if(raw.kitchen[k]!==undefined)s.kitchen[k]=raw.kitchen[k]}if(raw.timer&&typeof raw.timer==='object'){s.timer={...ktDefaults(),...raw.timer};if(!Array.isArray(s.timer.timers))s.timer.timers=[];if(!Array.isArray(s.timer.presets))s.timer.presets=KT_PRESETS.map(p=>({...p}));if(![2,3,4].includes(+s.timer.columns))s.timer.columns=3;}s.lastSaved=raw.lastSaved||null}return s}
+let route='todo',todoDay=localDay(),recipeTags=new Set(),recipeQuery='',stockFilter='all',statDate=localDay(),statPeriod='month';let modalInfo=null;
+function toast(message){const r=$('#toastRoot');r.innerHTML='<div class="toast" role="status">'+esc(message)+'</div>';clearTimeout(toast.timer);toast.timer=setTimeout(()=>r.innerHTML='',3400)}
+function showModal(title,body,footer,wide=false){$('#modalRoot').innerHTML='<div class="modal-scrim"><div class="dialog '+(wide?'wide':'')+'" role="dialog" aria-modal="true"><div class="dialog-head"><h2>'+esc(title)+'</h2><button class="iconbutton" type="button" id="closeModal" aria-label="Chiudi">'+icon('x')+'</button></div><div class="dialog-body">'+body+'</div><div class="dialog-foot">'+footer+'</div></div></div>';$('#closeModal').onclick=hideModal;$('.modal-scrim').addEventListener('click',e=>{if(e.target.classList.contains('modal-scrim'))hideModal()})}
+function hideModal(){$('#modalRoot').innerHTML='';modalInfo=null}
+function go(name){if(!['todo','timer','recipes','inventory','stats'].includes(name))name='todo';route=name;$('#app').classList.toggle('timer-mode',name==='timer');$('#headerTitle').textContent={todo:'To do',timer:'Timer',recipes:'Ricette',inventory:'Magazzino',stats:'Statistiche'}[route];$$('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.route===name));$('#main').scrollTop=0;render()}
+function render(){if(route==='todo')renderTodo();else if(route==='timer')renderTimer();else if(route==='recipes')renderRecipes();else if(route==='inventory')renderInventory();else renderStats()}
+const metric=(label,value,desc='',accent=false)=>'<article class="metric'+(accent?' accent':'')+'"><small>'+esc(label)+'</small><b>'+esc(value)+'</b><em>'+esc(desc)+'</em></article>';
+const empty=(title,description,label,action)=>'<div class="empty"><div class="empty-icon">'+icon('plus')+'</div><h3>'+esc(title)+'</h3><p>'+esc(description)+'</p>'+(label?'<button class="btn secondary small" data-action="'+esc(action)+'">'+icon('plus')+' '+esc(label)+'</button>':'')+'</div>';
+const TODO_AREAS=['LINEA','SCORTE','TAGLI','SCONGELA','COMPRA'];
+const todoArea=t=>TODO_AREAS.includes(String(t.category||'').toUpperCase())?String(t.category).toUpperCase():'LINEA';
+function dayShift(day,offset){const d=new Date(day+'T12:00:00');d.setDate(d.getDate()+offset);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+// To do: modello di ricorrenza separato dalle occorrenze giornaliere.
+// Si generano soltanto il giorno corrente o una data futura consultata.
+// Le vecchie giornate non vengono popolate retroattivamente.
+let lastObservedTodoDate=localDay();
+const weekNames=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+const weekDay=x=>new Date(x+'T12:00:00').getDay();
+function recLabel(r){return r.mode==='daily'?'Ogni giorno':(Array.isArray(r.days)?r.days:[]).map(n=>weekNames[n]).join(' · ')||'Nessun giorno';}
+function recOccurs(r,day){return !!r.active && day>=r.start && (r.mode==='daily'||(r.mode==='weekly'&&Array.isArray(r.days)&&r.days.includes(weekDay(day))));}
+function recurringForDay(day){
+ if(!state || day<localDay())return 0;
+ let added=0;
+ for(const r of state.todoRecurrences){
+  if(!recOccurs(r,day) || (r.skippedDates||[]).includes(day))continue;
+  // Chi è rimasto in sospeso è già il lavoro da svolgere: non crearne un duplicato.
+  if(state.todos.some(t=>t.recurrenceId===r.id && !t.done && (t.due||t.scheduledFor)<=day))continue;
+  if(state.todos.some(t=>t.recurrenceId===r.id && t.scheduledFor===day))continue;
+  state.todos.push({id:uid(),recurrenceId:r.id,scheduledFor:day,createdAt:Date.now(),
+   name:r.name,category:r.category,note:r.note||'',priority:r.priority||'normal',
+   due:day,done:false,doneAt:null,customized:false});
+  added++;
+ }
+ return added;
+}
+function rolloverOpenTasks(targetDay=localDay()){
+ if(!state||!Array.isArray(state.todos))return 0;
+ let moved=0;
+ const overdue=state.todos.filter(t=>!t.done && (t.due||targetDay)<targetDay)
+  .sort((a,b)=>(a.scheduledFor||a.due).localeCompare(b.scheduledFor||b.due));
+ for(const t of overdue){
+  if(t.recurrenceId){
+   // Può esserci una copia futura creata durante una consultazione del calendario.
+   // Quella più vecchia sopravvive e viene riportata al giorno corrente.
+   const duplicates=state.todos.filter(x=>x!==t && x.recurrenceId===t.recurrenceId && !x.done && x.due===targetDay);
+   for(const duplicate of duplicates){
+    const rule=state.todoRecurrences.find(r=>r.id===t.recurrenceId);
+    if(rule && duplicate.scheduledFor){rule.skippedDates=rule.skippedDates||[];if(!rule.skippedDates.includes(duplicate.scheduledFor))rule.skippedDates.push(duplicate.scheduledFor)}
+    state.todos=state.todos.filter(x=>x!==duplicate);
+   }
+  }
+  state.todoCarryHistory=state.todoCarryHistory||[];
+  if(!state.todoCarryHistory.some(h=>h.taskId===t.id&&h.day===t.due)){state.todoCarryHistory.push({taskId:t.id,day:t.due,carriedTo:targetDay,name:t.name,category:t.category,note:t.note||'',priority:t.priority||'normal'});}
+  if(!t.originalDue)t.originalDue=t.due;
+  t.carriedFrom=t.due;t.carriedAt=new Date().toISOString();t.due=targetDay;moved++;
+ }
+ const generated=recurringForDay(targetDay);
+ if(moved||generated)persist();
+ return moved;
+}
+function checkTodoDate(){
+ if(!state)return;
+ const today=localDay(),wasToday=lastObservedTodoDate;
+ const newDay=today!==wasToday;
+ if(newDay){lastObservedTodoDate=today;if(todoDay===wasToday)todoDay=today;}
+ const moved=rolloverOpenTasks(today);
+ if(newDay){$('#headerDate').textContent=new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(new Date());}
+ if(route==='todo' && (newDay||moved)){renderTodo();if(moved)toast(moved===1?'1 attività riportata a oggi':moved+' attività riportate a oggi');}
+}
+function recoveredCount(day){return state.todos.filter(t=>t.due===day && t.originalDue && t.originalDue<day).length;}
+const taskForDay=()=>state.todos.filter(t=>(t.due||localDay())===todoDay).sort((a,b)=>
+ (b.priority==='urgent')-(a.priority==='urgent') || (a.createdAt||0)-(b.createdAt||0));
+function todoRow(t){return '<div class="todo-line '+(t.done?'is-done':'')+(t.priority==='urgent'?' is-urgent':'')+'">'+
+ '<button class="task-check '+(t.done?'is-checked':'')+'" type="button" aria-label="'+(t.done?'Segna da fare: ':'Segna completata: ')+esc(t.name)+'" aria-pressed="'+!!t.done+'" data-todo-toggle="'+esc(t.id)+'">'+(t.done?'✓':'')+'</button>'+
+ '<span class="task-body"><span class="task-name">'+esc(t.name)+'</span>'+
+ (t.priority==='urgent'?'<small class="task-urgent-label">URGENTE</small>':'')+
+ (t.recurrenceId?'<small class="task-repeating">Ricorrente</small>':'')+
+ (t.originalDue&&t.originalDue<t.due?'<small class="task-carried">Riportata dal '+esc(humanDate(t.originalDue))+'</small>':'')+
+ (t.note?'<small>'+esc(t.note)+'</small>':'')+'</span>'+
+ '<button type="button" class="task-priority '+(t.priority==='urgent'?'selected':'')+'" title="'+(t.priority==='urgent'?'Rimuovi priorità':'Segna urgente')+'" aria-label="'+(t.priority==='urgent'?'Rimuovi priorità: ':'Segna urgente: ')+esc(t.name)+'" aria-pressed="'+(t.priority==='urgent')+'" data-todo-priority="'+esc(t.id)+'">!</button>'+
+ '<button type="button" class="task-edit" aria-label="Modifica '+esc(t.name)+'" data-todo-edit="'+esc(t.id)+'">'+icon('edit')+'</button>'+
+ '<button type="button" class="task-delete" aria-label="Elimina '+esc(t.name)+'" title="Elimina attività" data-todo-delete="'+esc(t.id)+'">'+icon('x')+'</button></div>'}
+function todoProgress(){const current=taskForDay();return current.filter(t=>t.done).length+' / '+current.length+' completate'+(recoveredCount(todoDay)?' · '+recoveredCount(todoDay)+' riportate':'');}
+function refreshTodoLists(){if(route!=='todo')return;const current=taskForDay();TODO_AREAS.forEach(area=>{const tasks=current.filter(t=>todoArea(t)===area);const list=$('[data-todo-list="'+area+'"]');if(list)list.innerHTML=tasks.length?tasks.map(todoRow).join(''):'<p class="todo-empty">Nessuna voce</p>';const n=$('[data-todo-count="'+area+'"]');if(n)n.textContent=tasks.filter(t=>t.done).length+'/'+tasks.length});const n=$('#todoProgress');if(n)n.textContent=todoProgress();}
+function renderTodo(){
+ const added=recurringForDay(todoDay);if(added)persist();
+ const today=localDay(),current=taskForDay(),dayName=new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(todoDay+'T12:00:00'));const dateText=dayName.charAt(0).toUpperCase()+dayName.slice(1);
+ $('#view').innerHTML='<div class="todo-top"><div><p class="eyebrow">PIANIFICAZIONE QUOTIDIANA</p><h1 class="h1">To do</h1></div><div class="todo-actions"><button class="btn light" type="button" data-action="recurrences">Ricorrenti <span class="recurring-count">'+state.todoRecurrences.filter(r=>r.active).length+'</span></button><button class="btn outline" type="button" data-action="shareTodo">'+icon('download')+' Report PDF</button></div></div><div class="date-strip"><div class="date-shift"><button type="button" class="date-arrow" data-todo-day="-1" aria-label="Giorno precedente">‹</button><div class="day-heading"><strong>'+esc(dateText)+'</strong><span>'+(todoDay===today?'OGGI':todoDay>today?'GIORNO FUTURO':'STORICO')+'</span></div><button type="button" class="date-arrow" data-todo-day="1" aria-label="Giorno successivo">›</button></div><div class="date-tools"><input type="date" id="todoDate" class="control" value="'+esc(todoDay)+'" aria-label="Seleziona un giorno"><button type="button" class="btn outline small" data-action="todayTodo">Oggi</button><span class="day-progress" id="todoProgress">'+todoProgress()+'</span></div></div><div class="todo-grid">'+TODO_AREAS.map(area=>{const list=current.filter(t=>todoArea(t)===area);return '<section class="todo-col" aria-label="'+area+'"><div class="todo-colhead"><h2>'+area+'</h2><span data-todo-count="'+area+'">'+list.filter(t=>t.done).length+'/'+list.length+'</span></div><div class="todo-entry"><input type="text" class="todo-quick" maxlength="300" data-todo-input="'+area+'" placeholder="Aggiungi una voce…" aria-label="Nuova voce per '+area+'"><button type="button" class="todo-add" data-todo-add="'+area+'" aria-label="Aggiungi a '+area+'">'+icon('plus')+'</button></div><div class="todo-list" data-todo-list="'+area+'">'+(list.length?list.map(todoRow).join(''):'<p class="todo-empty">Nessuna voce</p>')+'</div></section>'}).join('')+'</div>'+renderNotesSection()+'<p class="todo-footnote">Le attività incompiute passano automaticamente al giorno successivo. Le ricorrenze si aggiungono nei giorni programmati, senza duplicare quelle ancora in sospeso.</p>';
+}
+
+/* NOTE OPERATIVE: archivio indipendente dalle attività spuntabili. */
+function notesForDay(day=todoDay){return (state.todoNotes||[]).filter(n=>n.day===day).sort((a,b)=>a.createdAt-b.createdAt)}
+function renderNotesSection(){const notes=notesForDay(),sales=dailyKitchenSnapshot(todoDay);return '<section class="todo-notes-zone" aria-label="Blocco appunti della giornata">'+
+ '<div class="todo-notes-header"><div><span class="todo-notes-eyebrow">APPUNTI OPERATIVI</span><h2>Note <span class="note-count">'+notes.length+'</span></h2></div><span class="todo-notes-sub">Indipendenti dalle attività · spostabili su un altro giorno</span></div>'+
+ '<div class="todo-notes-compose"><textarea id="noteQuickText" placeholder="Scrivi qui una nota per questa giornata…" maxlength="4000" rows="3" aria-label="Nuova nota"></textarea><button type="button" class="btn" data-action="addDayNote">Salva nota</button></div>'+
+ '<div class="todo-note-list">'+(notes.length?notes.map(n=>'<article class="todo-note" data-note-card="'+esc(n.id)+'"><div class="todo-note-content">'+esc(n.text)+'</div>'+(n.originalDay&&n.originalDay!==n.day?'<div class="todo-note-carried">Spostata dal '+esc(humanDate(n.originalDay))+'</div>':'')+'<div class="todo-note-actions"><button type="button" data-note-edit="'+esc(n.id)+'">Modifica</button><button type="button" data-note-move="'+esc(n.id)+'">Sposta…</button><button type="button" data-note-next="'+esc(n.id)+'">+1 giorno</button><button type="button" class="note-delete" data-note-delete="'+esc(n.id)+'" aria-label="Elimina nota">Elimina</button></div></article>').join(''):'<p class="todo-notes-empty">Nessun appunto per il giorno selezionato.</p>')+'</div>'+
+ '<div class="todo-report-recap"><div><small>INCASSO CUCINA · '+esc(humanDate(todoDay))+'</small><strong>'+(sales.recorded?esc(currency(sales.revenue)):'Vendite non registrate')+'</strong><span>'+(sales.recorded?integer(sales.qty)+' piatti venduti · '+sales.items.length+' voci':'Il report segnalerà i dati mancanti')+'</span></div><button type="button" class="btn light small" data-action="daySales">'+(sales.recorded?'Apri vendite':'Inserisci vendite')+'</button></div>'+
+ '</section>'}
+async function addDayNote(){const field=$('#noteQuickText');if(!field)return;const value=field.value.trim();if(!value){toast('Scrivi il testo della nota');return}state.todoNotes.push({id:uid(),day:todoDay,originalDay:todoDay,text:value,createdAt:Date.now()});await persist();renderTodo();toast('Nota salvata')}
+function noteEditModal(id){const item=state.todoNotes.find(n=>n.id===id);if(!item)return;showModal('Modifica nota','<div class="formgroup"><label class="field-label">Testo della nota</label><textarea id="editDayNoteText" class="field textarea" maxlength="4000" rows="6">'+esc(item.text)+'</textarea></div>','<button type="button" class="btn outline" id="noteCancel">Annulla</button><button type="button" class="btn secondary" id="noteSave">Salva</button>');$('#noteCancel').onclick=hideModal;$('#noteSave').onclick=async()=>{const value=$('#editDayNoteText').value.trim();if(!value){toast('La nota non può essere vuota');return}item.text=value;await persist();hideModal();renderTodo();toast('Nota aggiornata')}}
+function noteMoveModal(id){const item=state.todoNotes.find(n=>n.id===id);if(!item)return;const next=dayShift(item.day,1);showModal('Sposta la nota','<div class="formgroup"><label class="field-label">Nuovo giorno</label><input type="date" class="field" id="noteMoveDate" min="'+esc(next)+'" value="'+esc(next)+'"></div><p class="tip">La nota verrà spostata, non duplicata. Rimarrà indicato il giorno in cui era stata creata.</p>','<button type="button" class="btn outline" id="noteMoveCancel">Annulla</button><button type="button" class="btn secondary" id="noteMoveSave">Sposta nota</button>');$('#noteMoveCancel').onclick=hideModal;$('#noteMoveSave').onclick=async()=>{const day=$('#noteMoveDate').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(day)||day<=item.day){toast('Scegli un giorno successivo');return}await moveDayNote(item,day);hideModal()}}
+async function moveDayNote(note,day){if(day<=note.day)return;if(!note.originalDay)note.originalDay=note.day;note.movedFrom=note.day;note.day=day;note.movedAt=new Date().toISOString();await persist();renderTodo();toast('Nota spostata al '+humanDate(day))}
+async function deleteDayNote(id){const note=state.todoNotes.find(n=>n.id===id);if(!note)return;if(!confirm('Eliminare definitivamente questa nota?'))return;state.todoNotes=state.todoNotes.filter(n=>n.id!==id);await persist();renderTodo();toast('Nota eliminata')}
+function dailyKitchenSnapshot(day){const rows=statsRows().filter(r=>r.date===day && num(r.qty)>0);const grouped=new Map();for(const r of rows){const unit=num(r.price),qty=num(r.qty),key=[r.productId||'',r.name||'',r.category||'',unit].join('|');const x=grouped.get(key)||{name:String(r.name||'Senza nome'),category:String(r.category||'Altro'),qty:0,unitPrice:unit,total:0};x.qty+=qty;x.total+=qty*unit;grouped.set(key,x)}const items=[...grouped.values()].sort((a,b)=>a.category.localeCompare(b.category,'it')||a.name.localeCompare(b.name,'it'));return {recorded:rows.length>0,items,qty:items.reduce((v,x)=>v+x.qty,0),revenue:Math.round(items.reduce((v,x)=>v+x.total,0)*100)/100};}
+function dailyReportSnapshot(day){const sales=dailyKitchenSnapshot(day);return {schema:1,kind:'MIA_DAILY_REPORT',date:day,createdAt:new Date().toISOString(),todos:TODO_AREAS.map(area=>({area,items:[...state.todos.filter(t=>t.due===day && todoArea(t)===area).map(t=>({id:t.id,name:t.name,done:!!t.done,priority:t.priority||'normal',note:t.note||'',originalDue:t.originalDue||null})),...(state.todoCarryHistory||[]).filter(h=>h.day===day&&h.category===area).map(h=>({id:h.taskId,name:h.name,done:false,priority:h.priority||'normal',note:h.note||'',originalDue:day,carriedTo:h.carriedTo}))]})),notes:notesForDay(day).map(n=>({id:n.id,text:n.text,originalDay:n.originalDay||n.day})),kitchen:{registered:sales.recorded,revenue:sales.recorded?sales.revenue:null,quantity:sales.recorded?sales.qty:null,items:sales.items}}}
+
+async function addQuickTodo(area){if(!TODO_AREAS.includes(area))return;const field=$('[data-todo-input="'+area+'"]');if(!field)return;const name=field.value.trim();if(!name)return;state.todos.push({id:uid(),name,due:todoDay,category:area,note:'',priority:'normal',done:false,createdAt:Date.now()});field.value='';refreshTodoLists();await persist()}
+function todoModal(id){
+ const old=state.todos.find(x=>x.id===id),currentArea=old?todoArea(old):'LINEA';
+ showModal(old?'Modifica attività':'Nuova attività','<form id="todoForm"><div class="formgroup"><label class="field-label">Attività</label><input class="field" name="name" maxlength="300" required placeholder="Descrivi la preparazione o l’attività" value="'+esc(old?.name||'')+'"></div><div class="formrow"><div class="formgroup"><label class="field-label">Giorno</label><input class="field" type="date" name="due" required value="'+esc(old?.due||todoDay)+'"></div><div class="formgroup"><label class="field-label">Sezione</label><select class="select" name="category">'+TODO_AREAS.map(a=>'<option value="'+a+'" '+(a===currentArea?'selected':'')+'>'+a+'</option>').join('')+'</select></div></div><label class="urgent-check"><input type="checkbox" name="urgent" '+(old?.priority==='urgent'?'checked':'')+'> <span><b>Priorità urgente</b><small>Evidenziata in arancio e in cima alla sezione</small></span></label><div class="formgroup"><label class="field-label">Note (facoltative)</label><textarea class="field textarea" name="note" placeholder="Informazioni aggiuntive">'+esc(old?.note||'')+'</textarea></div>'+(old?.recurrenceId?'<p class="recurrence-hint">Questa modifica riguarda solo questa occorrenza. Per cambiare la frequenza, apri <b>Ricorrenti</b>.</p>':'')+'</form>',(old?'<button class="btn danger" id="deleteTodo">Elimina</button><div class="push"></div>':'')+'<button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveTodo">Salva</button>');
+ $('#cancelModal').onclick=hideModal;
+ $('#saveTodo').onclick=async()=>{const f=$('#todoForm');if(!f.reportValidity())return;const d=new FormData(f);const obj={...(old||{}),id:old?.id||uid(),name:String(d.get('name')).trim(),due:String(d.get('due')||todoDay),category:String(d.get('category')||'LINEA'),note:String(d.get('note')||'').trim(),priority:d.get('urgent')?'urgent':'normal',done:old?.done||false,createdAt:old?.createdAt||Date.now(),customized:!!old?.recurrenceId||!!old?.customized};if(!obj.name||!TODO_AREAS.includes(obj.category))return;if(old)state.todos=state.todos.map(x=>x.id===id?obj:x);else state.todos.push(obj);await persist();hideModal();renderTodo();toast('Attività salvata')};
+ if(old)$('#deleteTodo').onclick=async()=>{await deleteTodo(old);};
+}
+async function deleteTodo(task){
+ if(!confirm('Eliminare «'+task.name+'»?'+(task.recurrenceId?' La ricorrenza resterà attiva negli altri giorni.':'')))return;
+ // L'eliminazione di una singola occorrenza non la deve rigenerare nello stesso giorno.
+ if(task.recurrenceId){const rule=state.todoRecurrences.find(r=>r.id===task.recurrenceId);if(rule){rule.skippedDates=rule.skippedDates||[];const daysToSkip=[task.scheduledFor||task.due,task.due];for(const day of daysToSkip){if(day && !rule.skippedDates.includes(day))rule.skippedDates.push(day);}}}
+ state.todos=state.todos.filter(t=>t.id!==task.id);await persist();hideModal();renderTodo();toast('Attività eliminata');
+}
+function recurringManager(){
+ const arr=state.todoRecurrences.slice().sort((a,b)=>a.name.localeCompare(b.name,'it'));
+ const rows=arr.map(r=>'<div class="rec-rule"><div class="rec-rule-info"><b>'+esc(r.name)+'</b><small>'+esc(r.category)+' · '+esc(recLabel(r))+' · dal '+esc(humanDate(r.start))+'</small>'+(r.priority==='urgent'?'<small class="rec-urgent">URGENTE</small>':'')+'</div><button class="btn small '+(r.active?'light':'outline')+'" data-rec-toggle="'+esc(r.id)+'">'+(r.active?'Attiva':'Pausa')+'</button><button class="btn outline small" data-rec-edit="'+esc(r.id)+'">Modifica</button></div>').join('');
+ showModal('Preparazioni ricorrenti','<p class="rec-explain">MIA inserisce le attività nei giorni stabiliti. Le preparazioni già in sospeso non vengono duplicate.</p>'+(arr.length?'<div class="rec-rules">'+rows+'</div>':'<p class="rec-explain">Nessuna ricorrenza configurata.</p>')+'<p class="rec-explain">Metti in pausa una preparazione per interrompere le nuove occorrenze, mantenendo lo storico.</p>','<button class="btn outline" id="recClose">Chiudi</button><button class="btn" id="recAdd">+ Nuova ricorrenza</button>',true);
+ $('#recClose').onclick=hideModal;$('#recAdd').onclick=()=>recurringModal();
+ $$('[data-rec-edit]').forEach(b=>b.onclick=()=>recurringModal(b.dataset.recEdit));
+ $$('[data-rec-toggle]').forEach(b=>b.onclick=async()=>{const r=state.todoRecurrences.find(x=>x.id===b.dataset.recToggle);if(!r)return;r.active=!r.active;await persist();recurringManager()});
+}
+function recurringModal(id){
+ const old=state.todoRecurrences.find(r=>r.id===id);
+ const r=old||{name:'',category:'LINEA',note:'',priority:'normal',mode:'daily',days:[1,2,3,4,5],start:todoDay,active:true};
+ const weekdays=[1,2,3,4,5,6,0].map(n=>'<label class="rec-weekday"><input type="checkbox" name="weekday" value="'+n+'" '+((r.days||[]).includes(n)?'checked':'')+'><span>'+weekNames[n]+'</span></label>').join('');
+ showModal(old?'Modifica ricorrenza':'Nuova ricorrenza','<form id="recForm"><div class="formgroup"><label class="field-label">Preparazione</label><input class="field" name="name" maxlength="300" required value="'+esc(r.name)+'" placeholder="Es. Preparare impasto pizza"></div><div class="formrow"><div class="formgroup"><label class="field-label">Sezione</label><select class="select" name="category">'+TODO_AREAS.map(a=>'<option value="'+a+'" '+(a===r.category?'selected':'')+'>'+a+'</option>').join('')+'</select></div><div class="formgroup"><label class="field-label">A partire dal</label><input class="field" type="date" name="start" required value="'+esc(r.start)+'"></div></div><div class="formgroup"><label class="field-label">Ripeti</label><select class="select" name="mode" id="recMode"><option value="daily" '+(r.mode==='daily'?'selected':'')+'>Ogni giorno</option><option value="weekly" '+(r.mode==='weekly'?'selected':'')+'>Solo nei giorni selezionati</option></select></div><div class="formgroup" id="recWeekdays" '+(r.mode==='daily'?'hidden':'')+'><label class="field-label">Giorni della settimana</label><div class="rec-weekdays">'+weekdays+'</div></div><label class="urgent-check"><input type="checkbox" name="urgent" '+(r.priority==='urgent'?'checked':'')+'><span><b>Priorità urgente</b><small>Si applica a ogni nuova occorrenza</small></span></label><div class="formgroup"><label class="field-label">Note (facoltative)</label><textarea class="field textarea" name="note" placeholder="Dettagli sulla preparazione">'+esc(r.note||'')+'</textarea></div><p class="recurrence-hint">Ogni esecuzione è indipendente: la spunta non completa anche i giorni successivi. Le attività incomplete passano al giorno seguente.</p></form>',(old?'<button class="btn danger" id="recDelete">Elimina ricorrenza</button><div class="push"></div>':'')+'<button class="btn outline" id="recBack">Indietro</button><button class="btn secondary" id="recSave">Salva</button>',true);
+ $('#recMode').onchange=e=>$('#recWeekdays').hidden=e.target.value!=='weekly';$('#recBack').onclick=recurringManager;
+ $('#recSave').onclick=async()=>{const f=$('#recForm');if(!f.reportValidity())return;const d=new FormData(f),days=$$('[name="weekday"]:checked',f).map(x=>Number(x.value));if(d.get('mode')==='weekly'&&!days.length){toast('Seleziona almeno un giorno');return}const obj={...(old||{}),id:old?.id||uid(),name:String(d.get('name')||'').trim(),category:String(d.get('category')),note:String(d.get('note')||'').trim(),priority:d.get('urgent')?'urgent':'normal',mode:String(d.get('mode')),days:days,start:String(d.get('start')),active:old?.active??true,skippedDates:old?.skippedDates||[]};if(!obj.name)return;
+ // Le attività già svolte restano nello storico; le future non personalizzate si riallineano al modello.
+ if(old){state.todoRecurrences=state.todoRecurrences.map(x=>x.id===id?obj:x);state.todos=state.todos.filter(t=>!(t.recurrenceId===id&&!t.done&&!t.customized&&t.scheduledFor>=localDay()));}else state.todoRecurrences.push(obj);
+ recurringForDay(localDay());if(todoDay!==localDay())recurringForDay(todoDay);
+ await persist();hideModal();renderTodo();toast('Ricorrenza salvata');};
+ if(old)$('#recDelete').onclick=async()=>{if(!confirm('Eliminare definitivamente questa ricorrenza? Le attività completate rimarranno nello storico.'))return;state.todoRecurrences=state.todoRecurrences.filter(r=>r.id!==old.id);state.todos=state.todos.filter(t=>!(t.recurrenceId===old.id&&!t.done&&t.scheduledFor>=localDay()&&!t.customized));await persist();recurringManager()};
+}
+// Esportazione PDF senza librerie esterne, per il funzionamento anche offline su iPad.
+function makeTodoPDF(day){
+ const report=dailyReportSnapshot(day);
+ const W=595,H=842,M=42,R=W-M,CW=W-2*M;
+ const DARK=[31,46,40],TEXT=[44,57,50],MUTED=[108,117,109],ACC=[201,111,86],PAPER=[252,249,244],SURF=[239,232,222],SURF2=[232,224,212],WHITE=[255,255,255],INK=[29,43,37];
+ const pages=[];let commands=[],y=0,pageNo=0;
+ const pdfColor=(rgb,stroke=false)=>rgb.map(n=>(n/255).toFixed(3)).join(' ')+(stroke?' RG':' rg');
+ const clean=s=>String(s??'').replace(/\u20AC/g,'\x80').replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014]/g,'-').replace(/\u2022/g,'-').replace(/[^\x20-\xFF]/g,'?');
+ const escPdf=s=>clean(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
+ const measure=(s,size,bold=false)=>{let w=0;for(const c of clean(s)){if('il.,:;!| '.includes(c))w+=.26;else if('MW@#%'.includes(c))w+=.83;else if('Ifrt()'.includes(c))w+=.34;else if('0123456789'.includes(c))w+=.56;else w+=bold?.59:.53}return w*size};
+ const rect=(x,b,w,h,fill)=>commands.push(pdfColor(fill)+' '+x.toFixed(1)+' '+b.toFixed(1)+' '+w.toFixed(1)+' '+h.toFixed(1)+' re f');
+ const txt=(x,base,s,size=10,bold=false,ink=TEXT)=>commands.push(pdfColor(ink)+' BT /'+(bold?'F2':'F1')+' '+size+' Tf 1 0 0 1 '+x.toFixed(1)+' '+base.toFixed(1)+' Tm ('+escPdf(s)+') Tj ET');
+ const right=(x,base,s,size=10,bold=false,ink=TEXT)=>txt(x-measure(s,size,bold),base,s,size,bold,ink);
+ const wrap=(input,maxWidth,size,bold=false)=>{const out=[];for(const par of clean(input).split(/\r?\n/)){if(!par.trim()){out.push('');continue}let current='';for(const raw of par.split(/\s+/).filter(Boolean)){let word=raw;while(measure(word,size,bold)>maxWidth){let cut=word.length-1;while(cut>1&&measure(word.slice(0,cut),size,bold)>maxWidth)cut--;if(current){out.push(current);current=''}out.push(word.slice(0,cut));word=word.slice(cut)}if(!word)continue;const test=current?current+' '+word:word;if(measure(test,size,bold)>maxWidth&&current){out.push(current);current=word}else current=test}out.push(current||'')}return out};
+ const startPage=()=>{pageNo++;commands=[];rect(0,H-9,W,9,DARK);txt(M,H-42,'MIA',12,true,INK);txt(M+31,H-42,'Menu Intelligence Assistant',9,false,MUTED);right(R,H-42,'Report giornaliero · '+day,8.5,false,MUTED);y=H-74};
+ const finishPage=()=>pages.push(commands.slice());
+ const ensure=(need)=>{if(y-need<58){finishPage();startPage()}};
+ const blockTitle=(num,label,meta='')=>{ensure(42);txt(M,y,String(num).padStart(2,'0'),8.5,true,ACC);txt(M+24,y,label,15,true,INK);if(meta)right(R,y,meta,8.5,false,MUTED);y-=22};
+ const areaHeader=(label,meta='')=>{ensure(30);rect(M,y-18,CW,22,SURF2);txt(M+10,y-10,label,10,true,INK);if(meta)right(R-10,y-10,meta,8,false,MUTED);y-=29};
+ const p=(content,size=9,ink=MUTED)=>{const lines=wrap(content,CW-22,size,false);for(const line of lines){ensure(size+8);txt(M+11,y,line,size,false,ink);y-=size+4}y-=4};
+ const drawTask=(task,rowIndex)=>{const status=task.done?'FATTO':task.carriedTo?'RINVIATO':'DA FARE';const statusCol=task.done?MUTED:ACC;const detailBits=[];if(task.carriedTo)detailBits.push('Riportata al '+humanDate(task.carriedTo));else if(task.originalDue&&task.originalDue<day)detailBits.push('Riportata dal '+humanDate(task.originalDue));if(task.note)detailBits.push(task.note);const title=(task.priority==='urgent'?'Urgente · ':'')+task.name;const tLines=wrap(title,CW-122,9.3,task.priority==='urgent');const dLines=detailBits.length?wrap(detailBits.join(' · '),CW-122,8,false):[];const h=18+tLines.length*12.4+dLines.length*10.6;ensure(h+8);rect(M,y-h+4,CW,h,rowIndex%2===0?PAPER:[248,243,236]);txt(M+10,y-11,status,7.5,true,statusCol);let yy=y-12;for(const line of tLines){txt(M+86,yy,line,9.3,task.priority==='urgent',task.done?MUTED:TEXT);yy-=12.4}for(const line of dLines){txt(M+86,yy,line,8,false,MUTED);yy-=10.6}y-=h+6};
+ const drawNote=(note,idx)=>{const body=wrap(note.text,CW-52,9,false);const hint=note.originalDay&&note.originalDay!==day?'Spostata dal '+humanDate(note.originalDay):'';const h=18+body.length*12.8+(hint?11:0);ensure(h+8);rect(M,y-h+4,CW,h,idx%2===0?PAPER:[248,243,236]);txt(M+10,y-11,String(idx+1).padStart(2,'0'),8.5,true,ACC);let yy=y-12;for(const line of body){txt(M+36,yy,line,9,false,TEXT);yy-=12.8}if(hint){txt(M+36,yy,hint,7.8,false,MUTED)}y-=h+6};
+ const drawSalesTable=(category,items)=>{const qty=items.reduce((s,a)=>s+a.qty,0),tot=items.reduce((s,a)=>s+a.total,0);areaHeader(category.toUpperCase(),' '+integer(qty)+' piatti · '+currency(tot));rect(M,y-18,CW,18,SURF);txt(M+10,y-11,'PIATTO',7.6,true,MUTED);right(M+372,y-11,'QTÀ',7.6,true,MUTED);right(M+444,y-11,'PREZZO',7.6,true,MUTED);right(R-10,y-11,'TOTALE',7.6,true,MUTED);y-=22;items.forEach((it,row)=>{const nameLines=wrap(it.name,302,8.7,false);const h=14+nameLines.length*11.8;ensure(h+7);rect(M,y-h+4,CW,h,row%2===0?PAPER:[248,243,236]);let yy=y-11;for(const line of nameLines){txt(M+10,yy,line,8.7,false,TEXT);yy-=11.8}right(M+372,y-11,integer(it.qty),8.7,true,INK);right(M+444,y-11,currency(it.unitPrice),8.1,false,MUTED);right(R-10,y-11,currency(it.total),8.8,true,INK);y-=h+5});rect(M,y-20,CW,20,SURF2);txt(M+10,y-12,'Subtotale '+category,8,true,MUTED);right(R-10,y-12,currency(tot),9.2,true,INK);y-=28};
+ startPage();txt(M,y,humanDate(day),23,true,INK);txt(M,y-20,'Riepilogo operativo e vendite della giornata',9,false,MUTED);y-=48;
+ const allTodos=report.todos.flatMap(g=>g.items),completed=allTodos.filter(t=>t.done).length;const metricW=(CW-12)/3;[['Attività completate',completed+' / '+allTodos.length,false],['Piatti venduti',report.kitchen.registered?integer(report.kitchen.quantity):'N.D.',false],['Incasso cucina',report.kitchen.registered?currency(report.kitchen.revenue):'Non registrato',true]].forEach((m,i)=>{const x=M+i*(metricW+6);rect(x,y-52,metricW,52,m[2]?DARK:SURF);txt(x+10,y-14,m[0].toUpperCase(),7.7,false,m[2]?[210,220,212]:MUTED);txt(x+10,y-36,m[1],m[2]?13.5:14.5,true,m[2]?WHITE:INK)});y-=70;
+ blockTitle(1,'Attività e preparazioni','5 sezioni');report.todos.forEach(group=>{areaHeader(group.area,group.items.filter(t=>t.done).length+' / '+group.items.length+' completate');if(!group.items.length){p('Nessuna attività prevista.',8.8,MUTED);return}group.items.forEach((t,idx)=>drawTask(t,idx));y-=2});
+ blockTitle(2,'Note della giornata',integer(report.notes.length)+' note');if(!report.notes.length)p('Nessuna nota presente.',9,MUTED);else report.notes.forEach((n,idx)=>drawNote(n,idx));
+ blockTitle(3,'Consuntivo cucina',report.kitchen.registered?integer(report.kitchen.quantity)+' piatti':'Non registrato');if(!report.kitchen.registered){p('Nessuna vendita food registrata per questa data. Il totale cucina non è disponibile.',9,MUTED)}else{ensure(82);rect(M,y-66,CW,66,SURF);txt(M+14,y-16,'Incasso complessivo cucina',8.5,false,MUTED);txt(M+14,y-44,currency(report.kitchen.revenue),23,true,INK);right(R-14,y-41,integer(report.kitchen.quantity)+' piatti venduti',9,true,ACC);y-=82;const groups=new Map();for(const it of report.kitchen.items){const key=String(it.category||'Altro');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(it)}const known=[...(kitchen().categoryOrder||[]),...(menuAt(day)?.categories||[])].map(String);const ordered=[...groups.entries()].sort((a,b)=>{const ia=known.findIndex(s=>s.toLocaleLowerCase('it')===a[0].toLocaleLowerCase('it'));const ib=known.findIndex(s=>s.toLocaleLowerCase('it')===b[0].toLocaleLowerCase('it'));return (ia<0?999:ia)-(ib<0?999:ib)||a[0].localeCompare(b[0],'it')});ordered.forEach(([category,items])=>drawSalesTable(category,items));ensure(34);rect(M,y-26,CW,26,DARK);txt(M+12,y-17,'Totale incasso cucina',9,true,WHITE);right(R-12,y-17,currency(report.kitchen.revenue),14,true,WHITE);y-=34}
+ finishPage();
+ const objects=[null,null,'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>','<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>'];const refs=[];
+ for(let i=0;i<pages.length;i++){const parts=pages[i].slice();parts.push(pdfColor(MUTED)+' BT /F1 8 Tf 1 0 0 1 '+M.toFixed(1)+' 29 Tm ('+escPdf('MIA · '+humanDate(day))+') Tj ET');parts.push(pdfColor(MUTED)+' BT /F1 8 Tf 1 0 0 1 '+(R-72).toFixed(1)+' 29 Tm ('+escPdf('Pagina '+(i+1)+' / '+pages.length)+') Tj ET');const stream=parts.join('\n')+'\n';const sRef=objects.length+1;objects.push('<< /Length '+stream.length+' >>\nstream\n'+stream+'endstream');const pRef=objects.length+1;objects.push('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+W+' '+H+'] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents '+sRef+' 0 R >>');refs.push(pRef+' 0 R')}
+ objects[0]='<< /Type /Catalog /Pages 2 0 R >>';objects[1]='<< /Type /Pages /Kids ['+refs.join(' ')+'] /Count '+pages.length+' >>';let pdf='%PDF-1.4\n%\xE2\xE3\xCF\xD3\n',offsets=[0];objects.forEach((o,i)=>{offsets.push(pdf.length);pdf+=(i+1)+' 0 obj\n'+o+'\nendobj\n'});const xref=pdf.length;pdf+='xref\n0 '+(objects.length+1)+'\n0000000000 65535 f \n';for(const p of offsets.slice(1))pdf+=String(p).padStart(10,'0')+' 00000 n \n';pdf+='trailer\n<< /Size '+(objects.length+1)+' /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF';const bytes=new Uint8Array(pdf.length);for(let i=0;i<pdf.length;i++)bytes[i]=pdf.charCodeAt(i)&255;return new Blob([bytes],{type:'application/pdf'});
+}
+async function shareTodoDay(){try{await saveChain.catch(()=>{});const day=todoDay,fileName='MIA_REPORT_'+day+'.pdf',blob=makeTodoPDF(day);if(navigator.share&&navigator.canShare&&typeof File!=='undefined'){const file=new File([blob],fileName,{type:'application/pdf'});if(navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'MIA - Report cucina '+humanDate(day)});return}catch(e){if(e.name==='AbortError')return}}}const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=fileName;document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);toast('PDF del giorno generato. Puoi condividerlo dall’app File.')}catch(e){toast('Impossibile creare il PDF: '+e.message)}}
+function allTags(){return [...new Set([...(state.tags||[]),...state.recipes.flatMap(r=>r.tags||[])].filter(Boolean))].sort((a,b)=>a.localeCompare(b,'it'))}
+const recipeField=(id,label,value='',placeholder='',kind='text')=>'<div class="formgroup"><label class="field-label" for="'+id+'">'+label+'</label><input class="field" id="'+id+'" type="'+kind+'" value="'+esc(value??'')+'" placeholder="'+esc(placeholder)+'" maxlength="180"></div>';
+const recipeMeta=(r)=>[r.yield?'Resa: '+r.yield:'',r.prepMinutes?'Prep: '+r.prepMinutes+' min':'',r.cookMinutes?'Cottura: '+r.cookMinutes+' min':'',r.temperature?'Temperatura: '+r.temperature:''].filter(Boolean);
+function renderRecipes(){const tags=allTags();let rec=state.recipes.filter(r=>(recipeTags.size===0||[...recipeTags].every(tag=>(r.tags||[]).includes(tag)))&&(!recipeQuery||((r.name||'')+' '+(r.tags||[]).join(' ')+' '+(r.yield||'')+' '+(r.allergens||'')).toLocaleLowerCase('it').includes(recipeQuery.toLocaleLowerCase('it'))));rec.sort((a,b)=>String(a.name).localeCompare(String(b.name),'it'));
+$('#view').innerHTML='<div class="heading-row"><div><div class="eyebrow">Archivio operativo</div><h1 class="h1">Ricette<span style="color:var(--detail)">.</span></h1><p class="lead">Ingredienti, preparazioni e informazioni operative in un unico archivio.</p></div><div class="actions"><button class="btn light" data-action="newTag">Gestisci tag</button><button class="btn secondary" data-action="newRecipe">'+icon('plus')+' Nuova ricetta</button></div></div><section class="panel recipes-panel"><div class="recipes-toolbar"><div class="recipes-search"><label for="recipeSearch">CERCA RICETTA</label><input class="control search" type="search" id="recipeSearch" placeholder="Nome, tag, allergeni…" value="'+esc(recipeQuery)+'"></div><div class="pills recipe-filters" aria-label="Filtra ricette"><button class="pill '+(recipeTags.size===0?'active':'')+'" data-tag="Tutti" aria-pressed="'+(recipeTags.size===0)+'">Tutte</button>'+tags.map(t=>'<button class="pill '+(recipeTags.has(t)?'active':'')+'" data-tag="'+esc(t)+'" aria-pressed="'+recipeTags.has(t)+'">'+esc(t)+'</button>').join('')+'</div></div><div class="recipes-results"><h3>Archivio ricette</h3><span class="mini-label">'+rec.length+' '+(rec.length===1?'ricetta':'ricette')+'</span></div>'+(rec.length?'<div class="record-grid recipes-grid">'+rec.map(r=>'<article class="recipe-card"><div class="recipe-card-top"><span class="recipe-kicker">SCHEDA RICETTA</span><span class="recipe-ingredient-count">'+integer((r.ingredients||[]).length)+' ingredienti</span></div><div class="name">'+esc(r.name)+'</div><div class="recipe-facts">'+(recipeMeta(r).length?recipeMeta(r).map(m=>'<span>'+esc(m)+'</span>').join(''):'<span>Preparazione personalizzata</span>')+'</div><div class="ctags">'+(r.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join('')+'</div><div class="bottom"><button class="btn light small" data-recipe-view="'+esc(r.id)+'">Apri scheda</button><button class="recipe-mail" data-recipe-email="'+esc(r.id)+'" type="button">Invia via email</button><button class="small-btn" data-recipe-edit="'+esc(r.id)+'" aria-label="Modifica ricetta">'+icon('edit')+'</button></div></article>').join('')+'</div>':empty(state.recipes.length?'Nessuna ricetta con i tag selezionati':'Il ricettario di MIA','Puoi inserire ricette, aggiungere ingredienti e creare tutti i tag che ti servono.','Aggiungi ricetta','newRecipe'))+'</section>'}
+function newTag(){manageRecipeTags()}
+function manageRecipeTags(){const all=allTags();const rows=all.map(t=>{const used=state.recipes.filter(r=>(r.tags||[]).includes(t)).length;return '<div class="tag-manager-row"><div><b>'+esc(t)+'</b><small>'+used+' '+(used===1?'ricetta associata':'ricette associate')+'</small></div><button type="button" class="tag-manager-remove" data-remove-tag="'+esc(t)+'">Elimina</button></div>'}).join('');showModal('Gestione tag','<div class="tag-manager-intro">Qui puoi creare o eliminare tag. Non si possono eliminare dalla schermata delle ricette, per evitare modifiche accidentali.</div><div class="tag-manager-create"><input class="field" id="tagName" maxlength="40" placeholder="Nome nuovo tag" aria-label="Nome nuovo tag"><button class="btn" id="saveTag" type="button">Aggiungi tag</button></div><div class="recipe-section-label">TAG DISPONIBILI <span>'+all.length+'</span></div><div class="tag-manager-list">'+(rows||'<p class="tip">Nessun tag salvato.</p>')+'</div><p class="tag-manager-help">Eliminando un tag lo rimuovi anche dalle ricette associate, senza cancellare le ricette.</p>','<button class="btn outline" id="closeTagManager">Chiudi</button>',true);$('#closeTagManager').onclick=hideModal;const field=$('#tagName');const add=async()=>{const n=field.value.trim();if(!n){toast('Scrivi il nome del tag');return}if(allTags().some(t=>t.toLocaleLowerCase('it')===n.toLocaleLowerCase('it'))){toast('Questo tag esiste già');return}state.tags.push(n);await persist();manageRecipeTags();toast('Tag aggiunto')};$('#saveTag').onclick=add;field.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();add()}});$$('[data-remove-tag]').forEach(button=>button.onclick=()=>confirmRemoveRecipeTag(button.dataset.removeTag))}
+function confirmRemoveRecipeTag(tag){const used=state.recipes.filter(r=>(r.tags||[]).includes(tag)).length;showModal('Elimina tag','<div class="tag-remove-warning"><strong>'+esc(tag)+'</strong><p>Il tag sarà rimosso da '+used+' '+(used===1?'ricetta':'ricette')+'. Le ricette, gli ingredienti e le preparazioni rimarranno intatti.</p><label class="field-label" for="tagDeleteConfirmation">Per confermare, scrivi ELIMINA</label><input class="field" id="tagDeleteConfirmation" autocomplete="off" placeholder="ELIMINA"></div>','<button class="btn outline" id="cancelRemoveTag">Indietro</button><button class="btn danger" id="executeRemoveTag" disabled>Elimina definitivamente</button>',true);$('#cancelRemoveTag').onclick=manageRecipeTags;$('#tagDeleteConfirmation').addEventListener('input',e=>$('#executeRemoveTag').disabled=e.target.value.trim().toUpperCase()!=='ELIMINA');$('#executeRemoveTag').onclick=async()=>{if($('#tagDeleteConfirmation').value.trim().toUpperCase()!=='ELIMINA')return;state.tags=state.tags.filter(t=>t!==tag);for(const r of state.recipes)r.tags=(r.tags||[]).filter(t=>t!==tag);recipeTags.delete(tag);await persist();manageRecipeTags();renderRecipes();toast('Tag eliminato dalle ricette')};}
+let recipeIngredients=[];
+function recipeModal(id){const old=state.recipes.find(x=>x.id===id);recipeIngredients=(old?.ingredients?.length?old.ingredients:[{name:'',qty:'',unit:'g'}]).map(i=>({...i}));
+ const buildRow=(it,i)=>'<div class="ingredient-row recipe-ingredient-edit"><input class="field" data-ingredient="name" data-i="'+i+'" value="'+esc(it.name)+'" placeholder="Ingrediente" aria-label="Nome ingrediente '+(i+1)+'"><input class="field" type="text" data-ingredient="qty" data-i="'+i+'" value="'+esc(it.qty)+'" placeholder="Quantità" aria-label="Quantità ingrediente '+(i+1)+'"><input class="field" data-ingredient="unit" data-i="'+i+'" value="'+esc(it.unit)+'" placeholder="Unità" aria-label="Unità ingrediente '+(i+1)+'"><button class="small-btn" data-del-ingredient="'+i+'" type="button" aria-label="Elimina ingrediente '+(i+1)+'">×</button></div>';
+ const form='<div class="recipe-edit-group"><div class="recipe-section-label">01 / IDENTITÀ</div>'+recipeField('rName','Nome ricetta',old?.name||'','Nome piatto o preparazione')+recipeField('rTags','Tag (separati da virgola)',(old?.tags||[]).join(', '),'Es. Primi, Vegan, Preparazioni')+'</div><div class="recipe-edit-group"><div class="recipe-section-label">02 / DATI OPERATIVI</div><div class="recipe-form-grid">'+recipeField('rYield','Resa o porzioni',old?.yield||'','Es. 8 porzioni / 2 kg')+recipeField('rPrepMinutes','Preparazione (min)',old?.prepMinutes||'','Es. 20')+recipeField('rCookMinutes','Cottura (min)',old?.cookMinutes||'','Es. 45')+recipeField('rTemperature','Temperatura',old?.temperature||'','Es. 180 °C')+recipeField('rStorage','Conservazione',old?.storage||'','Es. 3 giorni a +4 °C')+recipeField('rEquipment','Attrezzature',old?.equipment||'','Es. Roner, forno')+recipeField('rAllergens','Allergeni',old?.allergens||'','Es. Glutine, latte')+'</div></div><div class="recipe-edit-group"><div class="recipe-section-top"><div class="recipe-section-label">03 / INGREDIENTI</div><button type="button" class="btn light small" id="addIngredient">'+icon('plus')+' Aggiungi ingrediente</button></div><div class="recipe-ingredient-cols"><span>INGREDIENTE</span><span>QUANTITÀ</span><span>UNITÀ</span><span></span></div><div id="ingredientRows">'+recipeIngredients.map(buildRow).join('')+'</div></div><div class="recipe-edit-group"><div class="recipe-section-label">04 / PROCEDIMENTO E SERVIZIO</div><div class="formgroup"><label class="field-label" for="rSteps">Preparazione / procedimento</label><textarea class="field textarea" id="rSteps" rows="5">'+esc(old?.steps||'')+'</textarea></div><div class="formgroup"><label class="field-label" for="rPlating">Finitura e impiattamento</label><textarea class="field textarea" id="rPlating" rows="3">'+esc(old?.plating||'')+'</textarea></div><div class="formgroup"><label class="field-label" for="rNotes">Note operative</label><textarea class="field textarea" id="rNotes" rows="3">'+esc(old?.notes||'')+'</textarea></div></div>';
+ showModal(old?'Modifica ricetta':'Nuova ricetta',form,(old?'<button class="btn danger" id="deleteRecipe">Elimina ricetta</button><div class="push"></div>':'')+'<button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveRecipe">Salva ricetta</button>',true);$('.dialog').classList.add('recipe-editor');
+ const rows=$('#ingredientRows');const capture=()=>{$$('[data-ingredient]',rows).forEach(el=>{if(recipeIngredients[+el.dataset.i])recipeIngredients[+el.dataset.i][el.dataset.ingredient]=el.value})};const redraw=()=>rows.innerHTML=recipeIngredients.map(buildRow).join('');rows.addEventListener('input',e=>{if(e.target.dataset.ingredient)recipeIngredients[+e.target.dataset.i][e.target.dataset.ingredient]=e.target.value});rows.addEventListener('click',e=>{const btn=e.target.closest('[data-del-ingredient]');if(!btn)return;capture();recipeIngredients.splice(+btn.dataset.delIngredient,1);redraw()});$('#addIngredient').onclick=()=>{capture();recipeIngredients.push({name:'',qty:'',unit:'g'});redraw()};$('#cancelModal').onclick=hideModal;
+ $('#saveRecipe').onclick=async()=>{const name=$('#rName').value.trim();if(!name){toast('Inserisci il nome della ricetta');$('#rName').focus();return}capture();const tags=[...new Set($('#rTags').value.split(',').map(s=>s.trim()).filter(Boolean))];tags.forEach(t=>{if(!allTags().some(x=>x.toLocaleLowerCase('it')===t.toLocaleLowerCase('it')))state.tags.push(t)});const get=id=>$('#'+id).value.trim();const obj={...(old||{}),id:old?.id||uid(),name,tags,ingredients:recipeIngredients.filter(i=>i.name.trim()),yield:get('rYield'),prepMinutes:get('rPrepMinutes'),cookMinutes:get('rCookMinutes'),temperature:get('rTemperature'),storage:get('rStorage'),equipment:get('rEquipment'),allergens:get('rAllergens'),plating:get('rPlating'),steps:get('rSteps'),notes:get('rNotes'),updatedAt:Date.now()};if(old)state.recipes=state.recipes.map(r=>r.id===id?obj:r);else state.recipes.push(obj);await persist();hideModal();renderRecipes();toast('Ricetta salvata')};if(old)$('#deleteRecipe').onclick=async()=>{if(!confirm('Eliminare questa ricetta? L’operazione non può essere annullata.'))return;state.recipes=state.recipes.filter(r=>r.id!==id);await persist();hideModal();renderRecipes()};
+}
+function recipeView(id){const r=state.recipes.find(x=>x.id===id);if(!r)return;const info=[['RESA / PORZIONI',r.yield],['PREPARAZIONE',r.prepMinutes?r.prepMinutes+' min':''],['COTTURA',r.cookMinutes?r.cookMinutes+' min':''],['TEMPERATURA',r.temperature],['CONSERVAZIONE',r.storage],['ATTREZZATURE',r.equipment],['ALLERGENI',r.allergens]].filter(x=>x[1]);const details='<div class="recipe-view-head"><div class="recipe-view-label">SCHEDA OPERATIVA</div><div class="recipe-view-tags">'+(r.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join('')+'</div></div>'+(info.length?'<div class="recipe-view-facts">'+info.map(([label,value])=>'<div><small>'+label+'</small><strong>'+esc(value)+'</strong></div>').join('')+'</div>':'')+'<section class="recipe-view-section"><h3>Ingredienti <span>'+integer((r.ingredients||[]).length)+'</span></h3><div class="recipe-ingredients-table"><div class="recipe-ingredients-head"><span>INGREDIENTE</span><span>QUANTITÀ</span><span>UNITÀ</span></div>'+(r.ingredients?.length?r.ingredients.map((it,i)=>'<div class="recipe-ingredients-row"><span class="recipe-ingredient-name">'+esc(it.name)+'</span><span class="recipe-ingredient-quantity">'+esc(it.qty||'—')+'</span><span class="recipe-ingredient-unit">'+esc(it.unit||'—')+'</span></div>').join(''):'<p class="recipe-view-empty">Nessun ingrediente inserito.</p>')+'</div></section><section class="recipe-view-section"><h3>Procedimento</h3><p class="recipe-readable">'+esc(r.steps||'Non specificato')+'</p></section>'+(r.plating?'<section class="recipe-view-section"><h3>Finitura e impiattamento</h3><p class="recipe-readable">'+esc(r.plating)+'</p></section>':'')+(r.notes?'<section class="recipe-view-section"><h3>Note operative</h3><p class="recipe-readable">'+esc(r.notes)+'</p></section>':'');
+ showModal(r.name,details,'<button class="btn outline" id="cancelModal">Chiudi</button><button class="btn light" id="emailRecipeFromView">Invia via email</button><button class="btn secondary" id="editRecipeFromView">Modifica</button>',true);$('.dialog').classList.add('recipe-detail');$('#cancelModal').onclick=hideModal;$('#emailRecipeFromView').onclick=()=>shareRecipe(id);$('#editRecipeFromView').onclick=()=>{hideModal();recipeModal(id)}
+}
+function recipeEmailText(r){let parts=['MIA · RICETTA',r.name,''];if((r.tags||[]).length)parts.push('TAG: '+r.tags.join(', '),'');const details=[['Resa / porzioni',r.yield],['Preparazione',r.prepMinutes?r.prepMinutes+' min':''],['Cottura',r.cookMinutes?r.cookMinutes+' min':''],['Temperatura',r.temperature],['Conservazione',r.storage],['Attrezzature',r.equipment],['Allergeni',r.allergens]].filter(([,v])=>v);if(details.length)parts.push('DATI OPERATIVI',...details.map(([k,v])=>k+': '+v),'');parts.push('INGREDIENTI');for(const i of r.ingredients||[])parts.push('• '+i.name+' — '+(i.qty||'')+' '+(i.unit||''));parts.push('','PROCEDIMENTO',r.steps||'Non specificato');if(r.plating)parts.push('','FINITURA E IMPIATTAMENTO',r.plating);if(r.notes)parts.push('','NOTE OPERATIVE',r.notes);return parts.join('\n')}
+async function shareRecipe(id){const r=state.recipes.find(x=>x.id===id);if(!r)return;const subject='MIA · Ricetta: '+r.name,body=recipeEmailText(r);try{if(navigator.share&&navigator.canShare&&typeof File!=='undefined'){const file=new File([body],'MIA_Ricetta_'+(r.name||'ricetta').replace(/[^\w\-À-ÿ ]/g,'').trim().replace(/\s+/g,'_').slice(0,80)+'.txt',{type:'text/plain'});if(navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:subject,text:'Scheda ricetta da MIA'});return}catch(e){if(e.name==='AbortError')return}}}if(body.length>2500){const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='MIA_Ricetta.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);toast('Scheda lunga: file di testo scaricato da allegare all’email.');return}window.location.href='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)}catch(e){toast('Condivisione non disponibile: '+e.message)}}
+function renderInventory(){const all=state.inventory;const low=all.filter(x=>+x.qty<=+x.min);const items=(stockFilter==='low'?low:all).slice().sort((a,b)=>a.name.localeCompare(b.name,'it'));
+$('#view').innerHTML='<div class="heading-row"><div><div class="eyebrow">Controllo operativo</div><h1 class="h1">Magazzino<span style="color:var(--detail)">.</span></h1><p class="lead">Voci personalizzate, giacenze e caratteristiche aggiuntive per ogni articolo.</p></div><div class="actions"><button class="btn secondary" data-action="newStock">'+icon('plus')+' Nuova voce</button></div></div><div class="cards">'+metric('VOCI IN MAGAZZINO',integer(all.length),'Articoli censiti',true)+metric('DA RIORDINARE',integer(low.length),'Sotto soglia o esauriti')+metric('CATEGORIE',integer(new Set(all.map(x=>x.category||'Altro')).size),'Personalizzabili')+metric('GIACENZA TOTALE',integer(all.reduce((s,x)=>s+(+x.qty||0),0)),'Unità miste · non confrontabili')+'</div><section class="panel"><div class="section-top"><h3>Situazione magazzino</h3><div class="pills"><button class="pill '+(stockFilter==='all'?'active':'')+'" data-stock-filter="all">Tutte</button><button class="pill '+(stockFilter==='low'?'active':'')+'" data-stock-filter="low">Da riordinare</button></div></div>'+(items.length?items.map(i=>'<div class="inventory-row"><div><b>'+esc(i.name)+'</b><div class="mutetxt">'+esc(i.attributes||i.note||'')+'</div></div><span class="tag inventory-type">'+esc(i.category||'Altro')+'</span><div class="qtyctrl"><button data-stock-inc="'+esc(i.id)+'" data-step="-1" aria-label="Riduci">−</button><span>'+integer(i.qty)+'</span><button data-stock-inc="'+esc(i.id)+'" data-step="1" aria-label="Aumenta">+</button></div><span class="mini-label stockstatus '+(+i.qty<=+i.min?'under':'')+'">'+esc(i.unit||'pz')+' · '+(+i.qty<=+i.min?'Da riordinare':'Disponibile')+'</span><button class="small-btn" data-stock-edit="'+esc(i.id)+'" title="Modifica">'+icon('edit')+'</button></div>').join(''):empty(state.inventory.length?'Nessuna voce da riordinare':'Magazzino da configurare','Aggiungi gli articoli e definisci unità di misura, soglie e altri campi.','Aggiungi voce','newStock'))+'</section>'}
+function stockModal(id){const old=state.inventory.find(x=>x.id===id);showModal(old?'Modifica voce':'Nuova voce magazzino','<form id="stockForm"><div class="formrow"><div class="formgroup"><label class="field-label">Nome articolo</label><input class="field" name="name" maxlength="120" required value="'+esc(old?.name||'')+'" placeholder="Es. Pomodoro"></div><div class="formgroup"><label class="field-label">Categoria</label><input class="field" name="category" value="'+esc(old?.category||'')+'" placeholder="Es. Verdure"></div></div><div class="formrow"><div class="formgroup"><label class="field-label">Quantità disponibile</label><input class="field" type="number" name="qty" min="0" step="any" value="'+esc(old?.qty??0)+'"></div><div class="formgroup"><label class="field-label">Unità di misura</label><input class="field" name="unit" value="'+esc(old?.unit||'pz')+'" placeholder="pz, kg, L..."></div></div><div class="formrow"><div class="formgroup"><label class="field-label">Soglia minima</label><input class="field" type="number" name="min" min="0" step="any" value="'+esc(old?.min??0)+'"></div><div class="formgroup"><label class="field-label">Caratteristiche aggiuntive</label><input class="field" name="attributes" value="'+esc(old?.attributes||'')+'" placeholder="Es. Fornitore, conservazione..."></div></div><div class="formgroup"><label class="field-label">Note</label><textarea class="field textarea" name="note">'+esc(old?.note||'')+'</textarea></div></form>',(old?'<button class="btn danger" id="deleteStock">Elimina</button><div class="push"></div>':'')+'<button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveStock">Salva</button>');$('#cancelModal').onclick=hideModal;$('#saveStock').onclick=async()=>{const f=$('#stockForm');if(!f.reportValidity())return;const d=new FormData(f),obj={id:old?.id||uid(),name:String(d.get('name')).trim(),category:String(d.get('category')).trim(),qty:Math.max(0,num(d.get('qty'))),unit:String(d.get('unit')).trim()||'pz',min:Math.max(0,num(d.get('min'))),attributes:String(d.get('attributes')).trim(),note:String(d.get('note')).trim()};if(!obj.name)return;if(old)state.inventory=state.inventory.map(x=>x.id===id?obj:x);else state.inventory.push(obj);await persist();hideModal();renderInventory();toast('Magazzino aggiornato')};if(old)$('#deleteStock').onclick=async()=>{if(!confirm('Eliminare questo articolo?'))return;state.inventory=state.inventory.filter(x=>x.id!==id);await persist();hideModal();renderInventory()}}
+// KITCHEN INTELLIGENCE DATA: original format (menus, historic, notes, covers, venueRevenue).
+const kitchen=()=>state.kitchen;
+const menuAt=date=>kitchen().menus.find(m=>m.start<=date&&m.end>=date)||null;
+const statsRows=()=>kitchen().historic||[];
+function rowsByPeriod(){let lo='0000',hi='9999';if(statPeriod==='month'){lo=statDate.slice(0,7)+'-01';hi=statDate.slice(0,7)+'-31'}else if(statPeriod==='year'){lo=statDate.slice(0,4)+'-01-01';hi=statDate.slice(0,4)+'-12-31'}return statsRows().filter(r=>r.date>=lo&&r.date<=hi)}
+function dailyTotals(rows){const per={};rows.forEach(r=>{if(!per[r.date])per[r.date]={qty:0,revenue:0};per[r.date].qty+=num(r.qty);per[r.date].revenue+=num(r.qty)*num(r.price)});return per}
+function renderStats(){const k=kitchen(),rows=rowsByPeriod(),gross=rows.reduce((n,r)=>n+num(r.qty)*num(r.price),0),qty=rows.reduce((n,r)=>n+num(r.qty),0),daily=dailyTotals(rows),dates=Object.keys(daily).sort(),dayCount=dates.length,daysAll=new Set(statsRows().map(x=>x.date));const covers=Object.entries(k.covers||{}).filter(([d])=>statPeriod==='all'||(statPeriod==='month'?d.slice(0,7)===getMonth(statDate):d.slice(0,4)===statDate.slice(0,4))).reduce((s,[d,n])=>s+num(n),0);
+let products=new Map();for(const x of rows){const key=[x.productId,x.name,x.category].join('||'),p=products.get(key)||{name:x.name,category:x.category,qty:0,total:0};p.qty+=num(x.qty);p.total+=num(x.qty)*num(x.price);products.set(key,p)}let top=[...products.values()].sort((a,b)=>b.qty-a.qty).slice(0,8);
+const chartDays=[];const base=new Date(statDate+'T12:00:00');for(let i=13;i>=0;i--){const d=new Date(base);d.setDate(base.getDate()-i);const iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');chartDays.push({date:iso,amount:dailyTotals(statsRows())[iso]?.revenue||0})}const vmax=Math.max(1,...chartDays.map(x=>x.amount));
+$('#view').innerHTML='<div class="heading-row"><div><div class="eyebrow">Kitchen intelligence</div><h1 class="h1">Statistiche<span style="color:var(--detail)">.</span></h1><p class="lead">Storico dei menu, analisi vendite e inserimento giornaliero in un unico posto.</p></div><div class="actions"><button class="btn outline" data-action="menus">'+icon('book')+' Storico menu</button><button class="btn secondary" data-action="sales">'+icon('plus')+' Inserisci vendite</button></div></div>'+(statsRows().length?'':'<div class="datahint"><strong>Importa lo storico di Kitchen Intelligence</strong>Per ripristinare le vendite e i menu effettivi, premi <b>Ripristina</b> nell’header e seleziona il backup JSON della precedente app. L’importazione conserva To Do, Ricette e Magazzino. Una volta importato, i dati saranno disponibili in Statistiche e inclusi in ogni backup completo di MIA.<br><button class="btn light small" data-action="import" style="margin-top:10px">'+icon('upload')+' Importa dati Kitchen Intelligence</button></div>')+'<div class="toolbar"><span class="mini-label">DATA</span><input class="control" id="statDate" type="date" value="'+esc(statDate)+'"><span class="mini-label" style="margin-left:8px">PERIODO</span><div class="pills"><button class="pill '+(statPeriod==='month'?'active':'')+'" data-period="month">Mese</button><button class="pill '+(statPeriod==='year'?'active':'')+'" data-period="year">Anno</button><button class="pill '+(statPeriod==='all'?'active':'')+'" data-period="all">Totale storico</button></div></div><div class="cards">'+metric('RICAVI FOOD',currency(gross),'Valore registrato',true)+metric('PIATTI VENDUTI',integer(qty),'Unità registrate')+metric('GIORNATE CON VENDITE',integer(dayCount),'Nel periodo selezionato')+metric('MEDIA / GIORNATA',currency(dayCount?gross/dayCount:0),'Solo giornate registrate')+'</div><div class="layout2"><section class="panel"><div class="section-top"><h3>Andamento giornaliero</h3><span class="mini-label">Ultimi 14 giorni dalla data scelta</span></div><div class="chart">'+chartDays.map(x=>'<div class="barcol" title="'+humanDate(x.date)+' · '+currency(x.amount)+'"><div class="bar '+(x.date===statDate?'todaybar':'')+'" style="height:'+Math.max(2,Math.round(x.amount/vmax*100))+'%"></div></div>').join('')+'</div><div class="chartlabels">'+chartDays.map((x,i)=>'<span>'+(i%2===0?x.date.slice(8):'')+'</span>').join('')+'</div><p class="tip">I grafici utilizzano le registrazioni delle vendite food. Il backup mantiene anche coperti, note e incassi del locale.</p></section><section class="panel"><div class="section-top"><h3>Prodotti più venduti</h3><span class="mini-label">Per quantità</span></div>'+(top.length?top.map((x,i)=>'<div class="minor"><span class="tag">'+(i+1)+'</span><b>'+esc(x.name)+'</b><small>'+integer(x.qty)+' pz</small></div>').join(''):empty('Nessuna vendita','Non ci sono registrazioni nel periodo selezionato.',null,null))+'</section></div><section class="panel top-padding"><div class="section-top"><h3>Storico dei menu</h3><button class="btn outline small" data-action="menus">Apri archivio</button></div>'+(k.menus.length?k.menus.slice().sort((a,b)=>b.start.localeCompare(a.start)).slice(0,4).map(m=>'<div class="release"><div class="dot"></div><div><strong>'+esc(m.name)+'</strong><small>'+humanDate(m.start)+' — '+(m.end==='2099-12-31'?'in corso':humanDate(m.end))+' · '+(m.items||[]).length+' piatti'+(m.changelog?' · '+esc(m.changelog):'')+'</small></div></div>').join(''):'<p class="tip">Nessun menu ancora registrato. Puoi creare il primo oppure importarli dal backup.</p>')+'<div class="source-note" style="margin-top:13px">Giornate presenti nell’intero archivio: '+daysAll.size+' · Registrazioni totali: '+integer(statsRows().length)+' · Menu: '+k.menus.length+'</div></section>'}
+function salesModal(){
+ const k=kitchen(),menu=menuAt(statDate),forDay=k.historic.filter(x=>x.date===statDate);
+ if(!menu&&!forDay.length){toast('Prima crea un menu o importa lo storico Kitchen Intelligence');return}
+ const entries=[],seen=new Set(),keyOf=x=>[x.productId,x.name,x.category].join('||');
+ if(menu)for(const it of menu.items){const key=keyOf(it);if(seen.has(key))continue;seen.add(key);const originals=forDay.filter(r=>keyOf(r)===key);entries.push({productId:it.productId,name:it.name,category:it.category,price:originals.length?num(originals[0].price):num(it.price),qty:originals.reduce((s,r)=>s+num(r.qty),0)})}
+ for(const x of forDay){const key=keyOf(x);if(seen.has(key))continue;seen.add(key);entries.push({...x})}
+ const ordered=[...(k.categoryOrder||[]),...(menu?.categories||[])].map(String);
+ const categoryIndex=cat=>{const x=ordered.findIndex(c=>c.toLocaleLowerCase('it')===cat.toLocaleLowerCase('it'));return x<0?9999:x};
+ entries.sort((a,b)=>categoryIndex(String(a.category||'Altro'))-categoryIndex(String(b.category||'Altro'))||String(a.category||'Altro').localeCompare(String(b.category||'Altro'),'it')||String(a.name).localeCompare(String(b.name),'it'));
+ const cats=[];entries.forEach((entry,i)=>{const c=String(entry.category||'Altro');let group=cats.find(x=>x.name===c);if(!group){group={name:c,index:cats.length,items:[]};cats.push(group)}group.items.push({...entry,index:i})});
+ const safeId=c=>'sale-cat-'+c.index;
+ const body='<p class="sales-intro">'+(menu?'Menu attivo: <b>'+esc(menu.name)+'</b> · ':'')+'Inserisci le quantità per piatto. Le categorie sono separate e i totali si aggiornano in tempo reale.</p>'+
+ '<div class="sales-overview"><div class="sales-tile"><small>PIATTI VENDUTI</small><strong id="sale-overview-qty">0</strong></div><div class="sales-tile"><small>VOCI VENDUTE</small><strong id="sale-overview-items">0</strong></div><div class="sales-tile highlight"><small>INCASSO CUCINA</small><strong id="sale-overview-total">€ 0,00</strong></div></div>'+
+ '<nav class="sales-cats-nav" aria-label="Vai alla categoria">'+cats.map(cat=>'<button type="button" data-sales-jump="'+safeId(cat)+'">'+esc(cat.name)+'</button>').join('')+'</nav>'+
+ cats.map(cat=>'<section class="sales-category" id="'+safeId(cat)+'" data-sale-category="'+cat.index+'"><div class="sales-cat-top"><div><span class="sales-cat-code">CATEGORIA '+String(cat.index+1).padStart(2,'0')+' / '+String(cats.length).padStart(2,'0')+'</span><h3>'+esc(cat.name)+'</h3></div><div class="sales-cat-meta"><strong data-category-total="'+cat.index+'">€ 0,00</strong><span data-category-qty="'+cat.index+'">0 piatti</span></div></div><div class="sales-column-titles"><span>PRODOTTO</span><span>PREZZO €</span><span>QUANTITÀ</span></div>'+cat.items.map((it,j)=>'<div class="sales-row" data-sale-row="'+it.index+'"><div class="sales-product"><span class="sales-item-no">'+String(j+1).padStart(2,'0')+'</span><span class="sales-product-name">'+esc(it.name)+'</span></div><div class="sales-price"><input aria-label="Prezzo di '+esc(it.name)+'" type="number" min="0" step="0.01" inputmode="decimal" data-sale-price="'+it.index+'" value="'+esc(it.price)+'"></div><div class="sales-counter"><button type="button" data-sale-step="-1" data-sale-i="'+it.index+'" aria-label="Diminuisci '+esc(it.name)+'">−</button><input aria-label="Quantità di '+esc(it.name)+'" type="number" min="0" step="1" inputmode="numeric" data-sale-qty="'+it.index+'" value="'+esc(it.qty)+'"><button class="plus" type="button" data-sale-step="1" data-sale-i="'+it.index+'" aria-label="Aumenta '+esc(it.name)+'">+</button></div></div>').join('')+'<div class="sales-cat-foot"><span>Totale '+esc(cat.name)+'</span><strong data-category-footer="'+cat.index+'">€ 0,00</strong></div></section>').join('')+
+ '<div class="sales-extra"><div class="formrow"><div class="formgroup"><label class="field-label">Coperti</label><input type="number" class="field" id="salesCovers" min="0" value="'+esc(k.covers[statDate]??0)+'"></div><div class="formgroup"><label class="field-label">Incasso complessivo locale €</label><input type="number" step="0.01" class="field" min="0" id="salesRevenue" value="'+esc(k.venueRevenue[statDate]??0)+'"></div></div><div class="formgroup"><label class="field-label">Note della giornata</label><textarea class="field textarea" id="salesNote">'+esc(k.notes[statDate]||'')+'</textarea></div></div>';
+ showModal('Vendite cucina · '+humanDate(statDate),body,'<span class="sales-help">− / + per aggiornare senza tastiera</span><button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveSales">Salva giornata</button>',true);
+ $('.dialog').classList.add('sales-dialog');
+ const dlg=$('.dialog'),summary=()=>{let total=0,qty=0,sold=0;for(const cat of cats){let catTotal=0,catQty=0;for(const item of cat.items){const i=item.index,q=num($('[data-sale-qty="'+i+'"]',dlg).value),p=num($('[data-sale-price="'+i+'"]',dlg).value);catQty+=Math.max(0,q);catTotal+=Math.max(0,q)*Math.max(0,p);if(q>0){sold++;$('[data-sale-row="'+i+'"]',dlg).classList.add('sold')}else $('[data-sale-row="'+i+'"]',dlg).classList.remove('sold')}
+   qty+=catQty;total+=catTotal;$('[data-category-total="'+cat.index+'"]',dlg).textContent=currency(catTotal);$('[data-category-qty="'+cat.index+'"]',dlg).textContent=integer(catQty)+' piatti';$('[data-category-footer="'+cat.index+'"]',dlg).textContent=currency(catTotal)
+ }$('#sale-overview-qty').textContent=integer(qty);$('#sale-overview-items').textContent=integer(sold);$('#sale-overview-total').textContent=currency(total)};
+ dlg.addEventListener('click',e=>{const step=e.target.closest('[data-sale-step]');if(step){const field=$('[data-sale-qty="'+step.dataset.saleI+'"]',dlg);const value=Math.min(99999,Math.max(0,Math.floor(num(field.value))+Number(step.dataset.saleStep)));field.value=value;summary();return}const jump=e.target.closest('[data-sales-jump]');if(jump){dlg.querySelector('#'+jump.dataset.salesJump)?.scrollIntoView({behavior:'smooth',block:'start'})}});
+ dlg.addEventListener('input',e=>{if(e.target.matches('[data-sale-qty],[data-sale-price]'))summary()});
+ dlg.addEventListener('change',e=>{if(e.target.matches('[data-sale-qty]')){e.target.value=Math.max(0,Math.floor(num(e.target.value)));summary()}else if(e.target.matches('[data-sale-price]')){e.target.value=Math.max(0,num(e.target.value));summary()}});
+ summary();$('#cancelModal').onclick=hideModal;
+ $('#saveSales').onclick=async()=>{const updated=[];for(let i=0;i<entries.length;i++){const q=num($('[data-sale-qty="'+i+'"]',dlg).value),price=num($('[data-sale-price="'+i+'"]',dlg).value);if(q<0||price<0||!Number.isInteger(q)){toast('Quantità: solo numeri interi non negativi');return}if(q)updated.push({date:statDate,productId:entries[i].productId,name:entries[i].name,category:entries[i].category,qty:q,price})}k.historic=k.historic.filter(x=>x.date!==statDate).concat(updated);k.covers[statDate]=Math.max(0,num($('#salesCovers').value));k.venueRevenue[statDate]=Math.max(0,num($('#salesRevenue').value));k.notes[statDate]=$('#salesNote').value;await persist();hideModal();renderStats();toast('Vendite salvate · '+integer(updated.reduce((sum,it)=>sum+it.qty,0))+' piatti')};
+}
+function menuArchive(){const k=kitchen(),arr=k.menus.slice().sort((a,b)=>b.start.localeCompare(a.start));showModal('Versioni del menu','<div class="datahint"><strong>Una modifica = una nuova versione</strong>Quando cambi anche un solo piatto, crea una versione del menu. Rimangono data di entrata in vigore e note di rilascio, senza alterare le versioni precedenti.</div>'+ (arr.length?arr.map(m=>'<div class="release"><div class="dot"></div><div style="flex:1"><strong>'+esc(m.name)+'</strong><small>'+humanDate(m.start)+' — '+(m.end==='2099-12-31'?'In corso':humanDate(m.end))+' · '+(m.items||[]).length+' voci</small>'+(m.changelog?'<p class="tip">'+esc(m.changelog)+'</p>':'')+'</div></div>').join(''):'<p class="tip">Non ci sono ancora versioni salvate.</p>'),'<button class="btn outline" id="cancelModal">Chiudi</button><button class="btn secondary" id="newMenuFromArchive">'+icon('plus')+' Nuova versione</button>',true);$('#cancelModal').onclick=hideModal;$('#newMenuFromArchive').onclick=()=>{hideModal();newMenu()}}
+let editedMenuItems=[];
+function newMenu(){const k=kitchen();const last=k.menus.slice().sort((a,b)=>b.start.localeCompare(a.start))[0];const now=localDay();editedMenuItems=(last?.items||[{productId:uid(),name:'',category:'',price:0}]).map(x=>({...x}));const itemRow=(item,i)=>'<div class="menuitem-row"><input class="field" data-mi="name" data-idx="'+i+'" value="'+esc(item.name)+'" placeholder="Nome piatto"><input class="field" data-mi="category" data-idx="'+i+'" value="'+esc(item.category)+'" placeholder="Categoria"><input class="field" data-mi="price" data-idx="'+i+'" type="number" min="0" step=".01" value="'+esc(item.price)+'"><button class="small-btn" data-menu-remove="'+i+'">×</button></div>';showModal('Nuova versione menu','<div class="formrow"><div class="formgroup"><label class="field-label">Nome della versione</label><input class="field" id="menuName" value="'+esc('Menu '+humanDate(now))+'"></div><div class="formgroup"><label class="field-label">Data entrata in vigore</label><input class="field" type="date" id="menuStart" min="'+esc(last?last.start:now)+'" value="'+esc(now)+'"></div></div><div class="formgroup"><label class="field-label">Novità della release / cosa è cambiato</label><textarea class="field textarea" id="menuChanges" placeholder="Es. Inserito nuovo piatto, aggiornato prezzo..."> </textarea></div><div class="section-top"><label class="field-label" style="margin:0">Piatti in menu</label><button class="btn light small" id="addMenuItem">'+icon('plus')+' Piatto</button></div><div id="menuItemRows">'+editedMenuItems.map(itemRow).join('')+'</div>','<button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveNewMenu">Registra versione</button>',true);const rows=$('#menuItemRows');const capture=()=>{$$('[data-mi]',rows).forEach(el=>{const x=editedMenuItems[+el.dataset.idx];if(x)x[el.dataset.mi]=el.value})};const draw=()=>rows.innerHTML=editedMenuItems.map(itemRow).join('');rows.addEventListener('input',e=>{if(e.target.dataset.mi)editedMenuItems[+e.target.dataset.idx][e.target.dataset.mi]=e.target.value});rows.addEventListener('click',e=>{const b=e.target.closest('[data-menu-remove]');if(!b)return;capture();editedMenuItems.splice(+b.dataset.menuRemove,1);draw()});$('#addMenuItem').onclick=()=>{capture();editedMenuItems.push({productId:uid(),name:'',category:'TAPAS',price:0});draw()};$('#cancelModal').onclick=hideModal;$('#saveNewMenu').onclick=async()=>{const start=$('#menuStart').value,name=$('#menuName').value.trim(),changelog=$('#menuChanges').value.trim();capture();if(!start||!name){toast('Inserisci nome e data di entrata in vigore');return}if(start>localDay()){toast('La data di inizio non può essere futura');return}if(last&&start<=last.start){toast('La nuova versione deve avere una data successiva alla precedente');return}const items=editedMenuItems.filter(x=>String(x.name).trim()).map(x=>({productId:String(x.productId||uid()),name:String(x.name).trim(),category:String(x.category||'ALTRO').trim(),price:Math.max(0,num(x.price))}));if(!items.length){toast('Inserisci almeno un piatto');return}if(last)last.end=dayBefore(start);k.menus.push({id:'menu-'+uid(),name,start,end:'2099-12-31',items,categories:[...new Set(items.map(x=>x.category))],changelog});await persist();hideModal();renderStats();toast('Versione del menu registrata')}}
+async function exportBackup(){try{await saveChain.catch(()=>{});const snapshot={...state,exportedAt:new Date().toISOString(),backupType:'MIA_COMPLETE'};const blob=new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json'});const filename='MIA_backup_'+localDay()+'.json';const file=new File([blob],filename,{type:'application/json'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Backup completo MIA'});toast('Backup condiviso: salvalo in File o su iCloud');return}catch(e){if(e.name==='AbortError')return}}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);toast('Backup JSON generato')}catch(e){toast('Impossibile esportare il backup: '+e.message)}}
+async function importBackup(file){if(!file)return;try{const raw=JSON.parse(await file.text());if(raw?.app==='MIA'&&raw?.kitchen&&Array.isArray(raw?.todos)){if(!confirm('Ripristinare questo backup MIA? Sostituirà TUTTI i dati attualmente presenti in MIA.'))return;state=normalize(raw);rolloverOpenTasks();await persist();if(state.kitchen.historic.length)statDate=state.kitchen.historic.slice().sort((a,b)=>b.date.localeCompare(a.date))[0].date;go('todo');toast('Backup MIA ripristinato');return}if(Array.isArray(raw.menus)&&Array.isArray(raw.historic)){if(!confirm('Importare '+raw.historic.length+' registrazioni e '+raw.menus.length+' menu da Kitchen Intelligence? Verrà sostituita solo la sezione Statistiche; To Do, Ricette e Magazzino resteranno invariati.'))return;state.kitchen={menus:raw.menus,historic:raw.historic,notes:raw.notes||{},covers:raw.covers||{},venueRevenue:raw.venueRevenue||{},categoryOrder:raw.categoryOrder||[],legacySource:{version:raw.version||'',importedAt:new Date().toISOString(),sourceFile:file.name,originalSyncMeta:raw.syncMeta||null,originalMetadata:{dataRevision:raw.dataRevision,xlsxAuditRevision:raw.xlsxAuditRevision,xlsxAuditUploadPending:raw.xlsxAuditUploadPending,duplicateRepairPending:raw.duplicateRepairPending}}};statDate=raw.historic.length?raw.historic.slice().sort((a,b)=>b.date.localeCompare(a.date))[0].date:localDay();statPeriod='month';await persist();go('stats');toast('Kitchen Intelligence importata: '+raw.historic.length+' registrazioni');return}toast('File non riconosciuto. Serve un backup JSON di MIA o Kitchen Intelligence')}catch(e){toast('Errore di importazione: '+e.message)}finally{$('#jsonFile').value=''}}
+// TIMER — Kitchen Controller 2.2 integrated in MIA (persistent snapshots, no iframe)
+const KT_COLORS={red:'#ff444d',yellow:'#e8be33',green:'#45d58b',blue:'#438ff3',purple:'#b47aee',orange:'#f59b48'};
+const KT_PRESETS=[{id:'pizza',name:'Pizza',secs:420,color:'red'},{id:'pasta',name:'Pasta',secs:600,color:'yellow'},{id:'verdure',name:'Verdure',secs:300,color:'green'},{id:'brasato',name:'Brasato',secs:10800,color:'purple'}];
+function ktDefaults(){return {timers:[],presets:KT_PRESETS.map(x=>({...x})),columns:3,sound:true}}
+function ktData(){if(!state.timer||typeof state.timer!=='object')state.timer=ktDefaults();return state.timer}
+let ktAudio=null,ktAlarmLoop=null,ktWake=null,ktColor='blue',ktEditPreset=null;
+const ktColorHex=c=>KT_COLORS[c]||KT_COLORS.blue;
+function ktRemaining(t,now=Date.now()){return t.status==='running'?Math.max(0,Math.ceil((t.endAt-now)/1000)):Math.max(0,Math.ceil(t.remaining||0))}
+function ktDuration(n){n=Math.max(0,Math.ceil(n));const h=Math.floor(n/3600),m=Math.floor(n%3600/60),s=n%60;return (h?h+':':'')+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+function ktPresetDuration(n){return n>=3600?(Math.round(n/360)/10)+' h':n>=60?Math.floor(n/60)+' min':n+' sec'}
+function ktEnsureAudio(){if(!ktData().sound)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!ktAudio)ktAudio=new C();if(ktAudio.state==='suspended')ktAudio.resume().catch(()=>{})}catch(e){}}
+function ktBeep(){if(!ktData().sound||!ktAudio||ktAudio.state!=='running')return;try{const base=ktAudio.currentTime+.01;for(let i=0;i<3;i++){const at=base+i*.21,o=ktAudio.createOscillator(),gain=ktAudio.createGain();o.type='square';o.frequency.setValueAtTime(i%2?690:910,at);gain.gain.setValueAtTime(.0001,at);gain.gain.linearRampToValueAtTime(.16,at+.015);gain.gain.setValueAtTime(.16,at+.135);gain.gain.exponentialRampToValueAtTime(.0001,at+.19);o.connect(gain);gain.connect(ktAudio.destination);o.start(at);o.stop(at+.20)}}catch(e){}}
+function ktAlarmNeeded(){return ktData().sound&&ktData().timers.some(t=>t.status==='ended'&&!t.silenced)}
+function ktAlarmRefresh(){if(!ktAlarmNeeded()){if(ktAlarmLoop){clearInterval(ktAlarmLoop);ktAlarmLoop=null}return}if(document.visibilityState!=='visible'||ktAlarmLoop)return;ktEnsureAudio();ktBeep();ktAlarmLoop=setInterval(()=>{if(ktAlarmNeeded()&&document.visibilityState==='visible')ktBeep();else ktAlarmRefresh()},1200);try{navigator.vibrate?.([280,140,280])}catch(e){}}
+async function ktWakeRefresh(){if(!navigator.wakeLock)return;const need=ktData().timers.some(t=>t.status==='running');if(need&&!ktWake&&document.visibilityState==='visible'){try{ktWake=await navigator.wakeLock.request('screen');ktWake.addEventListener('release',()=>ktWake=null)}catch(e){ktWake=null}}if(!need&&ktWake){try{await ktWake.release()}catch(e){}ktWake=null}}
+function ktStart(name,secs,color='blue',kind='manual'){const n=String(name||'').trim();if(!n||!Number.isFinite(+secs)||secs<=0||secs>3599999){toast('Inserisci nome e durata valida');return}ktEnsureAudio();const t={id:uid(),name:n.slice(0,120),duration:secs,remaining:secs,endAt:Date.now()+secs*1000,status:'running',color,kind,pin:'',silenced:false};ktData().timers.unshift(t);persist();ktWakeRefresh();if(route==='timer')renderTimer()}
+function ktCard(t){const rem=ktRemaining(t),ended=t.status==='ended',paused=t.status==='paused',frac=ended?0:Math.max(0,Math.min(1,rem/t.duration));const circumference=2*Math.PI*45,first=ended?(t.silenced?'Ripeti':'Ferma allarme'):paused?'Riprendi':'Pausa';return '<article class="kt-card '+esc(t.status)+'" data-kt-id="'+esc(t.id)+'" style="--kt-accent:'+ktColorHex(t.color)+'"><div class="kt-card-main"><div class="kt-info"><div class="kt-state">'+(ended?(t.silenced?'COTTURA TERMINATA':'ALLARME ATTIVO'):paused?'IN PAUSA':'IN COTTURA')+'</div><h3 class="kt-name">'+esc(t.name)+'</h3><div class="kt-countdown" data-kt-time>'+ktDuration(rem)+'</div></div><div class="kt-ring"><svg viewBox="0 0 110 110" aria-hidden="true"><circle class="kt-track" cx="55" cy="55" r="45"/><circle class="kt-value" cx="55" cy="55" r="45" stroke-dasharray="'+circumference+'" stroke-dashoffset="'+(circumference*frac).toFixed(2)+'" data-kt-ring/></svg><span class="kt-ring-label">'+(ended?'TEMPO SCADUTO':paused?'IN PAUSA':'IN COTTURA')+'</span></div></div><div class="kt-progress"><div data-kt-bar style="width:'+Math.round((1-frac)*100)+'%"></div></div><div class="kt-actions"><button data-kt-act="toggle" class="kt-action kt-action-primary"><span class="kt-long">'+first+'</span><span class="kt-short">'+(ended?(t.silenced?'Ripeti':'Ferma'):paused?'Avvia':'Pausa')+'</span></button><button data-kt-act="reset" class="kt-action">Reset</button><button data-kt-act="lock" class="kt-action">'+(t.pin?'Sblocca':'PIN')+'</button><button data-kt-act="delete" class="kt-action kt-delete" title="Elimina timer">×</button></div></article>'}
+function ktPresetsMarkup(){return ktData().presets.slice(0,4).map(p=>'<button type="button" class="kt-preset" data-kt-preset="'+esc(p.id)+'" style="--kt-accent:'+ktColorHex(p.color)+'"><span>'+esc(p.name)+'</span><strong>'+ktPresetDuration(p.secs)+'</strong></button>').join('')}
+function renderTimer(){const d=ktData(),list=d.timers;
+$('#view').innerHTML='<div class="kt-page"><div class="kt-head"><div><p class="eyebrow">GESTIONE COTTURE</p><h1 class="h1">Timer</h1></div><div class="kt-topright"><span id="kt-counter">'+list.length+' TIMER</span><div class="kt-columns"><span>PER RIGA</span>'+[2,3,4].map(n=>'<button type="button" data-kt-cols="'+n+'" aria-pressed="'+(d.columns===n)+'">'+n+'</button>').join('')+'</div><time id="kt-clock">--:--</time><button class="kt-gear" data-kt-command="settings">Impostazioni</button></div></div><div class="kt-launch"><section class="kt-panel"><div class="kt-panel-title"><h2>Nuovo timer manuale</h2><button data-kt-command="custom" class="kt-link">Personalizza</button></div><form id="kt-quick"><label><span>Minuti</span><input type="number" id="kt-minutes" min="1" max="9999" value="10" required inputmode="numeric"></label><label class="kt-grow"><span>Nome cottura / nota</span><input id="kt-label" type="text" maxlength="120" required placeholder="Es. Cottura pizza tonda" autocomplete="off"></label><button type="submit">Avvia timer</button></form></section><section class="kt-panel"><div class="kt-panel-title"><h2>Tempi predefiniti</h2><button class="kt-link" data-kt-command="manage">Gestisci</button></div><div class="kt-presets">'+ktPresetsMarkup()+'</div></section></div><div id="kt-grid" class="kt-grid cols-'+d.columns+'">'+(list.length?list.map(ktCard).join(''):'<div class="kt-empty"><strong>Nessuna cottura in corso</strong><p>Avvia un timer manuale o seleziona un tempo predefinito: tutte le cotture appariranno qui.</p><button type="button" data-kt-command="custom">Nuovo timer</button></div>')+'</div><p class="kt-note">I timer continuano il conto alla rovescia mentre navighi in MIA. Per sentire gli allarmi, tieni l’iPad acceso con MIA aperta in primo piano e il volume attivo.</p></div>';ktPaintClock();}
+function ktPaintClock(){const el=$('#kt-clock');if(el)el.textContent=new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
+function ktTick(){if(!state||!state.timer)return;const now=Date.now();let changed=false;for(const t of ktData().timers){if(t.status==='running'&&ktRemaining(t,now)===0){t.status='ended';t.remaining=0;t.endAt=null;t.silenced=false;changed=true}}if(changed){persist();ktAlarmRefresh();ktWakeRefresh();if(route==='timer')renderTimer()}else if(route==='timer'){ktPaintClock();$$('.kt-card').forEach(card=>{const t=ktData().timers.find(x=>x.id===card.dataset.ktId);if(!t)return;const rem=ktRemaining(t,now),frac=Math.max(0,Math.min(1,rem/t.duration));const time=card.querySelector('[data-kt-time]');if(time)time.textContent=ktDuration(rem);const ring=card.querySelector('[data-kt-ring]');if(ring)ring.setAttribute('stroke-dashoffset',String((2*Math.PI*45*frac).toFixed(2)));const bar=card.querySelector('[data-kt-bar]');if(bar)bar.style.width=Math.round((1-frac)*100)+'%'})}}
+function ktCommit(redraw=true){persist();ktAlarmRefresh();ktWakeRefresh();if(redraw&&route==='timer')renderTimer()}
+function ktDo(t,action){ktEnsureAudio();if(action==='pause'&&t.status==='running'){t.remaining=ktRemaining(t);t.endAt=null;t.status='paused'}else if(action==='resume'&&t.status==='paused'){t.endAt=Date.now()+t.remaining*1000;t.status='running'}else if(action==='silence'&&t.status==='ended'){t.silenced=true}else if(action==='repeat'){t.remaining=t.duration;t.endAt=Date.now()+t.duration*1000;t.status='running';t.silenced=false}else if(action==='reset'){t.remaining=t.duration;t.endAt=null;t.status='paused';t.silenced=true}else if(action==='delete'){ktData().timers=ktData().timers.filter(x=>x.id!==t.id)}ktCommit()}
+function ktTriplet(secs=600){const h=Math.floor(secs/3600),m=Math.floor((secs%3600)/60),s=secs%60;return '<div class="kt-triple"><label>Ore<input id="kt-h" type="number" min="0" max="999" value="'+h+'"></label><label>Minuti<input id="kt-m" type="number" min="0" max="59" value="'+m+'"></label><label>Secondi<input id="kt-s" type="number" min="0" max="59" value="'+s+'"></label></div>'}
+function ktColorOptions(color='blue'){ktColor=color;return '<div class="kt-swatches">'+Object.keys(KT_COLORS).map(c=>'<button type="button" data-kt-color="'+c+'" class="kt-swatch '+(c===color?'selected':'')+'" style="background:'+KT_COLORS[c]+'" aria-label="'+c+'"></button>').join('')+'</div>'}
+function ktModal(title,body,footer){showModal(title,body,footer,true);const modal=$('#modalRoot');modal.addEventListener('click',e=>{const color=e.target.closest('[data-kt-color]');if(color){ktColor=color.dataset.ktColor;$$('.kt-swatch',modal).forEach(b=>b.classList.toggle('selected',b.dataset.ktColor===ktColor))}})}
+function ktDurationFromModal(){const h=Number($('#kt-h')?.value),m=Number($('#kt-m')?.value),s=Number($('#kt-s')?.value);if(![h,m,s].every(Number.isInteger)||h<0||h>999||m<0||m>59||s<0||s>59)return 0;return h*3600+m*60+s}
+function ktCustom(){ktModal('Nuovo timer manuale','<div class="formgroup"><label class="field-label">Nome della cottura</label><input id="kt-custom-name" class="field" type="text" maxlength="120" placeholder="Es. Brasato a bassa temperatura"></div><div class="formgroup"><label class="field-label">Durata</label>'+ktTriplet()+'</div><div class="formgroup"><label class="field-label">Colore identificativo</label>'+ktColorOptions()+'</div>','<button id="kt-cancel" class="btn outline">Annulla</button><button id="kt-confirm" class="btn secondary">Avvia timer</button>');$('#kt-cancel').onclick=hideModal;$('#kt-confirm').onclick=()=>{const name=$('#kt-custom-name').value.trim(),seconds=ktDurationFromModal();if(!name||!seconds){toast('Inserisci un nome e un tempo valido');return}hideModal();ktStart(name,seconds,ktColor)}}
+function ktManage(){const ps=ktData().presets;ktModal('Tempi predefiniti','<p class="tip">Puoi creare, modificare o eliminare i tempi predefiniti per le cotture.</p><div class="kt-preset-list">'+ps.map(p=>'<div class="kt-preset-row"><span class="kt-bullet" style="background:'+ktColorHex(p.color)+'"></span><div><strong>'+esc(p.name)+'</strong><small>'+ktPresetDuration(p.secs)+'</small></div><button class="btn light small" data-kt-edit-preset="'+esc(p.id)+'">Modifica</button><button class="btn secondary small" data-kt-start-preset="'+esc(p.id)+'">Avvia</button></div>').join('')+'</div>','<button id="kt-manage-close" class="btn outline">Chiudi</button><button id="kt-manage-add" class="btn secondary">+ Aggiungi</button>');$('#kt-manage-close').onclick=hideModal;$('#kt-manage-add').onclick=()=>ktEditPresetDialog(null);$$('[data-kt-edit-preset]',$('#modalRoot')).forEach(b=>b.onclick=()=>ktEditPresetDialog(b.dataset.ktEditPreset));$$('[data-kt-start-preset]',$('#modalRoot')).forEach(b=>b.onclick=()=>{const p=ktData().presets.find(x=>x.id===b.dataset.ktStartPreset);if(p){hideModal();ktStart(p.name,p.secs,p.color,'preset')}})}
+function ktEditPresetDialog(id){const p=ktData().presets.find(x=>x.id===id);ktModal(p?'Modifica cottura':'Aggiungi cottura','<div class="formgroup"><label class="field-label">Nome</label><input id="kt-preset-name" class="field" type="text" maxlength="120" value="'+esc(p?.name||'')+'"></div><div class="formgroup"><label class="field-label">Durata</label>'+ktTriplet(p?.secs||600)+'</div><div class="formgroup"><label class="field-label">Colore</label>'+ktColorOptions(p?.color||'blue')+'</div>','<button id="kt-back" class="btn outline">Indietro</button>'+(p?'<button id="kt-remove-preset" class="btn danger">Elimina</button>':'')+'<button id="kt-save-preset" class="btn secondary">Salva</button>');$('#kt-back').onclick=ktManage;$('#kt-save-preset').onclick=()=>{const name=$('#kt-preset-name').value.trim(),s=ktDurationFromModal();if(!name||!s){toast('Inserisci nome e tempo valido');return}if(p){p.name=name;p.secs=s;p.color=ktColor}else ktData().presets.push({id:uid(),name,secs:s,color:ktColor});persist();ktManage();if(route==='timer')renderTimer()};if(p)$('#kt-remove-preset').onclick=()=>{if(!confirm('Eliminare il tempo predefinito?'))return;ktData().presets=ktData().presets.filter(x=>x.id!==p.id);persist();ktManage();if(route==='timer')renderTimer()}}
+function ktSettings(){ktModal('Impostazioni timer','<div class="kt-setting"><span>Allarme sonoro ripetuto</span><input id="kt-sound" type="checkbox" '+(ktData().sound?'checked':'')+'></div><div class="kt-setting"><span>Prova il suono di allarme</span><button class="btn light" id="kt-test-sound">Prova suono</button></div><p class="tip">Su iPad il suono è disponibile se MIA rimane aperta in primo piano, con audio sbloccato da un’interazione e volume attivo. Il sistema può sospendere l’audio se blocchi lo schermo.</p>','<button id="kt-settings-done" class="btn secondary">Fatto</button>');$('#kt-settings-done').onclick=hideModal;$('#kt-test-sound').onclick=()=>{ktEnsureAudio();ktBeep()};$('#kt-sound').onchange=e=>{ktData().sound=e.target.checked;persist();ktEnsureAudio();ktAlarmRefresh()}}
+function ktPinDialog(t,act){if(!t.pin&&act!=='lock')return;const unlocking=!!t.pin;ktModal(unlocking?'Timer protetto':'Blocca timer','<p class="tip">'+(unlocking?'Inserisci il codice di quattro cifre per '+(act==='reset'?'resettare':act==='delete'?'eliminare':'sbloccare')+' il timer.':'Imposta un codice di quattro cifre per proteggere reset ed eliminazione.')+'</p><div class="formgroup"><label class="field-label">PIN</label><input id="kt-pin" class="field" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="••••"></div>','<button class="btn outline" id="kt-pin-cancel">Annulla</button><button class="btn secondary" id="kt-pin-ok">Conferma</button>');$('#kt-pin-cancel').onclick=hideModal;$('#kt-pin-ok').onclick=()=>{const pin=$('#kt-pin').value;if(!/^\d{4}$/.test(pin)){toast('Il PIN deve contenere 4 cifre');return}if(unlocking&&pin!==t.pin){toast('PIN errato');return}hideModal();if(!unlocking)t.pin=pin;else if(act==='lock')t.pin='';else{ktDo(t,act);return}ktCommit()}}
+function ktClick(e){const col=e.target.closest('[data-kt-cols]');if(col){ktData().columns=Number(col.dataset.ktCols);persist();renderTimer();return}const cmd=e.target.closest('[data-kt-command]');if(cmd){if(cmd.dataset.ktCommand==='custom')ktCustom();if(cmd.dataset.ktCommand==='manage')ktManage();if(cmd.dataset.ktCommand==='settings')ktSettings();return}const pre=e.target.closest('[data-kt-preset]');if(pre){const p=ktData().presets.find(x=>x.id===pre.dataset.ktPreset);if(p)ktStart(p.name,p.secs,p.color,'preset');return}const btn=e.target.closest('[data-kt-act]');if(!btn)return;const t=ktData().timers.find(x=>x.id===btn.closest('[data-kt-id]')?.dataset.ktId);if(!t)return;const action=btn.dataset.ktAct;if(action==='toggle'){ktDo(t,t.status==='ended'?(t.silenced?'repeat':'silence'):t.status==='paused'?'resume':'pause')}else if(action==='lock')ktPinDialog(t,'lock');else if((action==='reset'||action==='delete')&&t.pin)ktPinDialog(t,action);else if(action==='reset')ktDo(t,'reset');else if(action==='delete'){if(confirm('Eliminare il timer «'+t.name+'»?'))ktDo(t,'delete')}}
+function ktQuickSubmit(e){e.preventDefault();const name=$('#kt-label')?.value.trim(),m=Number($('#kt-minutes')?.value);if(!name||!Number.isInteger(m)||m<=0||m>9999){toast('Inserisci nome e minuti validi');return}ktStart(name,m*60,'blue');}
+function ktInit(){setInterval(ktTick,250);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){ktTick();ktAlarmRefresh();ktWakeRefresh()}});window.addEventListener('pageshow',()=>{ktTick();ktWakeRefresh()});$('#view').addEventListener('click',e=>{if(route==='timer')ktClick(e)});$('#view').addEventListener('submit',e=>{if(route==='timer'&&e.target.id==='kt-quick')ktQuickSubmit(e)});ktTick();ktWakeRefresh()}
+
+// event delegation; no libraries or remote dependencies.
+$('#sidenav').addEventListener('click',e=>{const b=e.target.closest('[data-route]');if(b){go(b.dataset.route);$('#app').classList.add('closed')}});
+$('#toggleSidebar').onclick=()=>$('#app').classList.toggle('closed');$('#main').addEventListener('pointerdown',()=>{$('#app').classList.add('closed')});$('#homeButton').onclick=()=>{go('todo');$('#app').classList.add('closed')};$('#backupBtn').onclick=exportBackup;$('#restoreBtn').onclick=()=>$('#jsonFile').click();$('#jsonFile').onchange=e=>importBackup(e.target.files[0]);
+$('#view').addEventListener('click',async e=>{const a=e.target.closest('[data-action]');if(a){({recurrences:recurringManager,shareTodo:shareTodoDay,addDayNote:addDayNote,daySales:()=>{statDate=todoDay;go('stats');salesModal()},todayTodo:()=>{todoDay=localDay();renderTodo()},newTodo:()=>todoModal(),newRecipe:()=>recipeModal(),newTag, newStock:()=>stockModal(),import:()=>$('#jsonFile').click(),sales:salesModal,menus:menuArchive})[a.dataset.action]?.();return}let b=e.target.closest('[data-note-edit]');if(b){noteEditModal(b.dataset.noteEdit);return}b=e.target.closest('[data-note-move]');if(b){noteMoveModal(b.dataset.noteMove);return}b=e.target.closest('[data-note-next]');if(b){const note=state.todoNotes.find(n=>n.id===b.dataset.noteNext);if(note)await moveDayNote(note,dayShift(note.day,1));return}b=e.target.closest('[data-note-delete]');if(b){await deleteDayNote(b.dataset.noteDelete);return}b=e.target.closest('[data-todo-day]');if(b){todoDay=dayShift(todoDay,Number(b.dataset.todoDay));renderTodo();return}b=e.target.closest('[data-todo-add]');if(b){await addQuickTodo(b.dataset.todoAdd);return}b=e.target.closest('[data-todo-toggle]');if(b){let t=state.todos.find(x=>x.id===b.dataset.todoToggle);if(t){t.done=!t.done;t.doneAt=t.done?new Date().toISOString():null;await persist();refreshTodoLists()}return}b=e.target.closest('[data-todo-priority]');if(b){const task=state.todos.find(t=>t.id===b.dataset.todoPriority);if(task){task.priority=task.priority==='urgent'?'normal':'urgent';task.customized=!!task.recurrenceId||!!task.customized;await persist();refreshTodoLists();}return}b=e.target.closest('[data-todo-delete]');if(b){const task=state.todos.find(t=>t.id===b.dataset.todoDelete);if(task)await deleteTodo(task);return}b=e.target.closest('[data-todo-edit]');if(b){todoModal(b.dataset.todoEdit);return}b=e.target.closest('[data-recipe-view]');if(b){recipeView(b.dataset.recipeView);return}b=e.target.closest('[data-recipe-edit]');if(b){recipeModal(b.dataset.recipeEdit);return}b=e.target.closest('[data-recipe-email]');if(b){shareRecipe(b.dataset.recipeEmail);return}b=e.target.closest('[data-tag]');if(b){if(b.dataset.tag==='Tutti')recipeTags.clear();else if(recipeTags.has(b.dataset.tag))recipeTags.delete(b.dataset.tag);else recipeTags.add(b.dataset.tag);renderRecipes();return}b=e.target.closest('[data-stock-filter]');if(b){stockFilter=b.dataset.stockFilter;renderInventory();return}b=e.target.closest('[data-stock-inc]');if(b){let item=state.inventory.find(x=>x.id===b.dataset.stockInc);if(item){item.qty=Math.max(0,Math.round((num(item.qty)+num(b.dataset.step))*1000)/1000);await persist();renderInventory()}return}b=e.target.closest('[data-stock-edit]');if(b){stockModal(b.dataset.stockEdit);return}b=e.target.closest('[data-period]');if(b){statPeriod=b.dataset.period;renderStats();return}});
+$('#view').addEventListener('input',e=>{if(e.target.id==='recipeSearch'){const pos=e.target.selectionStart;recipeQuery=e.target.value;renderRecipes();const f=$('#recipeSearch');f.focus();f.setSelectionRange(pos,pos)}});
+$('#view').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('[data-todo-input]')){e.preventDefault();addQuickTodo(e.target.dataset.todoInput)}});$('#view').addEventListener('change',e=>{if(e.target.id==='todoDate'&&e.target.value){todoDay=e.target.value;renderTodo();return}if(e.target.id==='statDate'){statDate=e.target.value||localDay();renderStats()}});
+(async()=>{await openDB();state=normalize(await loadState());lastObservedTodoDate=localDay();rolloverOpenTasks(lastObservedTodoDate);ktInit();setInterval(checkTodoDate,5000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')checkTodoDate()});window.addEventListener('pageshow',checkTodoDate);$('#headerDate').textContent=new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(new Date());$('#side-storage').textContent=fallback?'Salvataggio locale (compatibilità)':'Salvataggio locale su iPad';if(window.innerWidth<=640)$('#app').classList.add('closed');render()})();
+})();
+</script>
+<script>
+/* PWA installation: app data remains local; only app shell is cached for offline access. */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js', {scope: './'}).catch(function(err) {
+      console.warn('MIA: cache offline non disponibile in questo browser', err);
+    });
+  });
+}
+</script>
+</body></html>
