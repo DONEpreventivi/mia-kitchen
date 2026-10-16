@@ -1,5 +1,5 @@
-/* MIA v1.4 Dark — cache offline applicativo (non sincronizza dati). */
-const CACHE_VERSION = 'mia-v1-4-dark-deploy-20261016';
+/* MIA v1.5 Dark — cache offline applicativo (non sincronizza dati). */
+const CACHE_VERSION = 'mia-v1-5-dark-timer-20261016';
 const ROOT = new URL('./', self.registration.scope);
 const APP_FILES = [
   new URL('./', ROOT).href,
