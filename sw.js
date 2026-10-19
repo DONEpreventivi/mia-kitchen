@@ -1,5 +1,5 @@
-/* MIA v1.9 Dark — cache offline applicativo (non sincronizza dati). */
-const CACHE_VERSION = 'mia-v1-9-dark';
+/* MIA v2.0 Dark — cache offline applicativo (non sincronizza dati). */
+const CACHE_VERSION = 'mia-v2-0-dark';
 const ROOT = new URL('./', self.registration.scope);
 const APP_FILES = [
   new URL('./', ROOT).href,
@@ -27,8 +27,10 @@ self.addEventListener('fetch', event => {
   if (req.mode === 'navigate') {
     // Cache-first: after installation app opens without downloading code again.
     // Browser may still check for updated service worker when online.
-    event.respondWith(caches.match(req).then(cached => cached ||
-      caches.match(new URL('index.html', ROOT).href).then(fallback => fallback || fetch(req))));
+    event.respondWith(fetch(req).then(res => {
+      if (res.ok) { const copy=res.clone(); event.waitUntil(caches.open(CACHE_VERSION).then(c=>c.put(req,copy))); }
+      return res;
+    }).catch(() => caches.match(req).then(cached => cached || caches.match(new URL('index.html', ROOT).href))));
     return;
   }
   event.respondWith(caches.match(req).then(cached => cached || fetch(req)

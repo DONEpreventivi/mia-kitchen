@@ -2,7 +2,7 @@
   "id": "./",
   "name": "MIA — Menu Intelligence Assistant",
   "short_name": "MIA",
-  "description": "Gestione operativa della cucina: to do, timer, ricette, magazzino e statistiche",
+  "description": "Kitchen Intelligence Assistant: To do, timer, ricette, food cost, magazzino, ordini e statistiche avanzate",
   "lang": "it",
   "start_url": "./",
   "scope": "./",
