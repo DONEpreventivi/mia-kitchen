@@ -877,10 +877,41 @@ input[type=date]{color-scheme:dark}
 .app.timer-mode .kt-grid.cols-4 .kt-action.kt-stop{font-size:15px!important}
 .app.timer-mode .kt-grid.cols-4 .kt-action.kt-repeat svg{width:14px;height:14px;flex-basis:14px}
 @media(max-width:700px){.app.timer-mode .kt-grid.cols-4 .kt-action.kt-repeat{gap:2px!important}.app.timer-mode .kt-grid.cols-4 .kt-action.kt-repeat svg{display:none}}
+
+/* MIA 2.3 · menu editor touch-friendly / gerarchie cluster */
+.editor-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0 14px}
+.editor-toolbar>strong{font-size:13px;letter-spacing:.06em}
+.editor-toolbar>span{margin-right:auto;color:var(--muted);font-size:12px}
+.editor-groups{display:flex;flex-direction:column;gap:12px;padding:2px 0 14px}
+.editor-cluster{background:#293D3C;border-radius:8px;overflow:visible}
+.editor-cluster-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 14px;background:#334C49;border-radius:8px 8px 0 0}
+.editor-cluster-head>div{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.editor-cluster-head strong{color:#fff;letter-spacing:.045em;font-size:15px;font-weight:800}
+.editor-cluster-head small{color:#C3D6D0;font-size:11px}
+.editor-cluster-rows{padding:12px}
+.editor-v23-row{grid-template-columns:minmax(0,2fr) minmax(0,1.25fr) 85px 40px!important;gap:8px!important}
+.editor-v23-row .field{background:#1A302F!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border:1px solid #526C67!important;min-width:0}
+.editor-v23-row .field:focus{outline:2px solid var(--detail);outline-offset:1px}
+.editor-v23-row select.field{appearance:auto;-webkit-appearance:menulist;color-scheme:dark}
+.editor-v23-row .small-btn{min-height:40px;min-width:40px;color:#fff;background:#435953;border:0;border-radius:6px;font-size:23px}
+.editor-v23-row .small-btn:hover{background:#5B6E68}
+.editor-subtitle{font-size:10px;letter-spacing:.13em;font-weight:800;color:#E9B397;padding:14px 0 10px;margin-top:5px;border-top:1px solid #526D68}
+.editor-empty{font-size:12px;color:#BDC9C4;margin:6px 0}
+.editor-newcluster{padding:16px;margin:12px 0 8px;background:#293D3C;border-radius:8px}
+.editor-newcluster .field-label,.editor-newcluster .tip{color:#D1DBD6}
+.editor-addcategory{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.editor-addcategory input{flex:1;min-width:180px;background:#1A302F!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+.editor-addcategory button{flex-shrink:0}
+.editor-status{min-height:35px;padding:11px 13px;color:#D6E6DE;font-size:12px;font-weight:650}
+.editor-status.error{background:#642F2F;color:#fff;border-radius:6px}
+.sales-upsell-heading{font-weight:800;font-size:11px;letter-spacing:.12em;color:var(--detail);padding:11px 10px 7px;border-top:1px solid var(--line);margin-top:8px}
+.sales-upsell .sales-product-name{font-size:.95em;color:var(--muted)}
+@media(max-width:700px){.editor-v23-row{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 70px 36px!important;gap:5px!important}.editor-v23-row .field{padding-left:6px;padding-right:6px}.editor-cluster-head{padding:10px}}
+
 </style>
 </head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-7H9v7H3z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5c3-1.2 5.5-1.2 8 0v16c-2.5-1.2-5-1.2-8 0V4.5Zm8 0c2.5-1.2 5-1.2 8 0v16c-3-1.2-5.5-1.2-8 0"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6m6-6v6M9 15h6"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4m0 16h16M8 16v-5m5 5V7m5 9V4"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 17 1-5L16 2l6 6-11 10-5 1ZM14 4l6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 18V4m-5 5 5-5 5 5M4 17v4h16v-4"/></symbol></svg>
-<div class="app" id="app"><aside class="side" id="sidebar"><div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MIA</div><div class="brand-sub">MENU INTELLIGENCE ASSISTANT</div></div></div><div class="side-inner"><div class="sidelabel">Navigazione</div><nav id="sidenav"><button class="navbtn active" data-route="todo" type="button">To do</button><button class="navbtn" data-route="timer" type="button">Timer</button><button class="navbtn" data-route="recipes" type="button">Ricette</button><button class="navbtn" data-route="foodcost" type="button">Food cost</button><button class="navbtn" data-route="inventory" type="button">Magazzino</button><button class="navbtn" data-route="orders" type="button">Ordini</button><button class="navbtn" data-route="stats" type="button">Statistiche</button></nav></div><div class="side-foot"><strong>MIA / v2.2.1 DARK</strong><br>Kitchen workspace · D.ONE<br><span id="side-storage">Dati locali su questo iPad</span></div></aside>
+<div class="app" id="app"><aside class="side" id="sidebar"><div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MIA</div><div class="brand-sub">MENU INTELLIGENCE ASSISTANT</div></div></div><div class="side-inner"><div class="sidelabel">Navigazione</div><nav id="sidenav"><button class="navbtn active" data-route="todo" type="button">To do</button><button class="navbtn" data-route="timer" type="button">Timer</button><button class="navbtn" data-route="recipes" type="button">Ricette</button><button class="navbtn" data-route="foodcost" type="button">Food cost</button><button class="navbtn" data-route="inventory" type="button">Magazzino</button><button class="navbtn" data-route="orders" type="button">Ordini</button><button class="navbtn" data-route="stats" type="button">Statistiche</button></nav></div><div class="side-foot"><strong>MIA / v2.3 DARK</strong><br>Kitchen workspace · D.ONE<br><span id="side-storage">Dati locali su questo iPad</span></div></aside>
 <div class="workspace"><header class="topbar"><button type="button" class="iconbutton" id="toggleSidebar" title="Apri o chiudi il menu"><svg viewBox="0 0 24 24"><use href="#i-menu"/></svg></button><button type="button" class="iconbutton" id="homeButton" title="Torna alla home"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg></button><div class="top-title"><b id="headerTitle">To do</b><small>MIA · Menu Intelligence Assistant</small></div><div class="push"></div><span class="today" id="headerDate"></span><button class="btn outline" type="button" id="restoreBtn"><svg viewBox="0 0 24 24"><use href="#i-upload"/></svg><span>Ripristina</span></button><button class="btn" type="button" id="backupBtn"><svg viewBox="0 0 24 24"><use href="#i-download"/></svg><span>Backup</span></button></header><main class="main" id="main"><div id="view" class="page"></div></main></div></div>
 <input type="file" id="jsonFile" accept=".json,application/json" class="hidden"><div id="modalRoot"></div><div id="toastRoot"></div>
 <script>
@@ -904,11 +935,11 @@ const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36);
 const dayBefore=s=>{const d=new Date(s+'T12:00:00');d.setDate(d.getDate()-1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const getMonth=x=>x.slice(0,7);
 const DBNAME='MIA_DATA_1';const STORE='app';const PDFSTORE='partyPdfs';let db=null;let fallback=false;let saveChain=Promise.resolve();let state=null;
-const initial=()=>({app:'MIA',schema:1,lastSaved:null,todos:[],todoRecurrences:[],todoNotes:[],todoCarryHistory:[],recipes:[],foodCost:{ingredients:[],formulas:[]},inventory:[],productionHistory:[],suppliers:[],supplierTypes:['Ortofrutta','Carne e pesce','Dispensa','Latticini','Packaging','Altro'],orders:[],tags:[],partyEvents:[],todoPartyFlags:{},timer:ktDefaults(),kitchen:{menus:historicMenus(),historic:[],notes:{},covers:{},venueRevenue:{},categoryOrder:[],legacySource:null}});
+const initial=()=>({app:'MIA',schema:1,lastSaved:null,todos:[],todoRecurrences:[],todoNotes:[],todoCarryHistory:[],recipes:[],foodCost:{ingredients:[],formulas:[]},inventory:[],productionHistory:[],suppliers:[],supplierTypes:['Ortofrutta','Carne e pesce','Dispensa','Latticini','Packaging','Altro'],orders:[],tags:[],partyEvents:[],todoPartyFlags:{},timer:ktDefaults(),kitchen:{menus:historicMenus(),historic:[],notes:{},covers:{},venueRevenue:{},categoryOrder:CORE_CATEGORIES.slice(),legacySource:null}});
 function openDB(){return new Promise(resolve=>{if(!window.indexedDB){fallback=true;return resolve(null)}try{const request=indexedDB.open(DBNAME,2);request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains(STORE))request.result.createObjectStore(STORE);if(!request.result.objectStoreNames.contains(PDFSTORE))request.result.createObjectStore(PDFSTORE)};request.onsuccess=()=>{db=request.result;resolve(db)};request.onerror=()=>{fallback=true;resolve(null)};request.onblocked=()=>{fallback=true;resolve(null)}}catch(e){fallback=true;resolve(null)}})}
 function loadState(){return new Promise(resolve=>{if(fallback||!db){try{resolve(JSON.parse(localStorage.getItem(DBNAME))||initial())}catch(e){resolve(initial())}return}const tx=db.transaction(STORE,'readonly');const rq=tx.objectStore(STORE).get('snapshot');rq.onsuccess=()=>resolve(rq.result||initial());rq.onerror=()=>resolve(initial())})}
 function persist(){state.lastSaved=new Date().toISOString();const payload=JSON.parse(JSON.stringify(state));saveChain=saveChain.catch(()=>{}).then(()=>new Promise((resolve,reject)=>{if(fallback||!db){try{localStorage.setItem(DBNAME,JSON.stringify(payload));return resolve()}catch(e){return reject(e)}}try{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(payload,'snapshot');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)}catch(e){reject(e)}}));saveChain.catch(()=>toast('Attenzione: salvataggio non riuscito. Esporta un backup.'));return saveChain}
-function normalize(raw){const s=initial();if(raw&&typeof raw==='object'){for(const k of ['todos','todoRecurrences','todoNotes','todoCarryHistory','recipes','inventory','productionHistory','suppliers','supplierTypes','orders','tags','partyEvents'])if(Array.isArray(raw[k]))s[k]=raw[k];if(raw.todoPartyFlags&&typeof raw.todoPartyFlags==='object'&&!Array.isArray(raw.todoPartyFlags)){s.todoPartyFlags={...raw.todoPartyFlags}}if(raw.foodCost&&typeof raw.foodCost==='object'){for(const k of ['ingredients','formulas'])if(Array.isArray(raw.foodCost[k]))s.foodCost[k]=raw.foodCost[k]}if(raw.kitchen&&typeof raw.kitchen==='object'){for(const k of Object.keys(s.kitchen))if(raw.kitchen[k]!==undefined)s.kitchen[k]=raw.kitchen[k]}if(raw.timer&&typeof raw.timer==='object'){s.timer={...ktDefaults(),...raw.timer};if(!Array.isArray(s.timer.timers))s.timer.timers=[];if(!Array.isArray(s.timer.presets))s.timer.presets=KT_PRESETS.map(p=>({...p}));if(![2,3,4].includes(+s.timer.columns))s.timer.columns=3;}s.lastSaved=raw.lastSaved||null}return s}
+function normalize(raw){const s=initial();if(raw&&typeof raw==='object'){for(const k of ['todos','todoRecurrences','todoNotes','todoCarryHistory','recipes','inventory','productionHistory','suppliers','supplierTypes','orders','tags','partyEvents'])if(Array.isArray(raw[k]))s[k]=raw[k];if(raw.todoPartyFlags&&typeof raw.todoPartyFlags==='object'&&!Array.isArray(raw.todoPartyFlags)){s.todoPartyFlags={...raw.todoPartyFlags}}if(raw.foodCost&&typeof raw.foodCost==='object'){for(const k of ['ingredients','formulas'])if(Array.isArray(raw.foodCost[k]))s.foodCost[k]=raw.foodCost[k]}if(raw.kitchen&&typeof raw.kitchen==='object'){for(const k of Object.keys(s.kitchen))if(raw.kitchen[k]!==undefined)s.kitchen[k]=raw.kitchen[k]}if(raw.timer&&typeof raw.timer==='object'){s.timer={...ktDefaults(),...raw.timer};if(!Array.isArray(s.timer.timers))s.timer.timers=[];if(!Array.isArray(s.timer.presets))s.timer.presets=KT_PRESETS.map(p=>({...p}));if(![2,3,4].includes(+s.timer.columns))s.timer.columns=3;}s.lastSaved=raw.lastSaved||null}normalizeKitchenNames(s.kitchen);return s}
 let inventoryTab='raw',orderSupplierType='all';let route='todo',todoDay=localDay(),recipeTags=new Set(),recipeQuery='',stockFilter='all',statDate=localDay(),statPeriod='month';let modalInfo=null;let partyPdfPreviewUrl=null;
 function toast(message){const r=$('#toastRoot');r.innerHTML='<div class="toast" role="status">'+esc(message)+'</div>';clearTimeout(toast.timer);toast.timer=setTimeout(()=>r.innerHTML='',3400)}
 function showModal(title,body,footer,wide=false){$('#modalRoot').innerHTML='<div class="modal-scrim"><div class="dialog '+(wide?'wide':'')+'" role="dialog" aria-modal="true"><div class="dialog-head"><h2>'+esc(title)+'</h2><button class="iconbutton" type="button" id="closeModal" aria-label="Chiudi">'+icon('x')+'</button></div><div class="dialog-body">'+body+'</div><div class="dialog-foot">'+footer+'</div></div></div>';$('#closeModal').onclick=hideModal;$('.modal-scrim').addEventListener('click',e=>{if(e.target.classList.contains('modal-scrim'))hideModal()})}
@@ -1208,6 +1239,35 @@ async function sendOrder(o){const body=orderText(o);try{if(navigator.share){try{
  if(o.supplierEmail){window.location.href='mailto:'+encodeURIComponent(o.supplierEmail)+'?subject='+encodeURIComponent('Ordine MIA · '+humanDate(o.date))+'&body='+encodeURIComponent(body);return}if(navigator.clipboard){await navigator.clipboard.writeText(body);toast('Ordine copiato: incollalo nel messaggio al fornitore');return}toast('Condivisione non disponibile')
  }catch(e){toast('Impossibile condividere: '+e.message)}}
 function viewOrder(id){const o=state.orders.find(x=>x.id===id);if(!o)return;showModal('Ordine · '+o.supplierName,'<p class="tip">'+humanDate(o.date)+'</p><div class="order-products">'+o.items.map(x=>'<div class="order-product-row"><b>'+esc(x.qty+' × '+x.name)+'</b><span>'+esc(x.format||'')+'</span><strong>'+currency(x.price*x.qty)+'</strong></div>').join('')+'</div><div class="order-summary"><span>TOTALE STIMATO</span><strong>'+currency(o.total)+'</strong></div>'+(o.notes?'<p class="tip">'+esc(o.notes)+'</p>':''),'<button class="btn outline" id="orderViewClose">Chiudi</button><button class="btn secondary" id="orderViewSend">Condividi ordine</button>',true);$('#orderViewClose').onclick=hideModal;$('#orderViewSend').onclick=()=>sendOrder(o)}
+// MIA v2.3 — Ordine definitivo delle categorie e denominazioni storiche coerenti.
+const CORE_CATEGORIES=['SFIZI','TAPAS','BAO DEGUSTAZIONE','BURGER','SANDWICH','PIZZE','DOLCI'];
+const BURGER_MAIN=['D.ONE BURGER','SAPORITO','FISH BURGER','VEG BURGER'];
+const BURGER_UPSELL=['DOPPIO CHEESE','DOPPIO BACON','TRIPLO'];
+function categoryLabel(c){const s=String(c||'').trim().toLocaleUpperCase('it');return (s==='CLUB SANDWICH'||s==='CLUB SANDWICHES')?'SANDWICH':s||'ALTRO'}
+function burgerLabel(item){const name=String(item.name||'').trim(),id=String(item.productId||'').toLowerCase();
+ if(categoryLabel(item.category)!=='BURGER')return name;
+ if(id==='fish'||/^fish(?:\s+burger)?$/i.test(name))return 'FISH BURGER';
+ if(id==='vegano'||/^veg(?:ano|\s*burger)?$/i.test(name))return 'VEG BURGER';
+ const found=[...BURGER_MAIN,...BURGER_UPSELL].find(x=>x.toLocaleUpperCase('it')===name.toLocaleUpperCase('it'));
+ return found||name;
+}
+function normalizeKitchenNames(k){if(!k||typeof k!=='object')return k;
+ const existing=Array.isArray(k.categoryOrder)?k.categoryOrder:[];
+ const extra=existing.map(categoryLabel).filter(c=>!CORE_CATEGORIES.includes(c));
+ k.categoryOrder=[...CORE_CATEGORIES,...new Set(extra)];
+ for(const menu of k.menus||[]){if(!Array.isArray(menu.items))continue;
+  menu.items.forEach(item=>{item.category=categoryLabel(item.category);item.name=burgerLabel(item)});
+  menu.categories=[...new Set(menu.items.map(x=>x.category))];
+ }
+ for(const line of k.historic||[]){line.category=categoryLabel(line.category);line.name=burgerLabel(line)};
+ return k;
+}
+function getCategoryOrder(){const k=kitchen();return [...CORE_CATEGORIES,...new Set((k.categoryOrder||[]).map(categoryLabel).filter(x=>!CORE_CATEGORIES.includes(x)))];}
+function orderedCategoryIndex(cat){let p=getCategoryOrder().indexOf(categoryLabel(cat));return p===-1?9999:p;}
+function burgerOrderIndex(name){const n=String(name||'').trim().toLocaleUpperCase('it');const a=BURGER_MAIN.findIndex(x=>x===n);if(a>=0)return a;const u=BURGER_UPSELL.findIndex(x=>x===n);if(u>=0)return 100+u;return 50;}
+function menuItemSorter(a,b){const ca=categoryLabel(a.category),cb=categoryLabel(b.category);
+ return orderedCategoryIndex(ca)-orderedCategoryIndex(cb)||ca.localeCompare(cb,'it')||(ca==='BURGER'?burgerOrderIndex(a.name)-burgerOrderIndex(b.name):0)||String(a.name).localeCompare(String(b.name),'it');}
+
 // KITCHEN INTELLIGENCE DATA: original format (menus, historic, notes, covers, venueRevenue).
 const kitchen=()=>state.kitchen;
 // Le versioni sono selezionate dalla data di entrata in vigore, non dalla data odierna.
@@ -1298,7 +1358,7 @@ function aqSnapshot(){
  const cmpGross=compareRows.reduce((s,r)=>s+r.qty*r.price,0),cmpQty=compareRows.reduce((s,r)=>s+r.qty,0);
  const compMap=aqAggregate(compareRows);
  const groups=aqSortGrouped([...aqAggregate(rows).values()].map(g=>{const c=compMap.get(g.key),previous=c?.revenue||0;return {...g,comparison:previous,comparisonQty:c?.qty||0,change:previous?((g.revenue-previous)/previous*100):null}}));
- const allCats=[...new Set(source.map(r=>r.category))].sort((a,b)=>a.localeCompare(b,'it'));
+ const allCats=[...new Set(source.map(r=>r.category))].sort((a,b)=>orderedCategoryIndex(a)-orderedCategoryIndex(b)||a.localeCompare(b,'it'));
  const allProducts=[...new Map(source.map(r=>[r.key,{key:r.key,name:r.name,category:r.category}])).values()].sort((a,b)=>a.name.localeCompare(b.name,'it')||a.category.localeCompare(b.category,'it'));
  return {source,range,cmpRange,rows,compareRows,gross,qty,days,cmpGross,cmpQty,groups,allCats,allProducts};
 }
@@ -1445,15 +1505,13 @@ function salesModal(){
  const entries=[],seen=new Set(),keyOf=x=>[x.productId,x.name,x.category].join('||');
  if(menu)for(const it of menu.items){const key=keyOf(it);if(seen.has(key))continue;seen.add(key);const originals=forDay.filter(r=>keyOf(r)===key);entries.push({productId:it.productId,name:it.name,category:it.category,price:originals.length?num(originals[0].price):num(it.price),qty:originals.reduce((s,r)=>s+num(r.qty),0)})}
  for(const x of forDay){const key=keyOf(x);if(seen.has(key))continue;seen.add(key);entries.push({...x})}
- const ordered=[...(k.categoryOrder||[]),...(menu?.categories||[])].map(String);
- const categoryIndex=cat=>{const x=ordered.findIndex(c=>c.toLocaleLowerCase('it')===cat.toLocaleLowerCase('it'));return x<0?9999:x};
- entries.sort((a,b)=>categoryIndex(String(a.category||'Altro'))-categoryIndex(String(b.category||'Altro'))||String(a.category||'Altro').localeCompare(String(b.category||'Altro'),'it')||String(a.name).localeCompare(String(b.name),'it'));
+ entries.sort(menuItemSorter);
  const cats=[];entries.forEach((entry,i)=>{const c=String(entry.category||'Altro');let group=cats.find(x=>x.name===c);if(!group){group={name:c,index:cats.length,items:[]};cats.push(group)}group.items.push({...entry,index:i})});
  const safeId=c=>'sale-cat-'+c.index;
  const body='<p class="sales-intro">'+(menu?'Menu attivo: <b>'+esc(menu.name)+'</b> · ':'')+'Inserisci le quantità per piatto. Le categorie sono separate e i totali si aggiornano in tempo reale.</p>'+
  '<div class="sales-overview"><div class="sales-tile"><small>PIATTI VENDUTI</small><strong id="sale-overview-qty">0</strong></div><div class="sales-tile"><small>VOCI VENDUTE</small><strong id="sale-overview-items">0</strong></div><div class="sales-tile highlight"><small>INCASSO CUCINA</small><strong id="sale-overview-total">€ 0,00</strong></div></div>'+
  '<nav class="sales-cats-nav" aria-label="Vai alla categoria">'+cats.map(cat=>'<button type="button" data-sales-jump="'+safeId(cat)+'">'+esc(cat.name)+'</button>').join('')+'</nav>'+
- cats.map(cat=>'<section class="sales-category" id="'+safeId(cat)+'" data-sale-category="'+cat.index+'"><div class="sales-cat-top"><div><span class="sales-cat-code">CATEGORIA '+String(cat.index+1).padStart(2,'0')+' / '+String(cats.length).padStart(2,'0')+'</span><h3>'+esc(cat.name)+'</h3></div><div class="sales-cat-meta"><strong data-category-total="'+cat.index+'">€ 0,00</strong><span data-category-qty="'+cat.index+'">0 piatti</span></div></div><div class="sales-column-titles"><span>PRODOTTO</span><span>PREZZO €</span><span>QUANTITÀ</span></div>'+cat.items.map((it,j)=>'<div class="sales-row" data-sale-row="'+it.index+'"><div class="sales-product"><span class="sales-item-no">'+String(j+1).padStart(2,'0')+'</span><span class="sales-product-name">'+esc(it.name)+'</span></div><div class="sales-price"><input aria-label="Prezzo di '+esc(it.name)+'" type="number" min="0" step="0.01" inputmode="decimal" data-sale-price="'+it.index+'" value="'+esc(it.price)+'"></div><div class="sales-counter"><button type="button" data-sale-step="-1" data-sale-i="'+it.index+'" aria-label="Diminuisci '+esc(it.name)+'">−</button><input aria-label="Quantità di '+esc(it.name)+'" type="number" min="0" step="1" inputmode="numeric" data-sale-qty="'+it.index+'" value="'+esc(it.qty)+'"><button class="plus" type="button" data-sale-step="1" data-sale-i="'+it.index+'" aria-label="Aumenta '+esc(it.name)+'">+</button></div></div>').join('')+'<div class="sales-cat-foot"><span>Totale '+esc(cat.name)+'</span><strong data-category-footer="'+cat.index+'">€ 0,00</strong></div></section>').join('')+
+ cats.map(cat=>'<section class="sales-category" id="'+safeId(cat)+'" data-sale-category="'+cat.index+'"><div class="sales-cat-top"><div><span class="sales-cat-code">CATEGORIA '+String(cat.index+1).padStart(2,'0')+' / '+String(cats.length).padStart(2,'0')+'</span><h3>'+esc(cat.name)+'</h3></div><div class="sales-cat-meta"><strong data-category-total="'+cat.index+'">€ 0,00</strong><span data-category-qty="'+cat.index+'">0 piatti</span></div></div><div class="sales-column-titles"><span>PRODOTTO</span><span>PREZZO €</span><span>QUANTITÀ</span></div>'+cat.items.map((it,j)=>((cat.name==='BURGER'&&BURGER_UPSELL.includes(String(it.name).toLocaleUpperCase('it'))&&(j===0||!BURGER_UPSELL.includes(String(cat.items[j-1].name).toLocaleUpperCase('it'))))?'<div class="sales-upsell-heading">UPSELL BURGER</div>':'')+'<div class="sales-row '+(cat.name==='BURGER'&&BURGER_UPSELL.includes(String(it.name).toLocaleUpperCase('it'))?'sales-upsell':'')+'" data-sale-row="'+it.index+'"><div class="sales-product"><span class="sales-item-no">'+String(j+1).padStart(2,'0')+'</span><span class="sales-product-name">'+esc(it.name)+'</span></div><div class="sales-price"><input aria-label="Prezzo di '+esc(it.name)+'" type="number" min="0" step="0.01" inputmode="decimal" data-sale-price="'+it.index+'" value="'+esc(it.price)+'"></div><div class="sales-counter"><button type="button" data-sale-step="-1" data-sale-i="'+it.index+'" aria-label="Diminuisci '+esc(it.name)+'">−</button><input aria-label="Quantità di '+esc(it.name)+'" type="number" min="0" step="1" inputmode="numeric" data-sale-qty="'+it.index+'" value="'+esc(it.qty)+'"><button class="plus" type="button" data-sale-step="1" data-sale-i="'+it.index+'" aria-label="Aumenta '+esc(it.name)+'">+</button></div></div>').join('')+'<div class="sales-cat-foot"><span>Totale '+esc(cat.name)+'</span><strong data-category-footer="'+cat.index+'">€ 0,00</strong></div></section>').join('')+
  '<div class="sales-extra"><div class="formrow"><div class="formgroup"><label class="field-label">Coperti</label><input type="number" class="field" id="salesCovers" min="0" value="'+esc(k.covers[statDate]??0)+'"></div><div class="formgroup"><label class="field-label">Incasso complessivo locale €</label><input type="number" step="0.01" class="field" min="0" id="salesRevenue" value="'+esc(k.venueRevenue[statDate]??0)+'"></div></div><div class="formgroup"><label class="field-label">Note della giornata</label><textarea class="field textarea" id="salesNote">'+esc(k.notes[statDate]||'')+'</textarea></div></div>';
  showModal('Vendite cucina · '+humanDate(statDate),body,'<span class="sales-help">− / + per aggiornare senza tastiera</span><button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveSales">Salva giornata</button><button class="btn outline" id="saveSalesNext">Salva e vai al giorno dopo →</button>',true);
  $('.dialog').classList.add('sales-dialog');
@@ -1485,36 +1543,93 @@ function menuArchive(){const arr=sortedMenus();showModal('Cronologia dei menu','
 }
 let editedMenuItems=[];
 function newMenu(startDay=statDate,editId=null){
- const k=kitchen(),editing=editId?k.menus.find(m=>m.id===editId):null;
+ const k=kitchen();
+ let editing=editId?k.menus.find(m=>m.id===editId):null;
  const initDate=editing?.start||startDay||localDay();
- const inherited=editing||menuBefore(initDate);
- editedMenuItems=(inherited?.items||[{productId:uid(),name:'',category:'',price:0}]).map(x=>({...x}));
- const itemRow=(it,i)=>'<div class="menuitem-row"><input class="field" data-mi="name" data-idx="'+i+'" value="'+esc(it.name)+'" placeholder="Nome piatto"><input class="field" data-mi="category" data-idx="'+i+'" value="'+esc(it.category)+'" placeholder="Categoria"><input class="field" data-mi="price" data-idx="'+i+'" type="number" min="0" step=".01" value="'+esc(it.price)+'" aria-label="Prezzo"><button class="small-btn" data-menu-remove="'+i+'" type="button" aria-label="Elimina piatto">×</button></div>';
- const intro=editing?'Modifica i dati della versione salvata. La data resta fissa per proteggere la cronologia; le vendite già registrate non vengono alterate.':'Puoi registrare un menu molto vecchio, uno intermedio o quello corrente. MIA ricostruisce automaticamente le date di fine delle release vicine.';
- const explanation=()=>{const day=$('#menuStart').value,prev=menuBefore(day),next=menuAfter(day);$('#menuContext').textContent=(prev?'Precedente: '+prev.name+' (dal '+humanDate(prev.start)+')':'Prima versione dello storico')+(next?'  ·  Successiva: '+next.name+' (dal '+humanDate(next.start)+')':'  ·  Nessuna versione successiva')};
- showModal(editing?'Modifica release menu':'Registra release storica','<div class="history-editor-intro">'+esc(intro)+'</div><div class="formrow"><div class="formgroup"><label class="field-label">Nome versione</label><input class="field" id="menuName" maxlength="100" value="'+esc(editing?.name||'Menu '+humanDate(initDate))+'"></div><div class="formgroup"><label class="field-label">Entrata in vigore</label><input class="field" type="date" id="menuStart" max="'+esc(localDay())+'" value="'+esc(initDate)+'" '+(editing?'disabled':'')+'></div></div><div class="history-menu-context" id="menuContext"></div><div class="formgroup"><label class="field-label">Cosa è cambiato (release)</label><textarea class="field textarea" id="menuChanges" placeholder="Es. Nuovo burger, sostituita pizza, prezzo aggiornato...">'+esc(editing?.changelog||'')+'</textarea></div><div class="section-top"><label class="field-label" style="margin:0">Piatti del menu</label><div class="actions"><button type="button" class="btn light small" id="loadMenuBefore">Copia precedente</button><button type="button" class="btn light small" id="addMenuItem">+ Piatto</button></div></div><div class="history-menu-cols"><span>PRODOTTO</span><span>CATEGORIA</span><span>PREZZO €</span><span></span></div><div id="menuItemRows">'+editedMenuItems.map(itemRow).join('')+'</div>', '<button class="btn outline" id="cancelModal">Annulla</button><button class="btn secondary" id="saveNewMenu">'+(editing?'Salva modifiche':'Registra release')+'</button>',true);
- const rows=$('#menuItemRows');let changed=false;
- const capture=()=>{$$('[data-mi]',rows).forEach(el=>{const x=editedMenuItems[+el.dataset.idx];if(x)x[el.dataset.mi]=el.value})};
- const draw=()=>rows.innerHTML=editedMenuItems.map(itemRow).join('');
- rows.addEventListener('input',e=>{if(e.target.dataset.mi){editedMenuItems[+e.target.dataset.idx][e.target.dataset.mi]=e.target.value;changed=true}});
- rows.addEventListener('click',e=>{const b=e.target.closest('[data-menu-remove]');if(!b)return;capture();editedMenuItems.splice(+b.dataset.menuRemove,1);changed=true;draw()});
- $('#addMenuItem').onclick=()=>{capture();editedMenuItems.push({productId:uid(),name:'',category:'TAPAS',price:0});changed=true;draw()};
- $('#loadMenuBefore').onclick=()=>{const prev=menuBefore($('#menuStart').value);if(!prev){toast('Nessun menu precedente da copiare');return}if(changed&&!confirm('Sostituire le righe in modifica con i piatti del menu precedente?'))return;editedMenuItems=prev.items.map(x=>({...x}));changed=false;draw();toast('Caricati i piatti di '+prev.name)};
- if(!editing)$('#menuStart').onchange=()=>{if(!changed){const prev=menuBefore($('#menuStart').value);editedMenuItems=(prev?.items||[{productId:uid(),name:'',category:'',price:0}]).map(x=>({...x}));draw()}explanation()};
- explanation();
- $('#cancelModal').onclick=hideModal;
- $('#saveNewMenu').onclick=async()=>{
-   const start=$('#menuStart').value,name=$('#menuName').value.trim(),changelog=$('#menuChanges').value.trim();capture();
-   if(!start||!name||start>localDay()){toast('Controlla nome e data (non futura)');return}
-   if(!editing&&k.menus.some(m=>m.start===start)){toast('In questa data esiste già una release: modifica quella esistente');return}
-   const items=editedMenuItems.filter(x=>String(x.name).trim()).map(x=>({productId:String(x.productId||uid()),name:String(x.name).trim(),category:String(x.category||'ALTRO').trim()||'ALTRO',price:Math.max(0,num(x.price))}));
-   if(!items.length){toast('Inserisci almeno un piatto');return}
-   if(items.some(x=>!Number.isFinite(x.price))){toast('Controlla i prezzi');return}
-   const data={id:editing?.id||'menu-'+uid(),name,start,end:editing?.end||'2099-12-31',items,categories:[...new Set(items.map(x=>x.category))],changelog};
-   if(editing)k.menus=k.menus.map(m=>m.id===editing.id?data:m);else k.menus.push(data);
-   recalcMenuRanges();await persist();hideModal();statDate=start;statPeriod='month';renderStats();toast(editing?'Versione aggiornata':'Release inserita nella cronologia');
+ // La release nella data esiste già? Apri in modifica, senza fallire al salvataggio.
+ if(!editing)editing=k.menus.find(m=>m.start===initDate)||null;
+ let ordered=[...getCategoryOrder()];
+ const prev=editing||menuBefore(initDate);
+ editedMenuItems=(prev?.items||[]).map(x=>({...x,name:burgerLabel(x),category:categoryLabel(x.category)}));
+ // Le vecchie categorie restano modificabili nelle vecchie release, anche se non più attive.
+ // Per la nuova release dal 25/09 partiamo invece esattamente dai sette cluster richiesti.
+ if(!editing && initDate>='2026-09-25'){
+   editedMenuItems=editedMenuItems.filter(x=>x.category!=='MENU DEGUSTAZIONE'&&!(x.category==='BURGER'&&/^burger\s+base$/i.test(x.name)));
+ }
+ for(const it of editedMenuItems)if(!ordered.includes(it.category))ordered.push(it.category);
+ // Solo per le nuove release dal 25 settembre: Bao Degustazione è un unico tris.
+ // Le release storiche precedenti NON vengono riscritte o private di prodotti.
+ if(!editing && initDate>='2026-09-25'){
+   const oldBao=editedMenuItems.filter(x=>x.category==='BAO DEGUSTAZIONE');
+   if(oldBao.length && (oldBao.length>1||String(oldBao[0].name).toLocaleUpperCase('it')!=='TRIS DI BAO')){
+     const ref=oldBao.find(x=>/degustazione\s+bao|tris\s+di\s+bao/i.test(x.name))||oldBao[0];
+     editedMenuItems=editedMenuItems.filter(x=>x.category!=='BAO DEGUSTAZIONE');
+     editedMenuItems.push({productId:'tris-bao-'+uid(),name:'TRIS DI BAO',category:'BAO DEGUSTAZIONE',price:num(ref.price)});
+   }
+ }
+ if(!editedMenuItems.length)editedMenuItems=[{productId:uid(),name:'',category:'TAPAS',price:0}];
+ let changed=false,saving=false;
+ const categoryOptions=selected=>ordered.map(c=>'<option value="'+esc(c)+'"'+(c===categoryLabel(selected)?' selected':'')+'>'+esc(c)+'</option>').join('');
+ const row=(it,i)=>'<div class="menuitem-row editor-v23-row" data-editor-row="'+i+'"><input class="field" type="text" data-mi="name" data-idx="'+i+'" value="'+esc(it.name)+'" placeholder="Nome piatto" aria-label="Nome piatto"><select class="field" data-mi="category" data-idx="'+i+'" aria-label="Cluster">'+categoryOptions(it.category)+'</select><input class="field" data-mi="price" data-idx="'+i+'" type="number" min="0" step=".01" inputmode="decimal" value="'+esc(it.price)+'" aria-label="Prezzo €"><button class="small-btn" data-menu-remove="'+i+'" type="button" aria-label="Elimina piatto">×</button></div>';
+ const groups=()=>ordered.map(cat=>{
+  const list=editedMenuItems.map((x,i)=>({...x,index:i})).filter(x=>categoryLabel(x.category)===cat).sort(menuItemSorter);
+  let main=list,ups=[];
+  if(cat==='BURGER'){main=list.filter(x=>!BURGER_UPSELL.includes(String(x.name).toLocaleUpperCase('it')));ups=list.filter(x=>BURGER_UPSELL.includes(String(x.name).toLocaleUpperCase('it')))}
+  return '<section class="editor-cluster" data-editor-cluster="'+esc(cat)+'"><div class="editor-cluster-head"><div><strong>'+esc(cat)+'</strong><small>'+list.length+' voci</small></div><button type="button" class="btn light small" data-menu-add-to="'+esc(cat)+'">+ Piatto</button></div><div class="editor-cluster-rows">'+main.map(x=>row(x,x.index)).join('')+(cat==='BURGER'?'<div class="editor-subtitle">UPSELL · STESSO CLUSTER</div>'+ups.map(x=>row(x,x.index)).join(''):'')+(list.length?'':'<p class="editor-empty">Nessun piatto · premi + Piatto per aggiungerne uno.</p>')+'</div></section>';
+ }).join('');
+ const intro=editing?'Stai modificando una release già salvata. Le quantità e i prezzi delle vendite passate non vengono modificati.':'La nuova release copia i piatti del menu precedente: puoi aggiungerne altri senza sostituire quelli esistenti.';
+ showModal(editing?'Modifica menu · '+humanDate(initDate):'Nuova release · '+humanDate(initDate),
+ '<div class="history-editor-intro">'+esc(intro)+'</div>'+
+ '<div class="formrow"><div class="formgroup"><label class="field-label" for="menuName">Nome release</label><input class="field" id="menuName" maxlength="100" value="'+esc(editing?.name||'Menu '+humanDate(initDate))+'"></div><div class="formgroup"><label class="field-label" for="menuStart">Entrata in vigore</label><input class="field" type="date" id="menuStart" max="'+esc(localDay())+'" value="'+esc(initDate)+'" '+(editing?'disabled':'')+'></div></div>'+
+ '<div class="history-menu-context" id="menuContext"></div><div class="formgroup"><label class="field-label" for="menuChanges">Cosa è cambiato nella release?</label><textarea class="field textarea" id="menuChanges" placeholder="Es. Aggiunti due piatti; gli altri rimangono invariati">'+esc(editing?.changelog||'')+'</textarea></div>'+
+ '<div class="editor-toolbar"><strong>CLUSTER E PIATTI</strong><span id="editorItemCount"></span><button type="button" class="btn secondary small" id="addMenuItem">+ Piatto</button></div>'+
+ '<div id="menuItemRows" class="editor-groups"></div>'+
+ '<div class="editor-newcluster"><label class="field-label" for="menuNewCategory">NUOVO CLUSTER</label><div class="editor-addcategory"><input class="field" id="menuNewCategory" placeholder="Es. PIATTI DEL GIORNO" maxlength="65"><button class="btn light small" id="addMenuCategory" type="button">+ Crea cluster</button></div><p class="tip">Il cluster resterà disponibile anche nei prossimi menu e potrai inserire i piatti al suo interno.</p></div>'+
+ '<div class="editor-status" id="menuSaveMessage" role="status" aria-live="polite"></div>',
+ '<button class="btn outline" type="button" id="cancelModal">Annulla</button><button class="btn secondary" type="button" id="saveNewMenu">'+(editing?'Salva modifiche':'Registra release')+'</button>',true);
+ const modal=$('#modalRoot'),dlg=$('.dialog',modal),rows=$('#menuItemRows',modal),body=$('.dialog-body',modal);
+ const message=(s,err=false)=>{const el=$('#menuSaveMessage',modal);if(el){el.textContent=s;el.classList.toggle('error',err)}};
+ const capture=()=>{$$('[data-mi]',rows).forEach(el=>{const it=editedMenuItems[Number(el.dataset.idx)];if(it)it[el.dataset.mi]=el.value})};
+ const draw=(focusId=null)=>{const y=body.scrollTop;rows.innerHTML=groups();$('#editorItemCount',modal).textContent=editedMenuItems.filter(x=>String(x.name).trim()).length+' piatti';body.scrollTop=y;
+  if(focusId!==null){const target=$('[data-editor-row="'+focusId+'"] [data-mi="name"]',rows);if(target){target.scrollIntoView({block:'center',behavior:'auto'});target.focus()}}
  };
+ const context=()=>{const day=$('#menuStart',modal).value,prev=menuBefore(day),next=menuAfter(day);
+  $('#menuContext',modal).textContent=(prev?'Menu precedente: '+prev.name+' · '+humanDate(prev.start):'Primo menu storico')+(next?'  |  Menu successivo: '+next.name+' · '+humanDate(next.start):'  |  Nessun menu successivo')};
+ const addItem=cat=>{if(saving)return;capture();const idx=editedMenuItems.length;editedMenuItems.push({productId:uid(),name:'',category:categoryLabel(cat||'TAPAS'),price:0});changed=true;message('Nuova riga pronta: inserisci nome e prezzo.');draw(idx)};
+ rows.addEventListener('input',e=>{const el=e.target.closest('[data-mi]');if(!el)return;const item=editedMenuItems[Number(el.dataset.idx)];if(item){item[el.dataset.mi]=el.value;changed=true}});
+ rows.addEventListener('change',e=>{const el=e.target.closest('[data-mi="category"]');if(!el)return;capture();changed=true;const index=Number(el.dataset.idx);draw();const dest=$('[data-editor-row="'+index+'"] [data-mi="name"]',rows);dest?.scrollIntoView({block:'center',behavior:'auto'})});
+ modal.addEventListener('click',e=>{const rm=e.target.closest('[data-menu-remove]');if(rm){if(saving)return;capture();editedMenuItems.splice(Number(rm.dataset.menuRemove),1);changed=true;message('Piatto eliminato dalla bozza: salva per confermare.');draw();return}
+  const add=e.target.closest('[data-menu-add-to]');if(add){addItem(add.dataset.menuAddTo);return}
+ });
+ $('#addMenuItem',modal).onclick=()=>addItem('TAPAS');
+ $('#addMenuCategory',modal).onclick=()=>{const input=$('#menuNewCategory',modal);const cat=categoryLabel(input.value);if(!cat||cat==='ALTRO'){message('Scrivi il nome del nuovo cluster.',true);return}
+  if(ordered.includes(cat)){message('Il cluster «'+cat+'» è già presente: utilizza + Piatto.',true);return}
+  ordered.push(cat);input.value='';changed=true;draw();addItem(cat);message('Cluster creato: completa il nuovo piatto e salva la release.')};
+ $('#menuNewCategory',modal).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#addMenuCategory',modal).click()}});
+ if(!editing)$('#menuStart',modal).onchange=()=>{const day=$('#menuStart',modal).value;context();if(k.menus.some(m=>m.start===day))message('Per questa data esiste già una release: aprila da Storico menu e premi Modifica.',true);else message('Data aggiornata. I piatti già presenti nella bozza non cambiano.')};
+ $('#cancelModal',modal).onclick=hideModal;
+ $('#saveNewMenu',modal).onclick=async()=>{
+  if(saving)return;capture();const start=$('#menuStart',modal).value,name=$('#menuName',modal).value.trim(),changelog=$('#menuChanges',modal).value.trim();
+  if(!start||!name||start>localDay()){message('Inserisci un nome e una data valida, non futura.',true);return}
+  const same=k.menus.find(m=>m.start===start&&m.id!==editing?.id);if(same){message('Esiste già una release in questa data: scegli Modifica nello Storico menu.',true);return}
+  const items=editedMenuItems.filter(x=>String(x.name||'').trim()).map(x=>({productId:String(x.productId||uid()),name:burgerLabel({...x,category:categoryLabel(x.category)}),category:categoryLabel(x.category),price:num(x.price)}));
+  if(!items.length){message('Aggiungi almeno un piatto con il suo nome.',true);return}
+  if(items.some(x=>!Number.isFinite(x.price)||x.price<0)){message('Controlla i prezzi: non possono essere negativi.',true);return}
+  const nset=new Set(items.map(x=>x.productId));if(nset.size!==items.length){message('Due piatti condividono lo stesso identificativo. Controlla l’elenco.',true);return}
+  saving=true;const button=$('#saveNewMenu',modal);button.disabled=true;button.textContent='Salvataggio…';message('Salvataggio del menu nell’archivio locale…');
+  const previousMenus=JSON.parse(JSON.stringify(k.menus)),previousOrder=[...(k.categoryOrder||[])];
+  const record={id:editing?.id||'menu-'+uid(),name,start,end:editing?.end||'2099-12-31',items:items.sort(menuItemSorter),categories:[...new Set(items.map(x=>x.category))],changelog};
+  try{
+   if(editing)k.menus=k.menus.map(m=>m.id===editing.id?record:m);else k.menus.push(record);
+   k.categoryOrder=[...CORE_CATEGORIES,...ordered.filter(c=>!CORE_CATEGORIES.includes(c))];
+   recalcMenuRanges();await persist();
+   if(!k.menus.some(m=>m.id===record.id&&m.items.length===record.items.length))throw new Error('verifica del menu non riuscita');
+   hideModal();statDate=start;statPeriod='month';renderStats();toast((editing?'Menu aggiornato':'Nuova release registrata')+' · '+items.length+' piatti');
+  }catch(error){k.menus=previousMenus;k.categoryOrder=previousOrder;message('Il salvataggio non è riuscito: '+(error?.message||'errore archivio')+'. Non chiudere la finestra; prima esporta un backup.',true);saving=false;button.disabled=false;button.textContent=editing?'Salva modifiche':'Registra release'}
+ };
+ draw();context();
 }
+
 async function exportBackup(){try{await saveChain.catch(()=>{});const snapshot={...state,backupSettings:{timer:{columns:ktData().columns,sound:ktData().sound,presets:ktData().presets.map(p=>({...p}))},todoPartyFlags:{...state.todoPartyFlags}},partyPdfFiles:await partyBackupFiles(),exportedAt:new Date().toISOString(),backupType:'MIA_COMPLETE'};const blob=new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json'});const filename='MIA_backup_'+localDay()+'.json';const file=new File([blob],filename,{type:'application/json'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Backup completo MIA'});toast('Backup condiviso: salvalo in File o su iCloud');return}catch(e){if(e.name==='AbortError')return}}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);toast('Backup JSON generato')}catch(e){toast('Impossibile esportare il backup: '+e.message)}}
 function mergeArrayByIdentity(target,incoming,keyer){const seen=new Set(target.map(keyer));let added=0;for(const item of incoming||[]){if(!item||typeof item!=='object')continue;const key=keyer(item);if(!seen.has(key)){target.push(item);seen.add(key);added++}}return added}
 function mergeKitchen(existing,other){let total=0;if(!other||typeof other!=='object')return 0;
@@ -1525,7 +1640,7 @@ function mergeKitchen(existing,other){let total=0;if(!other||typeof other!=='obj
  const saleKey=x=>[x.date,x.productId||'',String(x.name||'').trim().toLowerCase(),String(x.category||'').trim().toLowerCase()].join('~');
  total+=mergeArrayByIdentity(existing.historic,Array.isArray(other.historic)?other.historic:[],saleKey);
  for(const field of ['notes','covers','venueRevenue']){existing[field]=existing[field]||{};for(const [k,v] of Object.entries(other[field]||{})){if(existing[field][k]===undefined){existing[field][k]=v;total++}}}
- existing.categoryOrder=[...new Set([...(existing.categoryOrder||[]),...(other.categoryOrder||[])])];return total}
+ existing.categoryOrder=[...new Set([...(existing.categoryOrder||[]),...(other.categoryOrder||[])])];normalizeKitchenNames(existing);return total}
 function mergeMiaBackup(raw){let sum=0;for(const k of ['todos','todoRecurrences','todoNotes','todoCarryHistory','recipes','inventory','productionHistory','suppliers','orders','partyEvents']){if(!Array.isArray(state[k]))state[k]=[];if(Array.isArray(raw[k]))sum+=mergeArrayByIdentity(state[k],raw[k],x=>String(x.id||x.taskId||JSON.stringify(x)))}
  if(raw.foodCost&&typeof raw.foodCost==='object'){for(const key of ['ingredients','formulas'])if(Array.isArray(raw.foodCost[key]))sum+=mergeArrayByIdentity(state.foodCost[key],raw.foodCost[key],item=>key==='formulas'?String(item.recipeId):String(item.id))}
  state.tags=[...new Set([...(state.tags||[]),...(raw.tags||[])])];state.supplierTypes=[...new Set([...(state.supplierTypes||[]),...(raw.supplierTypes||[])])];sum+=mergeKitchen(state.kitchen,raw.kitchen||{});
@@ -1549,7 +1664,7 @@ async function importBackup(file,mode='merge'){if(!file)return;try{const raw=JSO
   if(mode==='replace'){if(!confirm('Sostituire tutto lo storico delle Statistiche con il file importato?'))return;state.kitchen={...state.kitchen,...raw};added=raw.historic.length}
   else added=mergeKitchen(state.kitchen,raw);
  }else {toast('File non riconosciuto: serve JSON MIA o Kitchen Intelligence');return}
- if(raw?.app==='MIA'&&raw?.partyPdfFiles?.length){added+=await restorePartyPdfs(raw,mode)}migrateLegacyParties();rolloverOpenTasks();await persist();render();toast((mode==='merge'?'Backup unito':'Backup ripristinato')+' · '+added+' elementi nuovi');
+ if(raw?.app==='MIA'&&raw?.partyPdfFiles?.length){added+=await restorePartyPdfs(raw,mode)}normalizeKitchenNames(state.kitchen);migrateLegacyParties();rolloverOpenTasks();await persist();render();toast((mode==='merge'?'Backup unito':'Backup ripristinato')+' · '+added+' elementi nuovi');
  }catch(e){toast('Errore di importazione: '+e.message)}}
 function backupImportDialog(){showModal('Importa e unisci backup','<p class="tip"><b>Unisci dati</b> aggiunge le informazioni assenti senza cancellare l’archivio locale. I record di vendita con stessa data e stesso prodotto non vengono sommati due volte: viene conservato il dato già presente. Puoi selezionare più file insieme.</p><div class="formgroup"><label class="field-label">File JSON</label><input type="file" class="field" id="backupFilesPicker" accept=".json,application/json" multiple></div><p class="tip">Per sicurezza, esporta prima un backup completo.</p>', '<button class="btn outline" id="backupImportCancel">Annulla</button><button class="btn secondary" id="backupImportMerge">Unisci backup</button><button class="btn danger" id="backupImportReplace">Sostituisci archivio</button>',true);
  $('#backupImportCancel').onclick=hideModal;$('#backupImportMerge').onclick=async()=>{const files=Array.from($('#backupFilesPicker').files||[]);if(!files.length){toast('Seleziona almeno un JSON');return}hideModal();for(const file of files)await importBackup(file,'merge')};$('#backupImportReplace').onclick=async()=>{const files=Array.from($('#backupFilesPicker').files||[]);if(files.length!==1){toast('Per sostituire seleziona un solo file');return}hideModal();await importBackup(files[0],'replace')};}
