@@ -1,5 +1,5 @@
-/* MIA v2.3 Dark - aggiornamento e utilizzo offline. */
-const CACHE_VERSION = 'mia-v2-3-dark';
+/* MIA v2.4 Dark - aggiornamento e utilizzo offline. */
+const CACHE_VERSION = 'mia-v2-4-dark';
 const ROOT = new URL('./', self.registration.scope);
 const path = name => new URL(name, ROOT).href;
 const ENTRY = path('index.html');
