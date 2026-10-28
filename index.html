@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="MIA"><meta name="theme-color" content="#0E1517">
-<title>MIA Dark v2.6 · Menu Intelligence Assistant</title>
+<title>MIA Dark v2.7 · Menu Intelligence Assistant</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
 <style>
@@ -990,6 +990,21 @@ input[type=date]{color-scheme:dark}
 @media(max-width:850px){.ct-form-line{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}.ct-form-line>.ct-formgroup:last-child{grid-column:1/-1}.ct-metrics{grid-template-columns:repeat(4,minmax(0,1fr))}.ct-metric{padding:10px}}
 @media(max-width:560px){.ct-form-line,.ct-quick-fields{grid-template-columns:1fr}.ct-form-line>.ct-formgroup:last-child{grid-column:auto}.ct-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.ct-expiry-row>.ct-formgroup{min-width:0}.ct-days-line{gap:5px}.ct-no-date{padding:0 10px}.ct-panel{padding:14px}}
 
+
+/* v2.7: allineamento geometrico +/− nel popup CONTENITORI e nel modulo */
+.ct-days-step,.dialog #ctQuickForm .ct-days-step{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0!important;line-height:0!important;text-align:center;box-sizing:border-box;vertical-align:middle;min-width:46px;min-height:46px;overflow:hidden}
+.ct-days-step svg,.dialog #ctQuickForm .ct-days-step svg{display:block!important;position:static!important;width:22px!important;height:22px!important;stroke:currentColor!important;stroke-width:2.6!important;stroke-linecap:round!important;stroke-linejoin:round!important;fill:none!important;flex:none!important;transform:none!important;margin:0!important}
+/* v2.7: la terza esportazione e' esclusiva, non un allegato al report economico. */
+.export-flags .shopping-only{border:1px solid #8FAD96;background:#273B32}
+.export-flags .shopping-only span b{color:#FFFFFF}
+.export-flags .shopping-only span small{color:#BAC9C0}
+.export-shopping-options{background:#293C35;padding:12px 14px;border-radius:5px;margin-top:9px}
+.export-shopping-options .formgroup{margin:0 0 10px}
+.export-shopping-options .field-label{color:#BDCEC1}
+.export-shopping-options .field{background:#3A5048!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;color-scheme:dark}
+.export-shopping-options label.shopping-done{display:flex;align-items:center;gap:9px;font-size:12px;color:#E2EDE6}
+.export-shopping-options label.shopping-done input{width:18px;height:18px;accent-color:#C96F56}
+
 </style>
 </head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-7H9v7H3z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5c3-1.2 5.5-1.2 8 0v16c-2.5-1.2-5-1.2-8 0V4.5Zm8 0c2.5-1.2 5-1.2 8 0v16c-3-1.2-5.5-1.2-8 0"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6m6-6v6M9 15h6"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4m0 16h16M8 16v-5m5 5V7m5 9V4"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 17 1-5L16 2l6 6-11 10-5 1ZM14 4l6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 18V4m-5 5 5-5 5 5M4 17v4h16v-4"/></symbol></svg>
@@ -1244,10 +1259,65 @@ function makeTodoPDF(day,salesDay=dayShift(day,-1),includeTodo=true,includeSales
 }
 function handoverReportDialog(){
  const today=localDay(),previous=dayShift(todoDay,-1),usePrevious=todoDay>today||(!dailyKitchenSnapshot(todoDay).recorded&&dailyKitchenSnapshot(previous).recorded),initialSales=usePrevious?previous:todoDay,initialTodo=dayShift(initialSales,1);
- showModal('Esporta report','<p class="tip">Seleziona i contenuti da condividere. Puoi inviare solo le attività operative senza comunicare gli incassi, oppure soltanto le vendite.</p><div class="export-flags"><label><input type="checkbox" id="exportTodo" checked><span><b>To do e note</b><small>Attività, preparazioni e appunti</small></span></label><label><input type="checkbox" id="exportSales" checked><span><b>Vendite e incasso cucina</b><small>Quantità, prodotti, prezzi e totale €</small></span></label></div><div class="formrow"><div class="formgroup" id="exportTodoDateWrap"><label class="field-label" for="handoverTodoDay">Data To do / note</label><input type="date" class="field" id="handoverTodoDay" value="'+esc(initialTodo)+'"></div><div class="formgroup" id="exportSalesDateWrap"><label class="field-label" for="handoverSalesDay">Data vendite / incasso</label><input type="date" class="field" id="handoverSalesDay" value="'+esc(initialSales)+'"></div></div><p class="tip" id="exportExplanation">Il PDF mostrerà due date chiaramente distinte.</p>', '<button class="btn outline" id="handoverCancel">Annulla</button><button class="btn secondary" id="handoverExport">Genera PDF</button>');
- const update=()=>{const t=$('#exportTodo').checked,v=$('#exportSales').checked;$('#exportTodoDateWrap').hidden=!t;$('#exportSalesDateWrap').hidden=!v;$('#handoverExport').disabled=!(t||v);$('#exportExplanation').textContent=t&&v?'Vendite di un giorno e preparazioni del successivo.':t?'Documento solo operativo: nessun incasso o prezzo nel PDF.':'Solo consuntivo cucina: nessuna attività o nota.'};
- $('#exportTodo').onchange=update;$('#exportSales').onchange=update;update();$('#handoverCancel').onclick=hideModal;
- $('#handoverExport').onclick=async()=>{const includeTodo=$('#exportTodo').checked,includeSales=$('#exportSales').checked,salesDay=$('#handoverSalesDay').value,todoDate=$('#handoverTodoDay').value;if(!includeTodo&&!includeSales){toast('Seleziona almeno una sezione');return}if((includeTodo&&!todoDate)||(includeSales&&!salesDay)){toast('Seleziona le date richieste');return}if(includeTodo&&includeSales&&todoDate<=salesDay){toast('La data To do deve essere successiva alla data vendite');return}if(includeTodo)recurringForDay(todoDate);await persist();hideModal();await shareTodoDay(todoDate,salesDay,includeTodo,includeSales)};
+ const body='<p class="tip">Seleziona cosa esportare. La lista COMPRA produce un PDF separato, senza altre attivita, note, vendite o incassi.</p>'+
+ '<div class="export-flags">'+
+ '<label><input type="checkbox" id="exportTodo" checked><span><b>To do e note</b><small>Attivita, preparazioni e appunti</small></span></label>'+
+ '<label><input type="checkbox" id="exportSales" checked><span><b>Vendite e incasso cucina</b><small>Quantita, prodotti, prezzi e totale</small></span></label>'+
+ '<label class="shopping-only"><input type="checkbox" id="exportCompra"><span><b>Solo COMPRA · lista della spesa</b><small>PDF con caselle spuntabili, nessun incasso o altra sezione</small></span></label></div>'+
+ '<div id="exportRegularOptions"><div class="formrow"><div class="formgroup" id="exportTodoDateWrap"><label class="field-label" for="handoverTodoDay">Data To do / note</label><input type="date" class="field" id="handoverTodoDay" value="'+esc(initialTodo)+'"></div><div class="formgroup" id="exportSalesDateWrap"><label class="field-label" for="handoverSalesDay">Data vendite / incasso</label><input type="date" class="field" id="handoverSalesDay" value="'+esc(initialSales)+'"></div></div></div>'+
+ '<div class="export-shopping-options" id="exportShoppingOptions" hidden><div class="formgroup"><label class="field-label" for="exportCompraDate">Data lista COMPRA</label><input type="date" class="field" id="exportCompraDate" value="'+esc(todoDay)+'"></div><label class="shopping-done"><input type="checkbox" id="exportCompraDone">Includi anche le voci gia completate</label><p class="tip">Le caselle si possono spuntare in un lettore PDF con supporto ai moduli, per esempio Adobe Acrobat Reader. Non sincronizzano le spunte con MIA.</p></div>'+
+ '<p class="tip" id="exportExplanation"></p>';
+ showModal('Esporta report',body,'<button class="btn outline" id="handoverCancel">Annulla</button><button class="btn secondary" id="handoverExport">Genera PDF</button>');
+ const t=$('#exportTodo'),v=$('#exportSales'),c=$('#exportCompra');
+ const update=()=>{const shopping=c.checked;$('#exportRegularOptions').hidden=shopping;$('#exportShoppingOptions').hidden=!shopping;$('#exportTodoDateWrap').hidden=!t.checked;$('#exportSalesDateWrap').hidden=!v.checked;$('#handoverExport').disabled=!(t.checked||v.checked||shopping);$('#exportExplanation').textContent=shopping?'Solo voci COMPRA per il giorno selezionato, con caselle PDF compilabili.':t.checked&&v.checked?'Vendite di un giorno e preparazioni del successivo.':t.checked?'Documento solo operativo: nessun incasso o prezzo nel PDF.':v.checked?'Solo consuntivo cucina: nessuna attivita o nota.':'Seleziona almeno una esportazione.'};
+ c.onchange=()=>{if(c.checked){t.checked=false;v.checked=false}update()};
+ for(const box of [t,v])box.onchange=()=>{if(box.checked)c.checked=false;update()};
+ update();$('#handoverCancel').onclick=hideModal;
+ $('#handoverExport').onclick=async()=>{if(c.checked){const date=$('#exportCompraDate').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(date)){toast('Seleziona la data della lista COMPRA');return}const btn=$('#handoverExport');btn.disabled=true;try{recurringForDay(date);await persist();await shareShoppingDay(date,$('#exportCompraDone').checked);hideModal()}catch(err){toast('Impossibile esportare COMPRA: '+err.message);btn.disabled=false}return}
+ const includeTodo=t.checked,includeSales=v.checked,salesDay=$('#handoverSalesDay').value,todoDate=$('#handoverTodoDay').value;
+ if(!includeTodo&&!includeSales){toast('Seleziona almeno una sezione');return}if((includeTodo&&!todoDate)||(includeSales&&!salesDay)){toast('Seleziona le date richieste');return}if(includeTodo&&includeSales&&todoDate<=salesDay){toast('La data To do deve essere successiva alla data vendite');return}if(includeTodo)recurringForDay(todoDate);await persist();hideModal();await shareTodoDay(todoDate,salesDay,includeTodo,includeSales)};
+}
+// La lista COMPRA e' un PDF AcroForm: ogni voce ha una casella spuntabile reale.
+// Senza JS eseguito nel PDF, senza librerie esterne e senza caricare dati in rete.
+function makeShoppingPDF(day,includeCompleted=false){
+ const report=dailyReportSnapshot(day,dayShift(day,-1));
+ const source=(report.todos.find(g=>g.area==='COMPRA')?.items||[]).filter(t=>!t.carriedTo);
+ const seen=new Set();const items=source.filter(t=>{if(!includeCompleted&&t.done)return false;const key=String(t.id||'')+'|'+String(t.name||'');if(seen.has(key))return false;seen.add(key);return true});
+ const W=595,H=842,M=42,RIGHT=W-M,BOTTOM=65,CW=W-2*M;
+ const ink=[31,46,40],muted=[108,117,109],accent=[201,111,86],rowA=[249,247,241],rowB=[240,236,229];
+ const rgb=a=>a.map(n=>(n/255).toFixed(3)).join(' ');
+ const clean=s=>String(s??'').replace(/\u20AC/g,'EUR ').replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014\u2022]/g,'-').replace(/[^\x20-\xFF\n\r]/g,'?');
+ const pdfEsc=s=>clean(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
+ const width=(s,size=10)=>[...clean(s)].reduce((sum,ch)=>sum+('il.,:;!| '.includes(ch)?.27:'MW@#%'.includes(ch)?.82:'Ifrt()'.includes(ch)?.35:.55),0)*size;
+ const wrap=(value,max,size=10)=>{const lines=[];for(const para of clean(value).split(/\r?\n/)){if(!para){lines.push('');continue}let line='';for(let word of para.split(/\s+/).filter(Boolean)){while(width(word,size)>max&&word.length>1){let n=word.length-1;while(n>1&&width(word.slice(0,n),size)>max)n--;if(line){lines.push(line);line=''}lines.push(word.slice(0,n));word=word.slice(n)}const next=line?line+' '+word:word;if(width(next,size)>max&&line){lines.push(line);line=word}else line=next}lines.push(line||'')}return lines};
+ const pdfStream=stream=>'<< /Length '+stream.length+' >>\nstream\n'+stream+'\nendstream';
+ const objs=[],add=s=>(objs.push(s),objs.length);
+ const catalog=add(''),root=add(''),f1=add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>'),f2=add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');
+ const appearance=s=>'<< /Type /XObject /Subtype /Form /FormType 1 /BBox [0 0 18 18] /Resources << >> /Length '+s.length+' >>\nstream\n'+s+'\nendstream';
+ const off=add(appearance('q 1 1 1 rg 0 0 18 18 re f .35 .43 .37 RG 1.2 w .8 .8 16.4 16.4 re S Q'));
+ const on=add(appearance('q 1 1 1 rg 0 0 18 18 re f .35 .43 .37 RG 1.2 w .8 .8 16.4 16.4 re S .12 .43 .28 RG 2.4 w 3.5 9 m 7.4 5.2 l 14.6 13.5 l S Q'));
+ const acro=add(''),pages=[],fields=[];let cmds=[],widgets=[],y=0,n=0;
+ const text=(x,baseline,value,size=10,bold=false,color=ink)=>cmds.push(rgb(color)+' rg BT /'+(bold?'F2':'F1')+' '+size+' Tf 1 0 0 1 '+x.toFixed(1)+' '+baseline.toFixed(1)+' Tm ('+pdfEsc(value)+') Tj ET');
+ const rect=(x,b,w,h,c)=>cmds.push(rgb(c)+' rg '+x.toFixed(1)+' '+b.toFixed(1)+' '+w.toFixed(1)+' '+h.toFixed(1)+' re f');
+ const init=()=>{cmds=[];widgets=[];rect(0,H-9,W,9,ink);text(M,H-42,'MIA  /  LISTA COMPRA',15,true,ink);text(M,H-63,'Lista del '+humanDate(day)+'  -  '+items.length+' '+(items.length===1?'voce':'voci'),10,false,muted);text(M,H-91,'SPUNTA I PRODOTTI ACQUISTATI',8,true,accent);y=H-116};
+ const close=()=>{const pageNum=pages.length+1;text(M,33,'MIA  -  Lista COMPRA '+day+'   |   Le spunte nel PDF non modificano la To do.',7,false,muted);text(RIGHT-54,33,'Pag. '+pageNum,8,false,muted);const stream=add(pdfStream(cmds.join('\n')+'\n'));const pageRef=add('');for(const it of widgets){const ref=add('');fields.push(ref);objs[ref-1]='<< /Type /Annot /Subtype /Widget /FT /Btn /T ('+pdfEsc('compra_'+String(it.number).padStart(4,'0'))+') /Rect ['+it.x+' '+it.y+' '+(it.x+18)+' '+(it.y+18)+'] /F 4 /Ff 0 /V /'+(it.done?'Yes':'Off')+' /AS /'+(it.done?'Yes':'Off')+' /P '+pageRef+' 0 R /MK << /BC [.35 .43 .37] /BG [1 1 1] >> /AP << /N << /Off '+off+' 0 R /Yes '+on+' 0 R >> >> >>'}objs[pageRef-1]='<< /Type /Page /Parent '+root+' 0 R /MediaBox [0 0 '+W+' '+H+'] /Resources << /Font << /F1 '+f1+' 0 R /F2 '+f2+' 0 R >> >> /Contents '+stream+' 0 R /Annots ['+fields.slice(fields.length-widgets.length).map(i=>i+' 0 R').join(' ')+'] >>';pages.push(pageRef)};
+ init();if(!items.length){text(M+8,y-8,'Nessun acquisto presente nella sezione COMPRA per il giorno selezionato.',10,false,muted)}
+ for(const item of items){const nameLines=wrap(item.name||'Senza nome',CW-57,11),notes=item.note?wrap(item.note,CW-57,8.5):[];const rowH=Math.max(37,16+nameLines.length*14+notes.length*12);if(y-rowH<BOTTOM){close();init()}
+ const bot=y-rowH;rect(M,bot,CW,rowH,n%2?rowB:rowA);widgets.push({number:n+1,x:M+12,y:bot+Math.max(9,(rowH-18)/2),done:!!item.done});let lineY=y-17;
+ for(const line of nameLines){text(M+44,lineY,line,11,true,item.done?muted:ink);lineY-=14}
+ for(const line of notes){text(M+44,lineY-1,line,8.5,false,muted);lineY-=12}
+ y=bot-6;n++
+ }
+ close();objs[catalog-1]='<< /Type /Catalog /Pages '+root+' 0 R /AcroForm '+acro+' 0 R >>';objs[root-1]='<< /Type /Pages /Kids ['+pages.map(i=>i+' 0 R').join(' ')+'] /Count '+pages.length+' >>';objs[acro-1]='<< /Fields ['+fields.map(i=>i+' 0 R').join(' ')+'] /NeedAppearances false /DA (/Helv 0 Tf 0 g) /DR << /Font << /Helv '+f1+' 0 R >> >> >>';
+ let pdf='%PDF-1.4\n%\xE2\xE3\xCF\xD3\n',offsets=[0];for(let i=0;i<objs.length;i++){offsets.push(pdf.length);pdf+=(i+1)+' 0 obj\n'+objs[i]+'\nendobj\n'}const xref=pdf.length;pdf+='xref\n0 '+(objs.length+1)+'\n0000000000 65535 f \n';for(const p of offsets.slice(1))pdf+=String(p).padStart(10,'0')+' 00000 n \n';pdf+='trailer\n<< /Size '+(objs.length+1)+' /Root '+catalog+' 0 R >>\nstartxref\n'+xref+'\n%%EOF';const bytes=new Uint8Array(pdf.length);for(let i=0;i<pdf.length;i++)bytes[i]=pdf.charCodeAt(i)&255;return new Blob([bytes],{type:'application/pdf'});
+}
+async function shareShoppingDay(day,includeCompleted=false){
+ await saveChain.catch(()=>{});const fileName='MIA_COMPRA_'+day+'.pdf',blob=makeShoppingPDF(day,includeCompleted);
+ if(navigator.share&&navigator.canShare&&typeof File!=='undefined'){
+  const file=new File([blob],fileName,{type:'application/pdf'});
+  if(navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'MIA · Lista della spesa'});return}catch(e){if(e.name==='AbortError')return}}
+ }
+ const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=fileName;link.style.display='none';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);toast('Lista COMPRA PDF pronta');
 }
 async function shareTodoDay(todoDate,salesDay,includeTodo=true,includeSales=true){try{
  await saveChain.catch(()=>{});const fileName='MIA_'+(includeTodo&&includeSales?'CONSEGNE_'+salesDay+'_'+todoDate:includeTodo?'TODO_'+todoDate:'VENDITE_'+salesDay)+'.pdf',blob=makeTodoPDF(todoDate,salesDay,includeTodo,includeSales);
@@ -1298,7 +1368,7 @@ function ctStats(){const statuses=(state.containers||[]).filter(x=>x.active).map
 function containerTodoAlert(){const s=ctStats(),status=s.expired?'expired':s.soon?'warning':'';return '<button type="button" class="ct-todo-alert '+status+'" data-action="showContainers" title="Controlla scadenze contenitori"><b>'+(s.expired||s.soon)+'</b><span>'+(s.expired?'SCADUTI':s.soon?'IN SCADENZA':'CONTENITORI')+(s.soon?' · '+s.soon+' prossimi':'')+'</span></button>'}
 function ctNewRecord(){return {id:uid(),number:'',content:'',types:[],loadedOn:localDay(),days:'',expiryMode:'days',active:true}}
 function ctDaysControl(prefix,days,mode,allowPending){
- return '<div class="ct-days-line"><button type="button" class="ct-days-step" data-ct-step="-1" data-ct-prefix="'+prefix+'" aria-label="Diminuisci giorni">−</button><input type="number" inputmode="numeric" class="field" id="'+prefix+'Days" name="days" min="0" max="3650" step="1" placeholder="Giorni" value="'+esc(days??'')+'" '+(mode==='none'?'disabled':'')+' '+(!allowPending&&mode!=='none'?'required':'')+'><button type="button" class="ct-days-step" data-ct-step="1" data-ct-prefix="'+prefix+'" aria-label="Aumenta giorni">+</button><button type="button" class="ct-no-date '+(mode==='none'?'active':'')+'" data-ct-no-date="'+prefix+'" aria-pressed="'+(mode==='none')+'">No data</button></div>';
+ return '<div class="ct-days-line"><button type="button" class="ct-days-step" data-ct-step="-1" data-ct-prefix="'+prefix+'" aria-label="Diminuisci giorni"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><input type="number" inputmode="numeric" class="field" id="'+prefix+'Days" name="days" min="0" max="3650" step="1" placeholder="Giorni" value="'+esc(days??'')+'" '+(mode==='none'?'disabled':'')+' '+(!allowPending&&mode!=='none'?'required':'')+'><button type="button" class="ct-days-step" data-ct-step="1" data-ct-prefix="'+prefix+'" aria-label="Aumenta giorni"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></button><button type="button" class="ct-no-date '+(mode==='none'?'active':'')+'" data-ct-no-date="'+prefix+'" aria-pressed="'+(mode==='none')+'">No data</button></div>';
 }
 function ctApplyMode(prefix,mode){
  const input=$('#'+prefix+'Days'),button=$('[data-ct-no-date="'+prefix+'"]');if(!input||!button)return;
