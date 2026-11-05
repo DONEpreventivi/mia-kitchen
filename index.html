@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="MIA"><meta name="theme-color" content="#0E1517">
-<title>MIA Dark v3.0 · Menu Intelligence Assistant</title>
+<title>MIA Dark v3.2 · Menu Intelligence Assistant</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
 <style>
@@ -1037,13 +1037,72 @@ input[type=date]{color-scheme:dark}
 .fc-explain button{margin-left:8px}.pa-table td{vertical-align:middle}.pa-table button{white-space:nowrap}
 @media(max-width:800px){.au-listrow{align-items:flex-start}.au-inline .field:last-child{width:76px;min-width:76px}}
 
-/* MIA v3.0 — importazione foto integrata */
+/* MIA v3.1 — validita menu e gestione release; importazione foto integrata */
 .ph-photo-grid{display:grid;grid-template-columns:minmax(170px,1fr) minmax(280px,1.5fr);gap:16px;margin-bottom:20px}.ph-photo-grid .field{width:100%;min-width:0}.ph-photo-fields{min-width:0}.ph-photo-frame{min-height:165px;max-height:225px;background:#263A37;border-radius:10px;display:flex;justify-content:center;align-items:center;overflow:hidden;color:#C7D4CD;text-align:center;padding:8px}.ph-photo-frame img{height:210px;width:100%;object-fit:contain}.ph-photo-grid .formrow{margin-bottom:10px}.ph-crop{display:flex;align-items:center;gap:10px}.ph-crop .field{max-width:100px;text-align:center}.ph-actions{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}.ph-status{font-size:12px;color:#C7D4CD;flex:1;min-width:180px}.ph-review-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 0 10px}.ph-review-head h3{margin:0 0 3px}.ph-review-head p{margin:0}.ph-item{background:#263A37;border-radius:9px;padding:12px;margin-bottom:10px}.ph-item-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.ph-item-grid{display:grid;grid-template-columns:1fr 2.6fr .75fr .75fr 1fr .75fr 1.3fr;gap:7px}.ph-item-grid label{font-size:10px;color:#B6C9BE;min-width:0}.ph-item-grid input,.ph-item-grid select{font-size:13px;margin-top:4px;padding:9px 6px;min-width:0}.ph-ocr-details{margin:14px 0;border:1px solid #435850;border-radius:9px;padding:13px}.ph-ocr-details summary{cursor:pointer;font-weight:600}.ph-ocr-details textarea{display:block;width:100%;margin:10px 0}.ph-item .btn{flex-shrink:0}@media(max-width:900px){.ph-photo-grid{grid-template-columns:1fr}.ph-photo-frame{max-height:145px;min-height:110px}.ph-photo-frame img{height:120px}.ph-item-grid{grid-template-columns:1fr 1fr 1fr}.ph-item-grid .ph-name{grid-column:span 2}}@media(max-width:570px){.ph-item-grid{grid-template-columns:1fr 1fr}.ph-item-grid .ph-name{grid-column:span 2}}
 
+
+/* MIA v3.1 - validita' cronologica delle release */
+.menu-period-selector{margin:14px 0 12px;background:#263A37;border-radius:10px;padding:15px;display:grid;gap:12px}
+.menu-period-selector .formrow{margin-bottom:0}
+.menu-period-selector .period-choice{display:flex;align-items:flex-start;gap:10px;color:#F5F7F5;font-size:14px;line-height:1.45;cursor:pointer}
+.menu-period-selector .period-choice input{accent-color:#C96F56;width:19px;height:19px;flex:none;margin:1px 0 0}
+.menu-period-selector .period-hint{color:#C0D1C7;font-size:12px;line-height:1.5;margin:0}
+.menu-period-selector .period-fixed{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.menu-period-selector .period-fixed label{font-size:12px;color:#C7D3CC}
+.menu-period-selector .period-fixed input{max-width:230px}
+.history-archive-row .history-archive-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.menu-delete-warning{border-radius:9px;padding:14px;background:#382D2D;line-height:1.5}
+.menu-delete-warning strong{display:block;font-size:17px;margin-bottom:8px}
+@media(max-width:700px){.menu-period-selector .period-fixed input{max-width:100%}}
+
+/* MIA v3.2 - Grafici statistiche: SVG e barre nativi, funzionano offline su Safari iPadOS. */
+.aq-visual{margin:20px 0 12px;padding:15px 19px;background:#233536}
+.aq-visual-head{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.aq-visual-head h3{font-size:19px;margin:5px 0 4px;color:#FFF}
+.aq-visual-head p{font-size:11px;line-height:1.5;color:#B3C4B9;margin:0}
+.aq-visual-controls{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.aq-graph-buttons{display:flex;gap:3px;background:#152725;padding:4px;border-radius:6px;flex-wrap:wrap}
+.aq-graph-buttons button{border:0;border-radius:4px;padding:8px 10px;min-height:38px;background:transparent;color:#BCCBBF;font-size:11px;font-weight:650;cursor:pointer}
+.aq-graph-buttons button.selected{background:#C96F56;color:#FFFFFF}
+.aq-graph-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin:0 0 16px}
+.aq-graph-card{min-width:0;border-radius:9px;padding:18px;background:#1D2B2D;color:#FFF}
+.aq-graph-wide{grid-column:1/-1}
+.aq-graph-header{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.aq-graph-header h4{font-size:15px;font-weight:760;color:#F4F7F1;margin:0}
+.aq-graph-header>span{color:#AFC1B5;font-size:10px}
+.aq-graph-empty{min-height:154px;display:grid;place-items:center;padding:20px;text-align:center;font-size:12px;color:#ACBDB2}
+.aq-donut-layout{display:grid;grid-template-columns:minmax(145px,.85fr) minmax(160px,1.1fr);gap:12px;align-items:center}
+.aq-donut{display:block;width:min(100%,235px);height:auto;aspect-ratio:1;margin:0 auto;overflow:visible}
+.aq-donut-caption{fill:#ABBAAF;font-size:10px;letter-spacing:.11em;font-weight:700}
+.aq-donut-total{fill:#FFFFFF;font-size:15px;font-weight:780;letter-spacing:-.02em}
+.aq-legend{display:flex;flex-direction:column;gap:3px;min-width:0}
+.aq-legend-row{min-width:0;display:grid;grid-template-columns:9px minmax(0,1fr) auto 39px;gap:7px;align-items:center;padding:7px 0;border-bottom:1px solid #354A46;font-size:10px;font-variant-numeric:tabular-nums}
+.aq-swatch{display:inline-block;width:9px;height:9px;border-radius:2px}
+.aq-legend-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#E4EAE3}
+.aq-legend-row b{font-size:10px;font-weight:650;color:#FFF;white-space:nowrap}
+.aq-legend-percent{color:#B0C0B5;text-align:right;font-size:10px}
+.aq-bars-list{display:flex;flex-direction:column;gap:12px}
+.aq-bars-row{min-width:0}
+.aq-bars-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;font-size:10px}
+.aq-bars-top>span{overflow:hidden;min-width:0;white-space:nowrap;text-overflow:ellipsis}
+.aq-bars-rank{color:#AFBEB3;margin-right:5px;font-weight:500}
+.aq-bars-top strong{font-weight:670;font-size:11px;color:#F4F7F2}
+.aq-bars-top small{color:#ADBCB3;margin-left:6px;font-size:9px}
+.aq-bars-total{white-space:nowrap;color:#FFF;font-weight:720;font-size:11px;font-variant-numeric:tabular-nums}
+.aq-bars-track{height:8px;background:#304642;border-radius:2px;overflow:hidden}
+.aq-bars-track span{display:block;height:100%;border-radius:2px;min-width:2px}
+.aq-trend-info{display:flex;gap:18px;flex-wrap:wrap;color:#B9C9BF;font-size:10px;margin:4px 0}
+.aq-trend-info strong{color:#FFF;font-weight:720}
+.aq-line-svg{display:block;width:100%;height:auto;max-height:280px;min-height:140px}
+.aq-trend-label{fill:#B0BEB4;font-size:12px;font-weight:520}
+.aq-graph-note{font-size:10px;color:#AFBEB4;line-height:1.5;margin:6px 0 0}
+@media(max-width:1030px){.aq-donut-layout{grid-template-columns:1fr}.aq-donut{max-width:205px}.aq-graph-card{padding:14px}}
+@media(max-width:760px){.aq-graph-grid{grid-template-columns:1fr}.aq-donut-layout{grid-template-columns:minmax(130px,.7fr) minmax(0,1fr)}.aq-visual-controls{justify-content:flex-start}.aq-visual-head{align-items:flex-start}}
+@media(max-width:470px){.aq-donut-layout{grid-template-columns:1fr}.aq-graph-buttons button{font-size:10px;padding:8px}.aq-legend-row{grid-template-columns:9px minmax(0,1fr) auto 34px}}
 </style>
 </head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-7H9v7H3z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5c3-1.2 5.5-1.2 8 0v16c-2.5-1.2-5-1.2-8 0V4.5Zm8 0c2.5-1.2 5-1.2 8 0v16c-3-1.2-5.5-1.2-8 0"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6m6-6v6M9 15h6"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4m0 16h16M8 16v-5m5 5V7m5 9V4"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 17 1-5L16 2l6 6-11 10-5 1ZM14 4l6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 18V4m-5 5 5-5 5 5M4 17v4h16v-4"/></symbol></svg>
-<div class="app" id="app"><aside class="side" id="sidebar"><div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MIA</div><div class="brand-sub">MENU INTELLIGENCE ASSISTANT</div></div></div><div class="side-inner"><div class="sidelabel">Navigazione</div><nav id="sidenav"><button class="navbtn active" data-route="todo" type="button">To do</button><button class="navbtn" data-route="timer" type="button">Timer</button><button class="navbtn" data-route="recipes" type="button">Ricette</button><button class="navbtn" data-route="foodcost" type="button">Food cost</button><button class="navbtn" data-route="inventory" type="button">Magazzino</button><button class="navbtn" data-route="containers" type="button">Contenitori</button><button class="navbtn" data-route="orders" type="button">Ordini</button><button class="navbtn" data-route="purchases" type="button">Acquisti</button><button class="navbtn" data-route="stats" type="button">Statistiche</button></nav></div><div class="side-foot"><strong>MIA / v3.0 DARK</strong><br>Kitchen workspace · D.ONE<br><span id="side-storage">Dati locali su questo iPad</span></div></aside>
+<div class="app" id="app"><aside class="side" id="sidebar"><div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MIA</div><div class="brand-sub">MENU INTELLIGENCE ASSISTANT</div></div></div><div class="side-inner"><div class="sidelabel">Navigazione</div><nav id="sidenav"><button class="navbtn active" data-route="todo" type="button">To do</button><button class="navbtn" data-route="timer" type="button">Timer</button><button class="navbtn" data-route="recipes" type="button">Ricette</button><button class="navbtn" data-route="foodcost" type="button">Food cost</button><button class="navbtn" data-route="inventory" type="button">Magazzino</button><button class="navbtn" data-route="containers" type="button">Contenitori</button><button class="navbtn" data-route="orders" type="button">Ordini</button><button class="navbtn" data-route="purchases" type="button">Acquisti</button><button class="navbtn" data-route="stats" type="button">Statistiche</button></nav></div><div class="side-foot"><strong>MIA / v3.2 DARK</strong><br>Kitchen workspace · D.ONE<br><span id="side-storage">Dati locali su questo iPad</span></div></aside>
 <div class="workspace"><header class="topbar"><button type="button" class="iconbutton" id="toggleSidebar" title="Apri o chiudi il menu"><svg viewBox="0 0 24 24"><use href="#i-menu"/></svg></button><button type="button" class="iconbutton" id="homeButton" title="Torna alla home"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg></button><div class="top-title"><b id="headerTitle">To do</b><small>MIA · Menu Intelligence Assistant</small></div><div class="push"></div><span class="today" id="headerDate"></span><button class="btn outline" type="button" id="restoreBtn"><svg viewBox="0 0 24 24"><use href="#i-upload"/></svg><span>Ripristina</span></button><button class="btn" type="button" id="backupBtn"><svg viewBox="0 0 24 24"><use href="#i-download"/></svg><span>Backup</span></button></header><main class="main" id="main"><div id="view" class="page"></div></main></div></div>
 <input type="file" id="jsonFile" accept=".json,application/json" class="hidden"><div id="modalRoot"></div><div id="toastRoot"></div>
 <script>
@@ -1713,18 +1772,40 @@ function menuItemSorter(a,b){const ca=categoryLabel(a.category),cb=categoryLabel
 
 // KITCHEN INTELLIGENCE DATA: original format (menus, historic, notes, covers, venueRevenue).
 const kitchen=()=>state.kitchen;
-// Le versioni sono selezionate dalla data di entrata in vigore, non dalla data odierna.
+// MIA v3.1 — Inizio incluso, fine inclusa. Una release puo' terminare a data fissa
+// oppure automaticamente alla vigilia della successiva. Le lacune sono permesse.
 const sortedMenus=()=>kitchen().menus.slice().sort((a,b)=>String(a.start).localeCompare(String(b.start)));
 const menuBefore=date=>sortedMenus().filter(m=>m.start<date).slice(-1)[0]||null;
 const menuAfter=date=>sortedMenus().find(m=>m.start>date)||null;
 const menuAt=date=>sortedMenus().filter(m=>m.start<=date && (!m.end||m.end>=date)).slice(-1)[0]||null;
-function recalcMenuRanges(){const arr=sortedMenus();for(let i=0;i<arr.length;i++){arr[i].end=i+1<arr.length?dayBefore(arr[i+1].start):'2099-12-31';}kitchen().menus=arr;}
+function inferredMenuEndMode(m,next){
+ if(m.endMode==='fixed'||m.endMode==='next')return m.endMode;
+ // Compatibilita' con le release create prima della v3.1: conserva i periodi
+ // terminati esplicitamente se non coincidono con il giorno prima della successiva.
+ return next?(m.end===dayBefore(next.start)?'next':'fixed'):(m.end==='2099-12-31'||!m.end?'next':'fixed');
+}
+function initMenuValidityModes(){const arr=sortedMenus();arr.forEach((m,i)=>{if(m.endMode!=='fixed'&&m.endMode!=='next')m.endMode=inferredMenuEndMode(m,arr[i+1]);});}
+function recalcMenuRanges(){
+ const arr=sortedMenus();
+ if(new Set(arr.map(m=>m.start)).size!==arr.length)throw new Error('Due release iniziano nello stesso giorno');
+ for(let i=0;i<arr.length;i++){
+  const m=arr[i],next=arr[i+1];
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(m.start||''))throw new Error('Data iniziale mancante');
+  if(m.endMode!=='fixed'&&m.endMode!=='next')throw new Error('Modalita di validita non impostata');
+  if(m.endMode==='next')m.end=next?dayBefore(next.start):'2099-12-31';
+  else{
+   if(!/^\d{4}-\d{2}-\d{2}$/.test(m.end||'')||m.end<m.start)throw new Error('La fine del menu deve essere uguale o successiva all’inizio');
+   if(next&&m.end>=next.start)throw new Error('Il menu «'+m.name+'» termina il '+humanDate(m.end)+' e si sovrappone a «'+next.name+'» del '+humanDate(next.start)+'. Accorcia la validita o scegli «Fino alla prossima release».');
+  }
+ }
+ kitchen().menus=arr;
+}
 
 const statsRows=()=>kitchen().historic||[];
 function rowsByPeriod(){let lo='0000',hi='9999';if(statPeriod==='month'){lo=statDate.slice(0,7)+'-01';hi=statDate.slice(0,7)+'-31'}else if(statPeriod==='year'){lo=statDate.slice(0,4)+'-01-01';hi=statDate.slice(0,4)+'-12-31'}return statsRows().filter(r=>r.date>=lo&&r.date<=hi)}
 function dailyTotals(rows){const per={};rows.forEach(r=>{if(!per[r.date])per[r.date]={qty:0,revenue:0};per[r.date].qty+=num(r.qty);per[r.date].revenue+=num(r.qty)*num(r.price)});return per}
 // MIA v2.0 — Interrogazione statistica offline (sola lettura del database operativo).
-const analytics={preset:'month',from:'',to:'',categories:[],products:[],menu:'all',weekdays:[],group:'category',sort:'revenue',compare:'none',compareFrom:'',compareTo:'',search:'',showDetail:false};
+const analytics={preset:'latest',from:'',to:'',categories:[],products:[],menu:'all',weekdays:[],group:'category',sort:'revenue',compare:'none',compareFrom:'',compareTo:'',search:'',showDetail:false,graphMetric:'revenue',graphView:'both'};
 const ANALYTICS_DAYS=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
 const aqKey=r=>String(r.category||'Altro').trim()+'\u001f'+String(r.name||'Senza nome').trim();
 const aqDay=d=>new Date(d+'T12:00:00').getDay();
@@ -1735,6 +1816,7 @@ const aqShift=(d,n)=>dayShift(d,n);
 const aqRange=()=>{
  const base=aqSafeDate(statDate)?statDate:localDay(),end=base,yy=base.slice(0,4),mm=base.slice(0,7);
  switch(analytics.preset){
+ case 'latest':{const dates=statsRows().map(r=>r.date).filter(aqSafeDate).sort();const last=dates[dates.length-1]||base;const yr=Number(last.slice(0,4)),mo=Number(last.slice(5,7));return {from:last.slice(0,7)+'-01',to:last.slice(0,7)+'-'+String(new Date(yr,mo,0).getDate()).padStart(2,'0')}}
  case 'day':return {from:base,to:base};
  case 'week':return {from:aqShift(base,-((aqDay(base)+6)%7)),to:base};
  case 'month':return {from:mm+'-01',to:mm+'-'+String(new Date(Number(yy),Number(base.slice(5,7)),0).getDate()).padStart(2,'0')};
@@ -1816,6 +1898,56 @@ function aqTimeline(rows){
  return [...map.entries()].sort((a,b)=>a[0].localeCompare(b[0])).map(([key,value])=>({key,value,label:resolution==='month'?key.slice(5,7)+'/'+key.slice(2,4):humanDate(key)}));
 }
 const aqOptions=(items,value)=>items.map(([id,label])=>'<option value="'+esc(id)+'"'+(String(value)===String(id)?' selected':'')+'>'+esc(label)+'</option>').join('');
+
+// MIA v3.2 - Grafici statistici offline: non modificano le registrazioni.
+const AQ_GRAPH_COLORS=['#D5795C','#83AD99','#E3BA70','#7DA7CE','#C39DCB','#E48F8C','#9BC7C1','#B9C47B'];
+const aqGraphValue=x=>analytics.graphMetric==='qty'?x.qty:x.revenue;
+const aqGraphText=v=>analytics.graphMetric==='qty'?integer(v):currency(v);
+function aqGraphAggregate(rows,field){
+ const map=new Map();
+ for(const r of rows){const key=field==='category'?r.category:r.key, label=field==='category'?r.category:r.name,sub=field==='category'?'':r.category;
+  const prev=map.get(key)||{key,label,sub,qty:0,revenue:0};prev.qty+=r.qty;prev.revenue+=r.qty*r.price;map.set(key,prev);
+ }
+ return [...map.values()].sort((a,b)=>aqGraphValue(b)-aqGraphValue(a)||a.label.localeCompare(b.label,'it'));
+}
+function aqGraphDonut(rows){
+ const all=aqGraphAggregate(rows,'category').filter(x=>aqGraphValue(x)>0),total=all.reduce((n,x)=>n+aqGraphValue(x),0);
+ if(!total)return '<div class="aq-graph-empty">Nessuna vendita nelle categorie selezionate.</div>';
+ let items=all.slice(0,7);if(all.length>7){const tail=all.slice(7);items.push({label:'Altre categorie',qty:tail.reduce((n,x)=>n+x.qty,0),revenue:tail.reduce((n,x)=>n+x.revenue,0)})}
+ const r=66,circ=2*Math.PI*r;let prior=0;
+ const arcs=items.map((x,i)=>{const value=aqGraphValue(x),size=value/total*circ,offset=-prior;prior+=size;const name=esc(x.label)+' · '+aqGraphText(value)+' ('+(100*value/total).toFixed(1).replace('.',',')+'%)';return '<circle cx="100" cy="100" r="66" fill="none" stroke="'+AQ_GRAPH_COLORS[i]+'" stroke-width="24" stroke-dasharray="'+size.toFixed(4)+' '+Math.max(0,circ-size).toFixed(4)+'" stroke-dashoffset="'+offset.toFixed(4)+'" transform="rotate(-90 100 100)"><title>'+name+'</title></circle>'}).join('');
+ const legend=items.map((x,i)=>{const value=aqGraphValue(x);return '<div class="aq-legend-row" title="'+esc(x.label)+'"><span class="aq-swatch" style="background:'+AQ_GRAPH_COLORS[i]+'"></span><span class="aq-legend-name">'+esc(x.label)+'</span><b>'+aqGraphText(value)+'</b><span class="aq-legend-percent">'+(100*value/total).toFixed(1).replace('.',',')+'%</span></div>'}).join('');
+ return '<div class="aq-donut-layout"><svg viewBox="0 0 200 200" role="img" aria-label="Distribuzione '+(analytics.graphMetric==='qty'?'dei pezzi':'degli incassi')+' per categoria" class="aq-donut"><circle cx="100" cy="100" r="66" fill="none" stroke="#36504A" stroke-width="24"/>'+arcs+'<text x="100" y="96" text-anchor="middle" class="aq-donut-caption">TOTALE</text><text x="100" y="117" text-anchor="middle" class="aq-donut-total">'+esc(aqGraphText(total))+'</text></svg><div class="aq-legend">'+legend+'</div></div>';
+}
+function aqGraphBars(rows){
+ const all=aqGraphAggregate(rows,'product').filter(x=>aqGraphValue(x)>0).slice(0,9);
+ if(!all.length)return '<div class="aq-graph-empty">Nessun prodotto per i filtri selezionati.</div>';
+ const max=aqGraphValue(all[0])||1;
+ return '<div class="aq-bars-list">'+all.map((x,i)=>'<div class="aq-bars-row" title="'+esc(x.label)+' ('+esc(x.sub)+'): '+aqGraphText(aqGraphValue(x))+'"><div class="aq-bars-top"><span><b class="aq-bars-rank">'+(i+1)+'.</b><strong>'+esc(x.label)+'</strong><small>'+esc(x.sub)+'</small></span><b class="aq-bars-total">'+aqGraphText(aqGraphValue(x))+'</b></div><div class="aq-bars-track"><span style="width:'+Math.max(1,Math.round(aqGraphValue(x)/max*100))+'%;background:'+AQ_GRAPH_COLORS[i%AQ_GRAPH_COLORS.length]+'"></span></div></div>').join('')+'</div>';
+}
+function aqGraphTrend(rows){
+ if(!rows.length)return '<div class="aq-graph-empty">Nessuna vendita nel periodo selezionato.</div>';
+ const first=rows.reduce((a,r)=>r.date<a?r.date:a,rows[0].date),last=rows.reduce((a,r)=>r.date>a?r.date:a,rows[0].date),duration=Math.round((aqDate(last)-aqDate(first))/86400000)+1;
+ const resolution=duration<=45?'day':duration<=210?'week':'month';const map=new Map();
+ for(const r of rows){let key=r.date;if(resolution==='week')key=aqShift(r.date,-((aqDay(r.date)+6)%7));if(resolution==='month')key=r.date.slice(0,7);const p=map.get(key)||{key,qty:0,revenue:0};p.qty+=r.qty;p.revenue+=r.qty*r.price;map.set(key,p)}
+ const data=[...map.values()].sort((a,b)=>a.key.localeCompare(b.key));
+ const w=760,h=230,l=17,right=17,t=16,bottom=195,max=Math.max(1,...data.map(aqGraphValue)),wide=w-l-right;
+ const pts=data.map((d,i)=>({x:data.length===1?w/2:l+i*wide/(data.length-1),y:bottom-(aqGraphValue(d)/max)*(bottom-t),d}));
+ const line=pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ');
+ const fill='M'+pts[0].x.toFixed(1)+','+bottom+' '+line.replace(/^M/,'L')+' L'+pts[pts.length-1].x.toFixed(1)+','+bottom+' Z';
+ const grid=[0,0.25,0.5,0.75,1].map(v=>{const yy=bottom-v*(bottom-t);return '<line x1="'+l+'" x2="'+(w-right)+'" y1="'+yy.toFixed(1)+'" y2="'+yy.toFixed(1)+'" stroke="#405752" stroke-width="1"/>'}).join('');
+ const every=Math.max(1,Math.ceil(data.length/6));const ticks=pts.filter((p,i)=>i%every===0||i===data.length-1).map((p,i,arr)=>{const lab=p.d.key.length===7?p.d.key.slice(5)+'/'+p.d.key.slice(2,4):p.d.key.slice(8)+'/'+p.d.key.slice(5,7);return '<text x="'+Math.max(18,Math.min(w-18,p.x)).toFixed(1)+'" y="218" text-anchor="middle" class="aq-trend-label">'+esc(lab)+'</text>'}).join('');
+ const dots=(pts.length<=32?pts:pts.filter((_,i)=>i%Math.ceil(pts.length/28)===0||i===pts.length-1)).map(p=>'<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="3.8" fill="#F1DBCF" stroke="#D5795C" stroke-width="2"><title>'+esc(p.d.key)+' · '+aqGraphText(aqGraphValue(p.d))+'</title></circle>').join('');
+ return '<div class="aq-trend-info"><span>'+(resolution==='day'?'Giorni':resolution==='week'?'Settimane':'Mesi')+' con vendite: <strong>'+integer(data.length)+'</strong></span><span>Picco: <strong>'+aqGraphText(max)+'</strong></span></div><svg viewBox="0 0 760 230" class="aq-line-svg" role="img" aria-label="Andamento '+(analytics.graphMetric==='qty'?'quantità vendute':'incassi')+' per periodo">'+grid+'<path d="'+fill+'" fill="#D5795C" fill-opacity=".09"/><path d="'+line+'" stroke="#D5795C" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>'+dots+ticks+'</svg><p class="aq-graph-note">Il grafico mostra solo gli intervalli con vendite registrate: le giornate mancanti non sono conteggiate come zero.</p>';
+}
+function aqGraphs(rows){
+ const unit=analytics.graphMetric==='qty'?'pezzi venduti':'incasso in euro';
+ return '<div class="aq-graph-grid"><div class="aq-graph-card"><div class="aq-graph-header"><h4>Distribuzione per categoria</h4><span>'+unit+'</span></div>'+aqGraphDonut(rows)+'</div><div class="aq-graph-card"><div class="aq-graph-header"><h4>Classifica prodotti</h4><span>Top 9 · '+unit+'</span></div>'+aqGraphBars(rows)+'</div><div class="aq-graph-card aq-graph-wide"><div class="aq-graph-header"><h4>Andamento nel tempo</h4><span>'+unit+'</span></div>'+aqGraphTrend(rows)+'</div></div>';
+}
+function aqGraphControls(){
+ return '<section class="panel aq-panel aq-visual"><div class="aq-visual-head"><div><div class="eyebrow">VISUALIZZAZIONE</div><h3>Esplora i dati</h3><p>I grafici rispettano periodo, categorie, prodotti e release della ricerca.</p></div><div class="aq-visual-controls"><div class="aq-graph-buttons" role="group" aria-label="Vista dei risultati">'+[['both','Grafici + tabella'],['charts','Solo grafici'],['table','Solo tabella']].map(([v,l])=>'<button type="button" data-aq-graph-view="'+v+'" aria-pressed="'+(analytics.graphView===v)+'" class="'+(analytics.graphView===v?'selected':'')+'">'+l+'</button>').join('')+'</div><div class="aq-graph-buttons" role="group" aria-label="Misura dei grafici">'+[['revenue','Incassi €'],['qty','Quantità']].map(([v,l])=>'<button type="button" data-aq-graph-metric="'+v+'" aria-pressed="'+(analytics.graphMetric===v)+'" class="'+(analytics.graphMetric===v?'selected':'')+'">'+l+'</button>').join('')+'</div></div></div></section>';
+}
+
 function renderStats(){
  const k=kitchen(),s=aqSnapshot(),{range,cmpRange,rows,groups}=s,has=statsRows().length>0;
  const dateText=humanDate(range.from)+(range.from!==range.to?' — '+humanDate(range.to):'');
@@ -1831,7 +1963,7 @@ function renderStats(){
  const detail=analytics.showDetail?'<section class="panel aq-panel"><div class="section-top"><h3>Dettaglio delle registrazioni</h3><span class="mini-label">'+integer(rows.length)+' righe</span></div><div class="aq-table-wrap"><table class="aq-table"><thead><tr><th>Data</th><th>Categoria</th><th>Prodotto</th><th>Qtà</th><th>Prezzo</th><th>Ricavo</th></tr></thead><tbody>'+rows.slice().sort((a,b)=>b.date.localeCompare(a.date)||a.name.localeCompare(b.name)).slice(0,100).map(r=>'<tr><td>'+humanDate(r.date)+'</td><td>'+esc(r.category)+'</td><td>'+esc(r.name)+'</td><td class="aq-num">'+integer(r.qty)+'</td><td class="aq-num">'+currency(r.price)+'</td><td class="aq-num">'+currency(r.qty*r.price)+'</td></tr>').join('')+'</tbody></table></div><p class="tip">Visualizzate le prime '+Math.min(rows.length,100)+' righe. Esporta il CSV dettaglio per avere tutte le registrazioni.</p></section>':'';
  $('#view').innerHTML='<div class="heading-row"><div><div class="eyebrow">Kitchen intelligence / analisi</div><h1 class="h1">Statistiche<span style="color:var(--detail)">.</span></h1><p class="lead">Interroga le vendite storiche con filtri combinati. Esporta esattamente i risultati selezionati.</p></div><div class="actions"><button class="btn outline" data-action="menus">Storico menu</button><button class="btn secondary" data-action="sales">'+icon('plus')+' Inserisci vendite</button></div></div>'+historicalWorkflowPanel()+(!has?'<div class="datahint"><strong>Nessuna vendita registrata.</strong> Importa il backup Kitchen Intelligence oppure inserisci le vendite delle giornate storiche per iniziare le analisi. <button class="btn light small" data-action="import">Importa dati</button></div>':'')+
  '<section class="panel aq-panel aq-filters" id="aqFilters"><div class="section-top"><div><div class="eyebrow">RICERCA AVANZATA</div><h3>Filtra i dati</h3></div><button type="button" class="btn light small" data-aq-reset="1">Azzera filtri</button></div><div class="aq-control-grid">'+
- '<label class="aq-field"><span>Periodo</span><select class="field" id="aqPreset">'+aqOptions([['day','Giorno selezionato'],['week','Settimana'],['month','Mese'],['quarter','Trimestre'],['year','Anno'],['30','Ultimi 30 giorni'],['90','Ultimi 90 giorni'],['all','Tutto lo storico'],['custom','Intervallo personalizzato']],analytics.preset)+'</select></label>'+
+ '<label class="aq-field"><span>Periodo</span><select class="field" id="aqPreset">'+aqOptions([['latest','Ultimo mese con dati'],['day','Giorno selezionato'],['week','Settimana'],['month','Mese'],['quarter','Trimestre'],['year','Anno'],['30','Ultimi 30 giorni'],['90','Ultimi 90 giorni'],['all','Tutto lo storico'],['custom','Intervallo personalizzato']],analytics.preset)+'</select></label>'+
  '<label class="aq-field"><span>Dal</span><input class="field" id="aqFrom" type="date" value="'+esc(range.from)+'"></label><label class="aq-field"><span>Al</span><input class="field" id="aqTo" type="date" value="'+esc(range.to)+'"></label>'+
  '<label class="aq-field"><span>Release menu</span><select class="field" id="aqMenu"><option value="all">Tutte le release</option>'+sortedMenus().map(m=>'<option value="'+esc(m.id)+'"'+(analytics.menu===m.id?' selected':'')+'>'+esc(m.name)+' · '+humanDate(m.start)+'</option>').join('')+'</select></label>'+
  '<label class="aq-field"><span>Raggruppa per</span><select class="field" id="aqGroup">'+aqOptions([['category','Categoria'],['product','Prodotto (nome e categoria)'],['day','Giorno'],['week','Settimana'],['month','Mese'],['weekday','Giorno della settimana'],['menu','Release menu']],analytics.group)+'</select></label>'+
@@ -1843,8 +1975,9 @@ function renderStats(){
  '<div class="aq-filter-footer"><div><strong>'+esc(dateText)+'</strong><span>'+integer(rows.length)+' registrazioni incluse · '+esc(categoryLabel)+' · '+esc(productLabel)+'</span></div><button class="btn secondary" id="aqApply" type="button">'+icon('search')+' Applica ricerca</button></div></section>'+
  '<section class="aq-result-head"><div><div class="eyebrow">RISULTATI FILTRATI</div><h2>'+esc(dateText)+'</h2><p>'+esc(analytics.group==='category'?'Suddivisione per categoria':analytics.group==='product'?'Suddivisione per prodotto':analytics.group==='day'?'Suddivisione giornaliera':analytics.group==='week'?'Suddivisione settimanale':analytics.group==='month'?'Suddivisione mensile':analytics.group==='weekday'?'Suddivisione per giorno della settimana':'Suddivisione per versione menu')+(cmpRange?' · confronto: '+cmpLabel:'')+'</p></div><div class="aq-export-bar"><button class="btn outline small" data-aq-export="summary">CSV riepilogo</button><button class="btn outline small" data-aq-export="detail">CSV dettaglio</button><button class="btn secondary small" data-aq-export="pdf">'+icon('download')+' PDF</button></div></section>'+
  '<div class="cards aq-metrics">'+metric('RICAVI FOOD',currency(s.gross),cmpRange?'Confronto '+aqPct(s.gross,s.cmpGross):'Incasso food filtrato',true)+metric('PIATTI VENDUTI',integer(s.qty),cmpRange?'Confronto '+aqPct(s.qty,s.cmpQty):'Quantità filtrata')+metric('GIORNATE REGISTRATE',integer(s.days),'Con vendite nei filtri')+metric('PREZZO MEDIO',currency(s.qty?s.gross/s.qty:0),'Ponderato sulle quantità')+'</div>'+
- '<section class="panel aq-panel"><div class="section-top"><h3>Andamento dei ricavi filtrati</h3><span class="mini-label">'+(trend.length?trend.length+' intervalli':'Nessuna vendita')+'</span></div><div class="aq-chart">'+(trend.length?trend.slice(-55).map((x,i)=>'<div class="aq-chart-col" title="'+esc(x.label+' · '+currency(x.value))+'"><div class="aq-chart-bar" style="height:'+Math.max(2,Math.round(x.value/max*100))+'%"></div><small>'+esc(trend.length<17||i%Math.ceil(trend.length/12)===0?x.label:'')+'</small></div>').join(''):'<p class="tip">Il grafico apparirà quando saranno presenti registrazioni per i filtri selezionati.</p>')+'</div><p class="tip">Il grafico mostra i ricavi delle sole vendite comprese nella ricerca, non l’incasso totale del locale.</p></section>'+
- '<section class="panel aq-panel"><div class="section-top"><h3>Risultati raggruppati</h3><span class="mini-label">'+integer(groups.length)+' gruppi</span></div><div class="aq-table-wrap"><table class="aq-table"><thead><tr><th>Voce</th><th>Quantità</th><th>Incasso</th><th>Prezzo medio</th><th>% incasso</th>'+(cmpRange?'<th>Incasso confronto</th><th>Variazione</th>':'')+'</tr></thead><tbody>'+table+'</tbody></table></div>'+(groups.length>160?'<p class="tip">In tabella sono mostrati i primi 160 gruppi. Il CSV e il PDF includono tutti i gruppi.</p>':'')+'</section>'+
+ aqGraphControls()+(analytics.graphView!=='table'?aqGraphs(rows):'')+
+ (analytics.graphView==='charts'?'':
+ '<section class="panel aq-panel"><div class="section-top"><h3>Risultati raggruppati</h3><span class="mini-label">'+integer(groups.length)+' gruppi</span></div><div class="aq-table-wrap"><table class="aq-table"><thead><tr><th>Voce</th><th>Quantità</th><th>Incasso</th><th>Prezzo medio</th><th>% incasso</th>'+(cmpRange?'<th>Incasso confronto</th><th>Variazione</th>':'')+'</tr></thead><tbody>'+table+'</tbody></table></div>'+(groups.length>160?'<p class="tip">In tabella sono mostrati i primi 160 gruppi. Il CSV e il PDF includono tutti i gruppi.</p>':'')+'</section>')+
  '<div class="aq-detail-toggle"><button class="btn outline small" id="aqToggleDetail">'+(analytics.showDetail?'Nascondi':'Mostra')+' righe originali ('+integer(rows.length)+')</button><span class="tip">Il dettaglio completo è sempre disponibile nell’export CSV.</span></div>'+detail+
  '<section class="panel aq-panel"><div class="section-top"><h3>Storico dei menu</h3><button class="btn outline small" data-action="menus">Apri archivio</button></div>'+(k.menus.length?k.menus.slice().sort((a,b)=>b.start.localeCompare(a.start)).slice(0,4).map(m=>'<div class="release"><div class="dot"></div><div><strong>'+esc(m.name)+'</strong><small>'+humanDate(m.start)+' — '+(m.end==='2099-12-31'?'in corso':humanDate(m.end))+' · '+(m.items||[]).length+' piatti</small></div></div>').join(''):'<p class="tip">Nessun menu registrato.</p>')+'<div class="source-note" style="margin-top:13px">Totale archivio: '+integer(statsRows().length)+' righe di vendita · '+integer(new Set(statsRows().map(x=>x.date)).size)+' giornate · '+k.menus.length+' menu.</div></section>';
 }
@@ -1913,7 +2046,9 @@ function aqHandleClick(e){
  if(btn.hasAttribute('data-aq-cat')){if(!aqReadForm())return true;aqToggle(analytics.categories,btn.dataset.aqCat);renderStats();return true}
  if(btn.hasAttribute('data-aq-product')){if(!aqReadForm())return true;aqToggle(analytics.products,btn.dataset.aqProduct);renderStats();return true}
  if(btn.hasAttribute('data-aq-weekday')){if(!aqReadForm())return true;aqToggle(analytics.weekdays,Number(btn.dataset.aqWeekday));renderStats();return true}
- if(btn.hasAttribute('data-aq-reset')){analytics.preset='month';analytics.from='';analytics.to='';analytics.categories=[];analytics.products=[];analytics.menu='all';analytics.weekdays=[];analytics.group='category';analytics.sort='revenue';analytics.compare='none';analytics.compareFrom='';analytics.compareTo='';analytics.search='';analytics.showDetail=false;renderStats();toast('Filtri azzerati');return true}
+ if(btn.hasAttribute('data-aq-graph-view')){if(!aqReadForm())return true;analytics.graphView=btn.dataset.aqGraphView;renderStats();return true}
+ if(btn.hasAttribute('data-aq-graph-metric')){if(!aqReadForm())return true;analytics.graphMetric=btn.dataset.aqGraphMetric;renderStats();return true}
+ if(btn.hasAttribute('data-aq-reset')){analytics.preset='latest';analytics.from='';analytics.to='';analytics.categories=[];analytics.products=[];analytics.menu='all';analytics.weekdays=[];analytics.group='category';analytics.sort='revenue';analytics.compare='none';analytics.compareFrom='';analytics.compareTo='';analytics.search='';analytics.showDetail=false;renderStats();toast('Filtri azzerati');return true}
  if(btn.id==='aqApply'){if(aqReadForm()){renderStats();toast('Ricerca aggiornata')}return true}
  if(btn.id==='aqToggleDetail'){if(aqReadForm()){analytics.showDetail=!analytics.showDetail;renderStats()}return true}
  if(btn.hasAttribute('data-aq-export')){if(!aqReadForm())return true;const what=btn.dataset.aqExport;if(what==='pdf')aqExportPDF();else aqCsvDownload(what);return true}
@@ -1973,16 +2108,44 @@ function historicalWorkflowPanel(){
  const menu=menuAt(statDate),before=menuBefore(statDate),after=menuAfter(statDate),arr=sortedMenus();
  const loaded=kitchen().historic.filter(r=>r.date===statDate);
  const body=menu?'<div class="history-release"><small>MENU IN VIGORE IL '+esc(humanDate(statDate))+'</small><strong>'+esc(menu.name)+'</strong><span>Dal '+esc(humanDate(menu.start))+' · '+(menu.end==='2099-12-31'?'in corso':'fino al '+esc(humanDate(menu.end)))+' · '+(menu.items||[]).length+' piatti</span></div>':'<div class="history-release empty-period"><small>MENU NON ANCORA RICOSTRUITO</small><strong>'+esc(humanDate(statDate))+'</strong><span>Prima registra la release in vigore in questa data.</span></div>';
- return '<section class="history-workflow" aria-label="Ricostruzione cronologica menu e vendite"><div class="history-workflow-top"><div><small>ARCHIVIO CRONOLOGICO</small><h3>Ricostruisci le vendite, un menu alla volta</h3><p>Seleziona una data: MIA utilizza il menu realmente in vigore allora. Registra ogni cambio come nuova release, poi prosegui fino al menu attuale.</p></div><span class="history-version-count">'+arr.length+' versioni</span></div><div class="history-workflow-grid"><div class="history-date"><label for="historicalWorkDate">GIORNATA DA REGISTRARE</label><input id="historicalWorkDate" type="date" class="field" max="'+esc(localDay())+'" value="'+esc(statDate)+'"><div class="history-date-buttons"><button class="btn light small" type="button" data-history-step="-1">← Precedente</button><button class="btn light small" type="button" data-history-step="1">Successivo →</button></div></div>'+body+'</div><div class="history-workflow-actions"><button class="btn secondary" data-action="historyDaySales">'+(loaded.length?'Rivedi vendite ('+loaded.length+' voci)':'Inserisci vendite del giorno')+'</button><button class="btn outline" data-action="historyMenuRelease">+ Registra cambio menu</button><button class="btn light" data-action="menus">Consulta tutte le release</button></div>'+(before&&!menu?'<p class="history-suggestion">Ultimo menu antecedente: '+esc(before.name)+'.</p>':'')+(after&&!menu?'<p class="history-suggestion">Prossimo menu registrato: '+esc(after.name)+' dal '+esc(humanDate(after.start))+'.</p>':'')+'</section>';
+ return '<section class="history-workflow" aria-label="Ricostruzione cronologica menu e vendite"><div class="history-workflow-top"><div><small>ARCHIVIO CRONOLOGICO</small><h3>Ricostruisci le vendite, un menu alla volta</h3><p>Seleziona una data: MIA utilizza il menu realmente in vigore allora. Puoi fissare una data di fine oppure lasciare il menu valido fino alla successiva release. Registra solo i cambi reali.</p></div><span class="history-version-count">'+arr.length+' versioni</span></div><div class="history-workflow-grid"><div class="history-date"><label for="historicalWorkDate">GIORNATA DA REGISTRARE</label><input id="historicalWorkDate" type="date" class="field" max="'+esc(localDay())+'" value="'+esc(statDate)+'"><div class="history-date-buttons"><button class="btn light small" type="button" data-history-step="-1">← Precedente</button><button class="btn light small" type="button" data-history-step="1">Successivo →</button></div></div>'+body+'</div><div class="history-workflow-actions"><button class="btn secondary" data-action="historyDaySales">'+(loaded.length?'Rivedi vendite ('+loaded.length+' voci)':'Inserisci vendite del giorno')+'</button><button class="btn outline" data-action="historyMenuRelease">+ Registra cambio menu</button><button class="btn light" data-action="menus">Consulta tutte le release</button></div>'+(before&&!menu?'<p class="history-suggestion">Ultimo menu antecedente: '+esc(before.name)+'.</p>':'')+(after&&!menu?'<p class="history-suggestion">Prossimo menu registrato: '+esc(after.name)+' dal '+esc(humanDate(after.start))+'.</p>':'')+'</section>';
 }
 function historicSaleModal(){// Non usa piatti liberi: serve sempre il menu vigente alla data scelta.
  if(menuAt(statDate))salesModal();else newMenu(statDate);
 }
-function menuArchive(){const arr=sortedMenus();showModal('Cronologia dei menu','<div class="datahint"><strong>Una modifica = una nuova release.</strong> Ogni versione conserva la data di entrata in vigore, l’elenco dei piatti, i prezzi e una nota su ciò che è cambiato. Per inserire vendite precedenti, scegli la data in Statistiche: MIA mostrerà automaticamente il menu di quel giorno.</div>'+(arr.length?arr.map((m,i)=>'<article class="history-archive-row"><div><small>RELEASE '+String(i+1).padStart(2,'0')+' · '+esc(humanDate(m.start))+' — '+(m.end==='2099-12-31'?'OGGI':esc(humanDate(m.end)))+'</small><strong>'+esc(m.name)+'</strong><span>'+(m.items||[]).length+' piatti'+(m.changelog?' · '+esc(m.changelog):'')+'</span></div><div class="history-archive-actions"><button class="btn light small" data-menu-show="'+esc(m.start)+'">Vai alla data</button><button class="btn outline small" data-menu-edit="'+esc(m.id)+'">Modifica</button></div></article>').join(''):'<p class="tip">Nessuna versione presente: inizia dalla più vecchia che vuoi ricostruire.</p>'),'<button class="btn outline" id="menuArchiveClose">Chiudi</button><button class="btn secondary" id="menuArchiveNew">+ Nuova release</button>',true);
+function menuArchive(){
+ const arr=sortedMenus();
+ const description='<div class="datahint"><strong>Validita'+'à cronologica dei menu.</strong> Ogni release può essere attiva fino alla prossima release o terminare in una data precisa. Puoi modificarla o eliminarla. <b>Le vendite già registrate non vengono cancellate.</b> Se elimini una release, i giorni interessati saranno associati al menu precedente solo se ancora valido.</div>';
+ showModal('Cronologia dei menu',description+(arr.length?arr.map((m,i)=>{
+  const mode=inferredMenuEndMode(m,arr[i+1]);
+  const period=mode==='next'?'Fino alla prossima release':('Fine impostata: '+humanDate(m.end));
+  return '<article class="history-archive-row"><div><small>RELEASE '+String(i+1).padStart(2,'0')+' · '+esc(humanDate(m.start))+' — '+(m.end==='2099-12-31'?'IN CORSO':esc(humanDate(m.end)))+'</small><strong>'+esc(m.name)+'</strong><span>'+esc(period)+' · '+(m.items||[]).length+' piatti'+(m.changelog?' · '+esc(m.changelog):'')+'</span></div><div class="history-archive-actions"><button class="btn light small" data-menu-show="'+esc(m.start)+'">Vai alla data</button><button class="btn outline small" data-menu-edit="'+esc(m.id)+'">Modifica</button><button class="btn danger small" data-menu-delete="'+esc(m.id)+'">Elimina</button></div></article>';
+ }).join(''):'<p class="tip">Nessuna versione presente: registra il primo menu storico.</p>'),'<button class="btn outline" id="menuArchiveClose">Chiudi</button><button class="btn secondary" id="menuArchiveNew">+ Nuova release</button>',true);
  $('#menuArchiveClose').onclick=hideModal;
  $('#menuArchiveNew').onclick=()=>newMenu(statDate);
  $$('[data-menu-edit]').forEach(b=>b.onclick=()=>newMenu(undefined,b.dataset.menuEdit));
+ $$('[data-menu-delete]').forEach(b=>b.onclick=()=>confirmMenuDeletion(b.dataset.menuDelete));
  $$('[data-menu-show]').forEach(b=>b.onclick=()=>{statDate=b.dataset.menuShow;statPeriod='month';hideModal();renderStats()});
+}
+function confirmMenuDeletion(id){
+ const arr=sortedMenus(),idx=arr.findIndex(m=>m.id===id);if(idx<0){menuArchive();return}
+ const m=arr[idx],previous=arr[idx-1],rows=(kitchen().historic||[]).filter(x=>x.date>=m.start&&x.date<=m.end),days=new Set(rows.map(x=>x.date)).size;
+ const desc='<div class="menu-delete-warning"><strong>'+esc(m.name)+'</strong><p>Validità attuale: dal '+esc(humanDate(m.start))+' al '+(m.end==='2099-12-31'?'prossimo cambio':' '+esc(humanDate(m.end)))+'.</p><p><b>'+days+' giornate con vendite</b> nel periodo della release. Non verranno eliminate o riscritte.</p>'+(previous?'<p>Eliminando questa release, verrà utilizzato il menu precedente «'+esc(previous.name)+'» solo nelle date per cui risulta valido.</p>':'<p>Non esiste un menu precedente. Le date senza menu non avranno un editor delle vendite finché non ne registri uno.</p>')+'<p>Per confermare scrivi <b>ELIMINA</b>.</p></div>';
+ showModal('Elimina release del menu',desc+'<div class="formgroup"><label class="field-label" for="deleteMenuText">Conferma eliminazione</label><input class="field" id="deleteMenuText" placeholder="ELIMINA" autocapitalize="characters" autocomplete="off"></div>',
+ '<button class="btn outline" id="menuDeleteCancel">Indietro</button><button class="btn danger" id="deleteMenuExecute" disabled>Elimina release</button>',true);
+ $('#menuDeleteCancel').onclick=menuArchive;
+ $('#deleteMenuText').oninput=e=>{$('#deleteMenuExecute').disabled=e.target.value.trim().toUpperCase()!=='ELIMINA'};
+ $('#deleteMenuExecute').onclick=async()=>{
+  if($('#deleteMenuText').value.trim().toUpperCase()!=='ELIMINA')return;
+  const k=kitchen(),snapshot=JSON.parse(JSON.stringify(k.menus));
+  try{
+   initMenuValidityModes();
+   k.menus=k.menus.filter(x=>x.id!==id);
+   recalcMenuRanges();await persist();
+   if(k.menus.some(x=>x.id===id))throw new Error('La release non è stata rimossa');
+   menuArchive();renderStats();toast('Release eliminata. Vendite e altri archivi invariati.');
+  }catch(e){k.menus=snapshot;toast('Eliminazione non riuscita: '+(e.message||'errore'));}
+ };
 }
 // MIA v2.4 — Editor release affidabile: ogni apertura possiede la propria bozza e i propri listener.
 // Mai usare indici di array come identita' delle righe: cambi di ordine e cancellazioni li rendono instabili.
@@ -2026,6 +2189,7 @@ function newMenu(startDay=statDate,editId=null){
  showModal(editing?'Modifica menu · '+humanDate(initDate):'Nuova release · '+humanDate(initDate),
   '<div class="history-editor-intro">'+esc(intro)+'</div>'+
   '<div class="formrow"><div class="formgroup"><label class="field-label" for="menuName">Nome release</label><input class="field" id="menuName" maxlength="100" value="'+esc(editing?.name||'Menu '+humanDate(initDate))+'"></div><div class="formgroup"><label class="field-label" for="menuStart">Entrata in vigore</label><input class="field" type="date" id="menuStart" max="'+esc(localDay())+'" value="'+esc(initDate)+'" '+(editing?'disabled':'')+'></div></div>'+
+  '<div class="menu-period-selector"><strong>VALIDITÀ DEL MENU</strong><label class="period-choice"><input type="radio" name="menuEndMode" value="next" '+(inferredMenuEndMode(editing||{end:'2099-12-31'},menuAfter(initDate))==='next'?'checked':'')+'>Fino alla prossima release del menu (automatico)</label><label class="period-choice"><input type="radio" name="menuEndMode" value="fixed" '+(inferredMenuEndMode(editing||{end:'2099-12-31'},menuAfter(initDate))==='fixed'?'checked':'')+'>Fino alla data che indico io (inclusa)</label><div class="period-fixed" id="fixedMenuEndRow"><label for="menuEndDate">Ultimo giorno di validità</label><input class="field" type="date" id="menuEndDate" value="'+esc(editing?.end&&editing.end!=='2099-12-31'?editing.end:initDate)+'"></div><p class="period-hint">La durata riguarda soltanto quale menu viene richiamato nelle giornate. Le vendite già registrate non vengono modificate.</p></div>'+ 
   '<div class="history-menu-context" id="menuContext"></div><div class="formgroup"><label class="field-label" for="menuChanges">Cosa è cambiato nella release?</label><textarea class="field textarea" id="menuChanges" placeholder="Es. Aggiunti due piatti; gli altri rimangono invariati">'+esc(editing?.changelog||'')+'</textarea></div>'+
   '<div class="editor-toolbar"><strong>CLUSTER E PIATTI</strong><span id="editorItemCount"></span><button type="button" class="btn secondary small" id="addMenuItem">+ Piatto</button></div>'+
   '<div id="menuItemRows" class="editor-groups"></div>'+
@@ -2048,8 +2212,11 @@ function newMenu(startDay=statDate,editId=null){
   body.scrollTop=y;
   if(focusKey!==null)focusRow(focusKey);
  };
+ const selectedMode=()=>($('input[name="menuEndMode"]:checked',dlg)?.value||'next');
+ const syncEndFields=()=>{const fixed=selectedMode()==='fixed',row=$('#fixedMenuEndRow',dlg),field=$('#menuEndDate',dlg);row.hidden=!fixed;row.style.display=fixed?'flex':'none';field.disabled=!fixed;field.min=$('#menuStart',dlg).value;};
+ $$('input[name="menuEndMode"]',dlg).forEach(el=>el.onchange=syncEndFields);
  const context=()=>{const day=$('#menuStart',dlg).value,previous=menuBefore(day),next=menuAfter(day);
-  $('#menuContext',dlg).textContent=(previous?'Menu precedente: '+previous.name+' · '+humanDate(previous.start):'Primo menu storico')+(next?'  |  Menu successivo: '+next.name+' · '+humanDate(next.start):'  |  Nessun menu successivo')};
+  $('#menuContext',dlg).textContent=(previous?'Menu precedente: '+previous.name+' · '+humanDate(previous.start):'Primo menu storico')+(next?'  |  Menu successivo: '+next.name+' · '+humanDate(next.start):'  |  Nessun menu successivo');syncEndFields()};
  const addItem=cat=>{
   if(saving)return;
   capture();
@@ -2096,6 +2263,10 @@ function newMenu(startDay=statDate,editId=null){
  $('#saveNewMenu',dlg).onclick=async()=>{
   if(saving)return;capture();const start=$('#menuStart',dlg).value,name=$('#menuName',dlg).value.trim(),changelog=$('#menuChanges',dlg).value.trim();
   if(!start||!name||start>localDay()){message('Inserisci un nome e una data valida, non futura.',true);return}
+  const mode=selectedMode(),endDate=$('#menuEndDate',dlg).value;
+  if(mode==='fixed'&&(!/^\d{4}-\d{2}-\d{2}$/.test(endDate)||endDate<start)){
+   message('La data di fine deve essere valida e non precedente alla data iniziale.',true);return;
+  }
   const same=k.menus.find(m=>m.start===start&&m.id!==editing?.id);
   if(same){message('Esiste già una release in questa data: apri Modifica nello Storico menu.',true);return}
   const unfinished=draft.find(x=>!String(x.name||'').trim());
@@ -2107,8 +2278,9 @@ function newMenu(startDay=statDate,editId=null){
   if(new Set(items.map(x=>x.productId)).size!==items.length){message('Identificativi duplicati nel menu: non ho modificato nessun dato.',true);return}
   saving=true;const button=$('#saveNewMenu',dlg);button.disabled=true;button.textContent='Salvataggio…';message('Salvataggio nell’archivio locale…');
   const previousMenus=JSON.parse(JSON.stringify(k.menus)),previousOrder=[...(k.categoryOrder||[])];
-  const record={id:editing?.id||'menu-'+uid(),name,start,end:editing?.end||'2099-12-31',items:items.sort(menuItemSorter),categories:[...new Set(items.map(x=>x.category))],changelog};
+  const record={...editing,id:editing?.id||'menu-'+uid(),name,start,end:mode==='fixed'?endDate:'2099-12-31',endMode:mode,items:items.sort(menuItemSorter),categories:[...new Set(items.map(x=>x.category))],changelog};
   try{
+   initMenuValidityModes();
    if(editing)k.menus=k.menus.map(m=>m.id===editing.id?record:m);else k.menus.push(record);
    k.categoryOrder=[...CORE_CATEGORIES,...ordered.filter(c=>!CORE_CATEGORIES.includes(c))];
    recalcMenuRanges();await persist();
